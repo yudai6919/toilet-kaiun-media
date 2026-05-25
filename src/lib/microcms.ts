@@ -5,17 +5,17 @@ import type { MicroCMSQueries, MicroCMSImage, MicroCMSDate } from "microcms-js-s
 // Client
 // ──────────────────────────────────────────────
 
-if (!process.env.MICROCMS_SERVICE_DOMAIN) {
-  throw new Error("MICROCMS_SERVICE_DOMAIN is required");
-}
-if (!process.env.MICROCMS_API_KEY) {
-  throw new Error("MICROCMS_API_KEY is required");
+const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN ?? "";
+const apiKey = process.env.MICROCMS_API_KEY ?? "";
+
+if (!serviceDomain || !apiKey) {
+  console.warn("⚠ microCMS環境変数が未設定です。記事データは空で表示されます。");
 }
 
-export const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
-  apiKey: process.env.MICROCMS_API_KEY,
-});
+export const client =
+  serviceDomain && apiKey
+    ? createClient({ serviceDomain, apiKey })
+    : null;
 
 // ──────────────────────────────────────────────
 // Types
@@ -55,8 +55,11 @@ export const CATEGORIES = [
 // API Functions
 // ──────────────────────────────────────────────
 
+const emptyResponse: BlogListResponse = { contents: [], totalCount: 0, offset: 0, limit: 0 };
+
 /** Fetch blog list */
 export async function getBlogList(queries?: MicroCMSQueries): Promise<BlogListResponse> {
+  if (!client) return emptyResponse;
   return await client.get<BlogListResponse>({
     endpoint: "blogs",
     queries: {
@@ -68,6 +71,7 @@ export async function getBlogList(queries?: MicroCMSQueries): Promise<BlogListRe
 
 /** Fetch single blog by slug */
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
+  if (!client) return null;
   const data = await client.get<BlogListResponse>({
     endpoint: "blogs",
     queries: {
@@ -84,6 +88,7 @@ export async function getBlogsByCategory(
   category: string,
   queries?: MicroCMSQueries
 ): Promise<BlogListResponse> {
+  if (!client) return emptyResponse;
   return await client.get<BlogListResponse>({
     endpoint: "blogs",
     queries: {
