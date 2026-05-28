@@ -8,7 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "images.microcms-assets.io",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
 };
 
 export default nextConfig;

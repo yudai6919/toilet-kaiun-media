@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import JsonLd, { articleJsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
+
+const SITE_URL = "https://totonoe-life.jp";
 
 // ──────────────────────────────────────────────
 // Dynamic metadata
@@ -15,13 +18,39 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const blog = await getBlogBySlug(slug);
   if (!blog) return { title: "記事が見つかりません" };
 
+  const categoryLabel = getCategoryLabel(blog.category);
+  const pageUrl = `${SITE_URL}/note/${slug}`;
+
   return {
-    title: `${blog.title} | 整えノート`,
+    title: blog.title,
     description: blog.description || `${blog.title} - TOTONOEの整えノート`,
     openGraph: {
+      type: "article",
       title: blog.title,
-      description: blog.description,
-      ...(blog.eyecatch && { images: [{ url: blog.eyecatch.url }] }),
+      description: blog.description || `${blog.title} - TOTONOEの整えノート`,
+      url: pageUrl,
+      siteName: "TOTONOE | 整え。",
+      publishedTime: blog.publishedAt,
+      section: categoryLabel.ja,
+      ...(blog.eyecatch && {
+        images: [
+          {
+            url: blog.eyecatch.url,
+            width: blog.eyecatch.width,
+            height: blog.eyecatch.height,
+            alt: blog.title,
+          },
+        ],
+      }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.description || `${blog.title} - TOTONOEの整えノート`,
+      ...(blog.eyecatch && { images: [blog.eyecatch.url] }),
+    },
+    alternates: {
+      canonical: pageUrl,
     },
   };
 }
@@ -66,19 +95,42 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   return (
     <>
+      {/* JSON-LD Structured Data */}
+      <JsonLd
+        data={articleJsonLd({
+          title: blog.title,
+          description: blog.description,
+          slug: blog.slug,
+          publishedAt: blog.publishedAt,
+          updatedAt: blog.updatedAt,
+          imageUrl: blog.eyecatch?.url,
+          category: categoryLabel.ja,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "整えノート", url: `${SITE_URL}/note` },
+          { name: blog.title, url: `${SITE_URL}/note/${blog.slug}` },
+        ])}
+      />
+
       {/* ========== Hero / Header ========== */}
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-6 bg-[#F8F4EE]">
         <div className="max-w-3xl mx-auto">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-[11px] text-[#2B2118]/30 tracking-wide mb-8">
+          <nav
+            aria-label="パンくずリスト"
+            className="flex items-center gap-2 text-[11px] text-[#2B2118]/30 tracking-wide mb-8"
+          >
             <Link href="/" className="hover:text-[#B68A3D] transition-colors">
               TOP
             </Link>
-            <span>/</span>
+            <span aria-hidden="true">/</span>
             <Link href="/note" className="hover:text-[#B68A3D] transition-colors">
               整えノート
             </Link>
-            <span>/</span>
+            <span aria-hidden="true">/</span>
             <span className="text-[#2B2118]/50 truncate max-w-[200px]">
               {blog.title}
             </span>
@@ -90,7 +142,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
               {categoryLabel.ja}
             </span>
             <span className="text-[#2B2118]/15 text-[10px]">|</span>
-            <time className="text-[11px] text-[#2B2118]/30 tracking-wide">
+            <time dateTime={blog.publishedAt} className="text-[11px] text-[#2B2118]/30 tracking-wide">
               {formatDate(blog.publishedAt)}
             </time>
           </div>
@@ -128,14 +180,14 @@ export default async function BlogDetailPage({ params }: PageProps) {
       )}
 
       {/* ========== Article Body ========== */}
-      <section className="py-12 md:py-20 px-6 bg-cream">
+      <article className="py-12 md:py-20 px-6 bg-cream">
         <div className="max-w-3xl mx-auto">
           <div
             className="article-body"
             dangerouslySetInnerHTML={{ __html: blog.body }}
           />
         </div>
-      </section>
+      </article>
 
       {/* ========== Footer Navigation ========== */}
       <section className="py-16 md:py-24 px-6 bg-[#F8F4EE]">

@@ -1,11 +1,24 @@
 import { getBlogList, CATEGORIES, type Blog } from "@/lib/microcms";
 import type { Metadata } from "next";
 import NotePageClient from "./NotePageClient";
+import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
+
+const SITE_URL = "https://totonoe-life.jp";
 
 export const metadata: Metadata = {
-  title: "整えノート",
+  title: "整えノート | トイレ掃除・開運・習慣化の読みもの",
   description:
     "トイレ掃除、習慣、心、暮らし。人生を少しずつ整えるための読みもの。TOTONOEが届ける、小さな気づきと行動のヒント。",
+  openGraph: {
+    title: "整えノート | トイレ掃除・開運・習慣化の読みもの",
+    description:
+      "トイレ掃除、習慣、心、暮らし。人生を少しずつ整えるための読みもの。",
+    url: `${SITE_URL}/note`,
+    type: "website",
+  },
+  alternates: {
+    canonical: `${SITE_URL}/note`,
+  },
 };
 
 export default async function NotePage() {
@@ -22,10 +35,37 @@ export default async function NotePage() {
   }
 
   return (
-    <NotePageClient
-      blogs={blogs}
-      totalCount={totalCount}
-      categories={CATEGORIES as unknown as typeof CATEGORIES}
-    />
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "整えノート", url: `${SITE_URL}/note` },
+        ])}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "整えノート",
+          description: "トイレ掃除、習慣、心、暮らし。人生を少しずつ整えるための読みもの。",
+          url: `${SITE_URL}/note`,
+          mainEntity: {
+            "@type": "ItemList",
+            numberOfItems: totalCount,
+            itemListElement: blogs.slice(0, 10).map((blog, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${SITE_URL}/note/${blog.slug}`,
+              name: blog.title,
+            })),
+          },
+        }}
+      />
+      <NotePageClient
+        blogs={blogs}
+        totalCount={totalCount}
+        categories={CATEGORIES as unknown as typeof CATEGORIES}
+      />
+    </>
   );
 }
