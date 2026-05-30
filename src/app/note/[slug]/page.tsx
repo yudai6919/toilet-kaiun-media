@@ -84,6 +84,35 @@ function getCategoryLabel(category: string[]): { ja: string; en: string } {
   return { ja: jaName, en: cat?.en ?? "" };
 }
 
+/** Recommended articles map — curated internal link flow */
+const RECOMMENDED_SLUGS: Record<string, string[]> = {
+  "toilet-cleaning-luck": [
+    "successful-people-clean-toilets",
+    "daily-toilet-cleaning-habits",
+    "toilet-cleaning-results",
+  ],
+  "successful-people-clean-toilets": [
+    "daily-toilet-cleaning-habits",
+    "clean-toilet-when-life-not-going-well",
+    "toilet-cleaning-luck",
+  ],
+  "daily-toilet-cleaning-habits": [
+    "clean-toilet-when-life-not-going-well",
+    "toilet-cleaning-luck",
+    "toilet-cleaning-results",
+  ],
+  "toilet-cleaning-results": [
+    "toilet-cleaning-luck",
+    "successful-people-clean-toilets",
+    "clean-toilet-when-life-not-going-well",
+  ],
+  "clean-toilet-when-life-not-going-well": [
+    "toilet-cleaning-luck",
+    "daily-toilet-cleaning-habits",
+    "toilet-cleaning-results",
+  ],
+};
+
 // ──────────────────────────────────────────────
 // Page component
 // ──────────────────────────────────────────────
@@ -95,13 +124,22 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   const categoryLabel = getCategoryLabel(blog.category);
 
-  // Fetch related articles (same category, exclude current)
+  // Fetch related articles — use curated map, fallback to recent
   let relatedBlogs: typeof blog[] = [];
   try {
-    const data = await getBlogList({ limit: 6 });
-    relatedBlogs = data.contents
-      .filter((b) => b.slug !== slug)
-      .slice(0, 5);
+    const data = await getBlogList({ limit: 10 });
+    const recommendedSlugs = RECOMMENDED_SLUGS[slug];
+    if (recommendedSlugs) {
+      // Use curated order
+      relatedBlogs = recommendedSlugs
+        .map((s) => data.contents.find((b) => b.slug === s))
+        .filter((b): b is NonNullable<typeof b> => b != null);
+    } else {
+      // Fallback: show other articles
+      relatedBlogs = data.contents
+        .filter((b) => b.slug !== slug)
+        .slice(0, 4);
+    }
   } catch {
     // fallback
   }
@@ -204,7 +242,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
       {/* ========== Related Articles ========== */}
       {relatedBlogs.length > 0 && (
-        <section className="py-16 md:py-24 px-6 bg-[#F8F4EE]">
+        <section className="py-16 md:py-24 px-6 bg-[#F8F4EE]" aria-label="関連記事">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-4 mb-10">
               <div className="w-8 h-px bg-[#B68A3D]/30" />
@@ -220,33 +258,24 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 <Link
                   key={related.id}
                   href={`/note/${related.slug}`}
-                  className="group flex items-center gap-4 p-4 md:p-5 rounded-xl bg-white border border-[#E8DDC8]/40 hover:border-[#B68A3D]/30 hover:shadow-sm transition-all duration-300"
+                  aria-label={`${related.title}を読む`}
+                  className="group block p-5 md:p-6 rounded-2xl bg-white border border-[#E8DDC8]/50 hover:border-[#B68A3D]/30 hover:shadow-md transition-all duration-300"
                 >
-                  {related.eyecatch ? (
-                    <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden flex-shrink-0">
-                      <Image
-                        src={related.eyecatch.url}
-                        alt={related.title}
-                        fill
-                        className="object-cover"
-                        sizes="80px"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gradient-to-br from-[#F8F4EE] to-[#E8DDC8]/40 flex items-center justify-center flex-shrink-0">
-                      <span className="text-[#B68A3D]/15 text-xs font-light">T</span>
-                    </div>
-                  )}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[10px] text-[#B68A3D] font-semibold tracking-[0.15em] uppercase mb-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[10px] text-[#B68A3D] font-semibold tracking-[0.15em] uppercase">
                       {getCategoryLabel(related.category).ja}
-                    </p>
-                    <h3 className="text-sm md:text-[15px] font-bold text-[#2B2118] leading-[1.6] group-hover:text-[#B68A3D] transition-colors duration-300 line-clamp-2">
-                      {related.title}
-                    </h3>
+                    </span>
                   </div>
-                  <span className="text-[#B68A3D]/30 group-hover:text-[#B68A3D] transition-colors text-sm flex-shrink-0">
-                    &rarr;
+                  <h3 className="text-[15px] md:text-base font-bold text-[#2B2118] leading-[1.7] group-hover:text-[#B68A3D] transition-colors duration-300 mb-2">
+                    {related.title}
+                  </h3>
+                  {related.description && (
+                    <p className="text-[12px] text-[#2B2118]/35 leading-[1.8] tracking-wide line-clamp-2 mb-2">
+                      {related.description}
+                    </p>
+                  )}
+                  <span className="text-[12px] font-semibold text-[#B68A3D]/50 group-hover:text-[#B68A3D] transition-colors duration-300">
+                    読む &rarr;
                   </span>
                 </Link>
               ))}

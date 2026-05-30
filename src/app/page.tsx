@@ -7,6 +7,7 @@ import { Sparkles, Heart, Sun, CheckCircle, Calendar, Bell, MessageCircle, BookO
 import HeroSection from "@/components/HeroSection";
 import TestimonialBanner from "@/components/TestimonialBanner";
 import FocusArticles from "@/components/FocusArticles";
+import FeaturedPicks from "@/components/FeaturedPicks";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -104,6 +105,9 @@ export default function Home() {
 
       {/* 2.5. Testimonial Banner */}
       <TestimonialBanner />
+
+      {/* 2.7. Featured Picks — まず読んでほしい5記事 */}
+      <FeaturedPicks />
 
       {/* 3. Empathy Section */}
       <section className="py-24 md:py-32 px-6 bg-white">
