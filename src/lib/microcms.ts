@@ -26,11 +26,34 @@ export type Blog = {
   title: string;
   slug: string;
   description: string;
-  category: string;
+  category: string[];
   eyecatch?: MicroCMSImage;
   body: string;
   publishedAt: string;
 } & MicroCMSDate;
+
+/** Get the first category's Japanese label */
+export function getCategoryJa(category: string[]): string {
+  if (!category || category.length === 0) return "";
+  const jaName = category[0];
+  return jaName;
+}
+
+/** Get category slug from Japanese name */
+export function getCategorySlug(category: string[]): string {
+  if (!category || category.length === 0) return "";
+  const jaName = category[0];
+  const cat = CATEGORIES.find((c) => c.ja === jaName);
+  return cat?.slug ?? "";
+}
+
+/** Get category English name from Japanese name */
+export function getCategoryEn(category: string[]): string {
+  if (!category || category.length === 0) return "";
+  const jaName = category[0];
+  const cat = CATEGORIES.find((c) => c.ja === jaName);
+  return cat?.en ?? "";
+}
 
 export type BlogListResponse = {
   contents: Blog[];

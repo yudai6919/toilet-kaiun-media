@@ -77,9 +77,11 @@ function formatDate(dateStr: string) {
   return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
 }
 
-function getCategoryLabel(slug: string): { ja: string; en: string } {
-  const cat = CATEGORIES.find((c) => c.slug === slug);
-  return { ja: cat?.ja ?? slug, en: cat?.en ?? "" };
+function getCategoryLabel(category: string[]): { ja: string; en: string } {
+  if (!category || category.length === 0) return { ja: "", en: "" };
+  const jaName = category[0];
+  const cat = CATEGORIES.find((c) => c.ja === jaName);
+  return { ja: jaName, en: cat?.en ?? "" };
 }
 
 // ──────────────────────────────────────────────
@@ -92,6 +94,17 @@ export default async function BlogDetailPage({ params }: PageProps) {
   if (!blog) notFound();
 
   const categoryLabel = getCategoryLabel(blog.category);
+
+  // Fetch related articles (same category, exclude current)
+  let relatedBlogs: typeof blog[] = [];
+  try {
+    const data = await getBlogList({ limit: 6 });
+    relatedBlogs = data.contents
+      .filter((b) => b.slug !== slug)
+      .slice(0, 5);
+  } catch {
+    // fallback
+  }
 
   return (
     <>
@@ -189,21 +202,68 @@ export default async function BlogDetailPage({ params }: PageProps) {
         </div>
       </article>
 
-      {/* ========== Footer Navigation ========== */}
-      <section className="py-16 md:py-24 px-6 bg-[#F8F4EE]">
-        <div className="max-w-3xl mx-auto">
-          {/* Divider */}
-          <div className="w-10 h-px bg-[#B68A3D]/30 mx-auto mb-12" />
-
-          {/* Back to list */}
-          <div className="text-center">
-            <Link
-              href="/note"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-cream hover:border-transparent hover:-translate-y-0.5"
-            >
-              <span>&larr;</span> 整えノートに戻る
-            </Link>
+      {/* ========== Related Articles ========== */}
+      {relatedBlogs.length > 0 && (
+        <section className="py-16 md:py-24 px-6 bg-[#F8F4EE]">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-8 h-px bg-[#B68A3D]/30" />
+              <p className="text-[#B68A3D]/60 text-[10px] font-semibold tracking-[0.3em] uppercase">
+                Related
+              </p>
+            </div>
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold text-[#2B2118] mb-8 tracking-[0.03em]">
+              あわせて読みたい
+            </h2>
+            <div className="space-y-4">
+              {relatedBlogs.map((related) => (
+                <Link
+                  key={related.id}
+                  href={`/note/${related.slug}`}
+                  className="group flex items-center gap-4 p-4 md:p-5 rounded-xl bg-white border border-[#E8DDC8]/40 hover:border-[#B68A3D]/30 hover:shadow-sm transition-all duration-300"
+                >
+                  {related.eyecatch ? (
+                    <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden flex-shrink-0">
+                      <Image
+                        src={related.eyecatch.url}
+                        alt={related.title}
+                        fill
+                        className="object-cover"
+                        sizes="80px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gradient-to-br from-[#F8F4EE] to-[#E8DDC8]/40 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[#B68A3D]/15 text-xs font-light">T</span>
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[10px] text-[#B68A3D] font-semibold tracking-[0.15em] uppercase mb-1">
+                      {getCategoryLabel(related.category).ja}
+                    </p>
+                    <h3 className="text-sm md:text-[15px] font-bold text-[#2B2118] leading-[1.6] group-hover:text-[#B68A3D] transition-colors duration-300 line-clamp-2">
+                      {related.title}
+                    </h3>
+                  </div>
+                  <span className="text-[#B68A3D]/30 group-hover:text-[#B68A3D] transition-colors text-sm flex-shrink-0">
+                    &rarr;
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
+        </section>
+      )}
+
+      {/* ========== Back to list ========== */}
+      <section className="py-12 md:py-16 px-6 bg-[#F8F4EE]">
+        <div className="max-w-3xl mx-auto text-center">
+          <Link
+            href="/note"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-cream hover:border-transparent hover:-translate-y-0.5"
+          >
+            <span>&larr;</span> 整えノートに戻る
+          </Link>
         </div>
       </section>
 
@@ -211,9 +271,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
       <section className="py-20 md:py-28 px-6 bg-cream">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-5 leading-[1.5] tracking-[0.04em] text-[#2B2118]">
-            読むだけで終わらせない。
+            人生を変えるきっかけは、
             <br />
-            今日、ひとつ整える。
+            いつも小さな行動から。
           </h2>
           <p className="text-[#2B2118]/45 text-sm md:text-base leading-relaxed tracking-wide mb-10">
             TOTONOEは、トイレ掃除を

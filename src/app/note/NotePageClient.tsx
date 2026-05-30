@@ -47,8 +47,13 @@ function EmptyState() {
 /* ──────────────────────────────────────────────
    Article Card
    ────────────────────────────────────────────── */
-function getCategoryJa(slug: string, categories: readonly Category[]): string {
-  return categories.find((c) => c.slug === slug)?.ja ?? slug;
+function getDisplayCategory(category: string[]): string {
+  if (!category || category.length === 0) return "";
+  return category[0];
+}
+
+function getCategorySlugFromJa(ja: string, categories: readonly Category[]): string {
+  return categories.find((c) => c.ja === ja)?.slug ?? "";
 }
 
 function ArticleCard({ blog, categories }: { blog: Blog; categories: readonly Category[] }) {
@@ -76,7 +81,7 @@ function ArticleCard({ blog, categories }: { blog: Blog; categories: readonly Ca
         <div className="px-6 py-5 md:px-7 md:py-6 flex flex-col flex-1">
           <div className="flex items-center gap-3 mb-2.5">
             <span className="text-[#B68A3D] text-[10px] font-semibold tracking-[0.2em] uppercase">
-              {getCategoryJa(blog.category, categories)}
+              {getDisplayCategory(blog.category)}
             </span>
             <span className="text-[#2B2118]/15 text-[10px]">|</span>
             <span className="text-[11px] text-[#2B2118]/25 tracking-wide">
@@ -107,7 +112,7 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const filteredBlogs = activeCategory
-    ? blogs.filter((b) => b.category === activeCategory)
+    ? blogs.filter((b) => b.category?.includes(activeCategory))
     : blogs;
 
   return (
@@ -175,10 +180,10 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
               <button
                 key={cat.slug}
                 onClick={() =>
-                  setActiveCategory(activeCategory === cat.slug ? null : cat.slug)
+                  setActiveCategory(activeCategory === cat.ja ? null : cat.ja)
                 }
                 className={`rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 ${
-                  activeCategory === cat.slug
+                  activeCategory === cat.ja
                     ? "bg-[#2B2118] text-cream shadow-md"
                     : "bg-white border border-[#E8DDC8] text-[#2B2118]/60 hover:border-[#B68A3D]/40 hover:text-[#2B2118]"
                 }`}
