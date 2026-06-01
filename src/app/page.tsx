@@ -269,7 +269,7 @@ export default function Home() {
             className="text-center mt-12"
           >
             <Link
-              href="/voices"
+              href="/stories"
               className="rounded-full border border-[#2C2C2C]/12 px-9 py-4 text-sm font-semibold text-[#2C2C2C]/60 tracking-wide transition-all duration-300 hover:border-[#C8A96B]/40 hover:text-[#2C2C2C] hover:-translate-y-0.5 inline-flex items-center gap-2"
             >
               すべての体験談を見る <span>&rarr;</span>

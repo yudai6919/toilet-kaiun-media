@@ -7,7 +7,7 @@ import { Sparkles, BookImage, CalendarCheck, Smartphone, MessageCircle, FileText
 const navLinks = [
   { href: "#about", label: "TOTONOEとは", icon: Sparkles, desc: "サービスの紹介" },
   { href: "#manga", label: "漫画で読む", icon: BookImage, desc: "ストーリーで体験する" },
-  { href: "#testimonial", label: "体験談", icon: MessageCircle, desc: "変化の記録を読む" },
+  { href: "/stories", label: "体験談", icon: MessageCircle, desc: "変化の記録を読む" },
   { href: "#habit", label: "習慣化", icon: CalendarCheck, desc: "毎日1分の整え習慣" },
   { href: "/note", label: "整えノート", icon: FileText, desc: "注目記事を読む" },
   { href: "#app", label: "アプリ", icon: Smartphone, desc: "無料で記録・継続サポート" },

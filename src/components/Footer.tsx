@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Sparkles, Droplets, CalendarCheck, Smartphone, BookOpen } from "lucide-react";
+import { Sparkles, Droplets, CalendarCheck, Smartphone, BookOpen, MessageCircle } from "lucide-react";
 
 const contentLinks = [
+  { href: "/note", label: "整えノート", icon: BookOpen },
+  { href: "/stories", label: "体験談", icon: MessageCircle },
   { href: "/kaiun-toilet", label: "開運×トイレ掃除", icon: Sparkles },
   { href: "/how-to-clean", label: "掃除のやり方", icon: Droplets },
   { href: "/habit", label: "習慣化", icon: CalendarCheck },
-  { href: "/articles", label: "コラム", icon: BookOpen },
 ];
 
 export default function Footer() {
