@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP, Zen_Old_Mincho } from "next/font/google";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+
+const GA_ID = "G-126D80EZ2Q";
 
 const SITE_URL = "https://totonoe-life.jp";
 const SITE_NAME = "TOTONOE | 整え。";
@@ -139,6 +142,25 @@ export default function RootLayout({
           }}
         />
       </head>
+      {/* Google Analytics 4 — 本番環境のみ */}
+      {process.env.NODE_ENV === "production" && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="ga4-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}', {
+                page_path: window.location.pathname,
+              });
+            `}
+          </Script>
+        </>
+      )}
       <body className="min-h-full flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
