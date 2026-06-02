@@ -184,10 +184,16 @@ const RECOMMENDED_SLUGS: Record<string, string[]> = {
     "toilet-cleaning-calm-mind",
   ],
   "reduce-smartphone-time": [
+    "habits-of-people-who-live-well",
     "tears-while-cleaning-toilet",
     "messy-room-messy-mind",
     "toilet-cleaning-calm-mind",
-    "morning-reset-habit",
+  ],
+  "habits-of-people-who-live-well": [
+    "align-shoes-habit",
+    "reduce-smartphone-time",
+    "daily-toilet-cleaning-habits",
+    "entrance-cleaning-luck",
   ],
 };
 
