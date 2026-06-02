@@ -183,6 +183,12 @@ const RECOMMENDED_SLUGS: Record<string, string[]> = {
     "daily-toilet-cleaning-habits",
     "toilet-cleaning-calm-mind",
   ],
+  "reduce-smartphone-time": [
+    "tears-while-cleaning-toilet",
+    "messy-room-messy-mind",
+    "toilet-cleaning-calm-mind",
+    "morning-reset-habit",
+  ],
 };
 
 // ──────────────────────────────────────────────
