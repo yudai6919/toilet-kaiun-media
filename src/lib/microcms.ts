@@ -67,12 +67,48 @@ export type BlogListResponse = {
 // ──────────────────────────────────────────────
 
 export const CATEGORIES = [
-  { slug: "habit", ja: "整える習慣", en: "DAILY RESET" },
-  { slug: "kaiun", ja: "トイレ掃除 × 開運", en: "FLOW & CLEAN" },
-  { slug: "mind", ja: "心を整える", en: "INNER RESET" },
-  { slug: "stories", ja: "体験談", en: "STORIES" },
-  { slug: "life", ja: "丁寧な暮らし", en: "QUIET LIFE" },
+  {
+    slug: "habit",
+    ja: "整える習慣",
+    en: "DAILY RESET",
+    description:
+      "毎日を少しずつ整えるための習慣を紹介します。朝の時間、掃除、散歩、小さな行動の積み重ねが人生を整えるきっかけになります。",
+  },
+  {
+    slug: "kaiun",
+    ja: "トイレ掃除 × 開運",
+    en: "FLOW & CLEAN",
+    description:
+      "トイレ掃除や空間を整えることで、暮らしの流れを整えるヒントを紹介します。",
+  },
+  {
+    slug: "mind",
+    ja: "心を整える",
+    en: "INNER RESET",
+    description:
+      "気持ちが落ち着かない時や不安な時に。心を少し軽くするための考え方や習慣を紹介します。",
+  },
+  {
+    slug: "stories",
+    ja: "体験談",
+    en: "STORIES",
+    description:
+      "人生は突然変わらない。小さな習慣の積み重ねで少しずつ整っていく。そんな体験談を集めました。",
+  },
+  {
+    slug: "life",
+    ja: "丁寧な暮らし",
+    en: "QUIET LIFE",
+    description:
+      "玄関、靴、朝時間など、毎日を心地よく整えるための暮らしのヒントを紹介します。",
+  },
 ] as const;
+
+export type Category = (typeof CATEGORIES)[number];
+
+export function getCategoryBySlug(slug: string): Category | undefined {
+  return CATEGORIES.find((c) => c.slug === slug);
+}
 
 // ──────────────────────────────────────────────
 // API Functions

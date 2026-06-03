@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import type { Blog } from "@/lib/microcms";
+import ArticleCard from "@/components/ArticleCard";
+import PopularPosts from "@/components/PopularPosts";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -15,7 +16,7 @@ const fadeUp = {
   }),
 };
 
-type Category = { slug: string; ja: string; en: string };
+type Category = { slug: string; ja: string; en: string; description: string };
 
 type Props = {
   blogs: Blog[];
@@ -23,14 +24,6 @@ type Props = {
   categories: readonly Category[];
 };
 
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr);
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
-}
-
-/* ──────────────────────────────────────────────
-   Empty state
-   ────────────────────────────────────────────── */
 function EmptyState() {
   return (
     <div className="text-center py-20">
@@ -44,70 +37,6 @@ function EmptyState() {
   );
 }
 
-/* ──────────────────────────────────────────────
-   Article Card
-   ────────────────────────────────────────────── */
-function getDisplayCategory(category: string[]): string {
-  if (!category || category.length === 0) return "";
-  return category[0];
-}
-
-function getCategorySlugFromJa(ja: string, categories: readonly Category[]): string {
-  return categories.find((c) => c.ja === ja)?.slug ?? "";
-}
-
-function ArticleCard({ blog, categories }: { blog: Blog; categories: readonly Category[] }) {
-  return (
-    <Link href={`/note/${blog.slug}`} className="group block">
-      <article className="rounded-2xl bg-white border border-[#E8DDC8]/60 overflow-hidden transition-all duration-400 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col">
-        {/* Eyecatch */}
-        {blog.eyecatch ? (
-          <div className="relative aspect-[16/9] overflow-hidden">
-            <Image
-              src={blog.eyecatch.url}
-              alt={blog.title}
-              fill
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-            />
-          </div>
-        ) : (
-          <div className="aspect-[16/9] bg-gradient-to-br from-[#F8F4EE] to-[#E8DDC8]/40 flex items-center justify-center">
-            <span className="text-[#B68A3D]/20 text-3xl font-light tracking-widest">TOTONOE</span>
-          </div>
-        )}
-
-        {/* Content */}
-        <div className="px-6 py-5 md:px-7 md:py-6 flex flex-col flex-1">
-          <div className="flex items-center gap-3 mb-2.5">
-            <span className="text-[#B68A3D] text-[10px] font-semibold tracking-[0.2em] uppercase">
-              {getDisplayCategory(blog.category)}
-            </span>
-            <span className="text-[#2B2118]/15 text-[10px]">|</span>
-            <span className="text-[11px] text-[#2B2118]/25 tracking-wide">
-              {formatDate(blog.publishedAt)}
-            </span>
-          </div>
-          <h3 className="font-[var(--font-zen-old-mincho)] text-[15px] md:text-base font-bold leading-[1.7] tracking-[0.02em] text-[#2B2118] mb-2 group-hover:text-[#B68A3D] transition-colors duration-300 flex-1">
-            {blog.title}
-          </h3>
-          {blog.description && (
-            <p className="text-[12px] text-[#2B2118]/35 leading-[1.8] tracking-wide line-clamp-2 mb-3">
-              {blog.description}
-            </p>
-          )}
-          <span className="text-[12px] font-semibold text-[#B68A3D]/50 group-hover:text-[#B68A3D] transition-colors duration-300">
-            読む &rarr;
-          </span>
-        </div>
-      </article>
-    </Link>
-  );
-}
-
-/* ──────────────────────────────────────────────
-   Main Component
-   ────────────────────────────────────────────── */
 export default function NotePageClient({ blogs, totalCount, categories }: Props) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
@@ -157,9 +86,61 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
         </div>
       </section>
 
-      {/* ========== 2. Category Filter + Articles ========== */}
-      <section className="py-16 md:py-24 px-6 bg-cream">
+      {/* ========== 2. Category Navigation ========== */}
+      <section className="py-12 md:py-16 px-6 bg-white" aria-label="カテゴリから探す">
         <div className="max-w-5xl mx-auto">
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <p className="text-[#B68A3D]/50 text-[10px] tracking-[0.5em] uppercase mb-4 font-light">
+              Categories
+            </p>
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2B2118]">
+              カテゴリから探す
+            </h2>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="visible" custom={1}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4"
+          >
+            {categories.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/category/${cat.slug}`}
+                className="group rounded-2xl bg-[#F8F4EE] border border-[#E8DDC8]/50 p-5 hover:border-[#B68A3D]/30 hover:shadow-md transition-all duration-300 text-center"
+              >
+                <p className="text-[#B68A3D]/50 text-[8px] tracking-[0.3em] uppercase mb-1.5 font-light">
+                  {cat.en}
+                </p>
+                <h3 className="text-[13px] font-bold text-[#2B2118] group-hover:text-[#B68A3D] transition-colors duration-300">
+                  {cat.ja}
+                </h3>
+              </Link>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ========== 3. Category Filter + Articles ========== */}
+      <section className="py-16 md:py-24 px-6 bg-[#FAF7F2]">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2B2118]">
+              すべての記事
+            </h2>
+            <p className="text-[12px] text-[#2B2118]/30 tracking-wide mt-2">
+              {totalCount}件の記事
+            </p>
+          </motion.div>
+
           {/* Category pills */}
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
@@ -170,7 +151,7 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
               onClick={() => setActiveCategory(null)}
               className={`rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 ${
                 activeCategory === null
-                  ? "bg-[#2B2118] text-cream shadow-md"
+                  ? "bg-[#2B2118] text-[#FAF7F2] shadow-md"
                   : "bg-white border border-[#E8DDC8] text-[#2B2118]/60 hover:border-[#B68A3D]/40 hover:text-[#2B2118]"
               }`}
             >
@@ -184,7 +165,7 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
                 }
                 className={`rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 ${
                   activeCategory === cat.ja
-                    ? "bg-[#2B2118] text-cream shadow-md"
+                    ? "bg-[#2B2118] text-[#FAF7F2] shadow-md"
                     : "bg-white border border-[#E8DDC8] text-[#2B2118]/60 hover:border-[#B68A3D]/40 hover:text-[#2B2118]"
                 }`}
               >
@@ -205,7 +186,7 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
                   custom={i % 3}
                   viewport={{ once: true }}
                 >
-                  <ArticleCard blog={blog} categories={categories} />
+                  <ArticleCard blog={blog} />
                 </motion.div>
               ))}
             </div>
@@ -215,8 +196,11 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
         </div>
       </section>
 
-      {/* ========== 3. Testimonial Banner ========== */}
-      <section className="py-20 md:py-28 px-6 bg-[#F8F4EE]">
+      {/* ========== Popular Posts ========== */}
+      <PopularPosts title="人気の記事" bg="white" />
+
+      {/* ========== 4. Testimonial Banner ========== */}
+      <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
@@ -236,8 +220,8 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
               小さな変化の記録。
             </p>
             <Link
-              href="/voices"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-cream hover:border-transparent hover:-translate-y-0.5"
+              href="/stories"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-[#F8F4EE]/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-[#FAF7F2] hover:border-transparent hover:-translate-y-0.5"
             >
               体験談を読む <span>&rarr;</span>
             </Link>
@@ -245,8 +229,8 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
         </div>
       </section>
 
-      {/* ========== 4. Final CTA ========== */}
-      <section className="py-24 md:py-32 px-6 bg-cream">
+      {/* ========== 5. Final CTA ========== */}
+      <section className="py-24 md:py-32 px-6 bg-[#FAF7F2]">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
@@ -265,7 +249,7 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
               サービスです。
             </p>
             <Link
-              href="/#habit"
+              href="/#app"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#C49A4A] px-10 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#B68A3D] hover:-translate-y-0.5"
             >
               今日から整える <span>&rarr;</span>

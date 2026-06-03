@@ -1,25 +1,30 @@
 import Link from "next/link";
-import { Sparkles, Droplets, CalendarCheck, Smartphone, BookOpen, MessageCircle } from "lucide-react";
+import { Sparkles, Droplets, CalendarCheck, Smartphone, BookOpen, MessageCircle, Heart, Leaf } from "lucide-react";
 
 const contentLinks = [
   { href: "/note", label: "整えノート", icon: BookOpen },
   { href: "/stories", label: "体験談", icon: MessageCircle },
+  { href: "/category/habit", label: "整える習慣", icon: CalendarCheck },
+  { href: "/category/kaiun", label: "トイレ掃除 × 開運", icon: Sparkles },
+  { href: "/category/mind", label: "心を整える", icon: Heart },
+  { href: "/category/life", label: "丁寧な暮らし", icon: Leaf },
+];
+
+const guideLinks = [
   { href: "/kaiun-toilet", label: "開運×トイレ掃除", icon: Sparkles },
   { href: "/how-to-clean", label: "掃除のやり方", icon: Droplets },
-  { href: "/habit", label: "習慣化", icon: CalendarCheck },
+  { href: "/habit", label: "習慣化ガイド", icon: CalendarCheck },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-cream-dark/70 mt-auto">
-      {/* Top accent line */}
       <div className="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
-        {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand column */}
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Link href="/" className="inline-block">
               <p className="text-2xl font-bold text-cream tracking-wider mb-1">
                 TOTONOE
@@ -34,7 +39,6 @@ export default function Footer() {
               たった1分の積み重ねが、心と運を整えます。
             </p>
 
-            {/* CTA in footer */}
             <Link
               href="/habit"
               className="inline-flex items-center gap-2 mt-6 rounded-full bg-gold/10 border border-gold/20 px-5 py-2.5 text-xs font-semibold text-gold hover:bg-gold hover:text-charcoal transition-all duration-300"
@@ -45,9 +49,9 @@ export default function Footer() {
           </div>
 
           {/* Content links */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <p className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
-              Contents
+              カテゴリ
             </p>
             <ul className="space-y-3">
               {contentLinks.map((link) => (
@@ -67,12 +71,47 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* App column */}
+          {/* Guide links */}
           <div className="md:col-span-3">
             <p className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
-              App
+              ガイド
             </p>
             <ul className="space-y-3">
+              {guideLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="group flex items-center gap-3 text-sm hover:text-cream transition-colors duration-200"
+                  >
+                    <link.icon
+                      className="w-3.5 h-3.5 text-gold/50 group-hover:text-gold transition-colors duration-200"
+                      strokeWidth={1.5}
+                    />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* App column */}
+          <div className="md:col-span-2">
+            <p className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
+              About / App
+            </p>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/about"
+                  className="group flex items-center gap-3 text-sm hover:text-cream transition-colors duration-200"
+                >
+                  <Sparkles
+                    className="w-3.5 h-3.5 text-gold/50 group-hover:text-gold transition-colors duration-200"
+                    strokeWidth={1.5}
+                  />
+                  TOTONOEについて
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/app"
@@ -87,7 +126,6 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* App badge mockup */}
             <div className="mt-6 flex flex-col gap-2">
               <div className="flex items-center gap-2 rounded-lg bg-charcoal-light/80 border border-cream-dark/10 px-4 py-2.5">
                 <span className="text-gold text-lg">&#10022;</span>

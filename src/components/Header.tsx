@@ -2,14 +2,26 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Sparkles, BookImage, CalendarCheck, Smartphone, MessageCircle, FileText } from "lucide-react";
+import { Sparkles, BookImage, CalendarCheck, Smartphone, MessageCircle, FileText, Heart, Leaf } from "lucide-react";
 
 const navLinks = [
+  { href: "/note", label: "整えノート", icon: FileText, desc: "すべての記事を読む" },
+  { href: "/stories", label: "体験談", icon: MessageCircle, desc: "変化の記録を読む" },
+  { href: "/category/habit", label: "整える習慣", icon: CalendarCheck, desc: "毎日1分の整え習慣" },
+  { href: "/category/kaiun", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
+  { href: "/category/mind", label: "心を整える", icon: Heart, desc: "掃除は動く瞑想" },
+  { href: "/category/life", label: "丁寧な暮らし", icon: Leaf, desc: "暮らし全体を整える" },
+];
+
+const mobileNavLinks = [
   { href: "#about", label: "TOTONOEとは", icon: Sparkles, desc: "サービスの紹介" },
   { href: "#manga", label: "漫画で読む", icon: BookImage, desc: "ストーリーで体験する" },
+  { href: "/note", label: "整えノート", icon: FileText, desc: "すべての記事を読む" },
   { href: "/stories", label: "体験談", icon: MessageCircle, desc: "変化の記録を読む" },
-  { href: "#habit", label: "習慣化", icon: CalendarCheck, desc: "毎日1分の整え習慣" },
-  { href: "/note", label: "整えノート", icon: FileText, desc: "注目記事を読む" },
+  { href: "/category/habit", label: "整える習慣", icon: CalendarCheck, desc: "毎日1分の整え習慣" },
+  { href: "/category/kaiun", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
+  { href: "/category/mind", label: "心を整える", icon: Heart, desc: "掃除は動く瞑想" },
+  { href: "/category/life", label: "丁寧な暮らし", icon: Leaf, desc: "暮らし全体を整える" },
   { href: "#app", label: "アプリ", icon: Smartphone, desc: "無料で記録・継続サポート" },
 ];
 
@@ -30,12 +42,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-warm-gray hover:text-charcoal transition-colors"
+              className="text-[13px] text-warm-gray hover:text-charcoal transition-colors"
             >
               {link.label}
             </Link>
@@ -68,7 +80,7 @@ export default function Header() {
         >
           <nav className="flex flex-col h-full px-6 pt-8 pb-10">
             <div className="flex-1 space-y-1">
-              {navLinks.map((link) => (
+              {mobileNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}

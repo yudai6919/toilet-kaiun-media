@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Blog } from "@/lib/microcms";
+import PopularPosts from "@/components/PopularPosts";
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
@@ -22,7 +23,6 @@ const changeTags = [
   "朝が少し楽になった",
   "部屋を片付けられた",
   "気持ちが軽くなった",
-  "早起きできた",
   "人と比べなくなった",
   "自分を責めなくなった",
 ];
@@ -106,6 +106,16 @@ export default function StoriesPageClient({ stories }: Props) {
       {/* ========== Story Cards ========== */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
+          <motion.div
+            variants={fade} initial="hidden" whileInView="visible" custom={0}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="text-[12px] text-[#2C2C2C]/30 tracking-wide">
+              {stories.length}件の体験談
+            </p>
+          </motion.div>
+
           {stories.length > 0 ? (
             <div className="space-y-6">
               {stories.map((story, i) => (
@@ -123,7 +133,6 @@ export default function StoriesPageClient({ stories }: Props) {
                     className="group block"
                   >
                     <article className="rounded-2xl bg-[#FAF7F2] border border-[#FAF7F2] hover:border-[#C8A96B]/20 p-7 md:p-9 transition-all duration-300 hover:shadow-sm">
-                      {/* Date */}
                       <time
                         dateTime={story.publishedAt}
                         className="text-[11px] text-[#2C2C2C]/25 tracking-wide block mb-3"
@@ -131,19 +140,16 @@ export default function StoriesPageClient({ stories }: Props) {
                         {formatDate(story.publishedAt)}
                       </time>
 
-                      {/* Title */}
                       <h3 className="font-[var(--font-zen-old-mincho)] text-[17px] md:text-lg font-bold leading-[1.7] tracking-[0.02em] text-[#2C2C2C] mb-3 group-hover:text-[#C8A96B] transition-colors duration-300">
                         {story.title}
                       </h3>
 
-                      {/* Description */}
                       {story.description && (
                         <p className="text-[13px] text-[#2C2C2C]/35 leading-[1.9] tracking-wide line-clamp-2 mb-4">
                           {story.description}
                         </p>
                       )}
 
-                      {/* Read link */}
                       <span className="text-[12px] font-semibold text-[#C8A96B]/40 group-hover:text-[#C8A96B] transition-colors duration-300">
                         続きを読む &rarr;
                       </span>
@@ -162,8 +168,54 @@ export default function StoriesPageClient({ stories }: Props) {
         </div>
       </section>
 
+      {/* ========== Related Content ========== */}
+      <section className="py-16 md:py-20 px-6 bg-[#FAF7F2]">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            variants={fade} initial="hidden" whileInView="visible" custom={0}
+            viewport={{ once: true }}
+          >
+            <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
+              Read More
+            </p>
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C] mb-8">
+              あわせて読みたい
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/category/habit"
+                className="rounded-full bg-white border border-[#C8A96B]/15 px-5 py-2.5 text-[13px] text-[#2C2C2C]/55 tracking-wide hover:border-[#C8A96B]/40 hover:text-[#2C2C2C] transition-all duration-300"
+              >
+                整える習慣
+              </Link>
+              <Link
+                href="/category/kaiun"
+                className="rounded-full bg-white border border-[#C8A96B]/15 px-5 py-2.5 text-[13px] text-[#2C2C2C]/55 tracking-wide hover:border-[#C8A96B]/40 hover:text-[#2C2C2C] transition-all duration-300"
+              >
+                トイレ掃除 × 開運
+              </Link>
+              <Link
+                href="/category/mind"
+                className="rounded-full bg-white border border-[#C8A96B]/15 px-5 py-2.5 text-[13px] text-[#2C2C2C]/55 tracking-wide hover:border-[#C8A96B]/40 hover:text-[#2C2C2C] transition-all duration-300"
+              >
+                心を整える
+              </Link>
+              <Link
+                href="/note"
+                className="rounded-full bg-white border border-[#C8A96B]/15 px-5 py-2.5 text-[13px] text-[#2C2C2C]/55 tracking-wide hover:border-[#C8A96B]/40 hover:text-[#2C2C2C] transition-all duration-300"
+              >
+                すべての記事
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ========== Popular Posts ========== */}
+      <PopularPosts title="人気の記事" bg="cream" />
+
       {/* ========== CTA ========== */}
-      <section className="py-24 md:py-32 px-6 bg-[#FAF7F2]">
+      <section className="py-24 md:py-32 px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             variants={fade} initial="hidden" whileInView="visible" custom={0}

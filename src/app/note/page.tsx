@@ -30,7 +30,6 @@ export default async function NotePage() {
     blogs = data.contents;
     totalCount = data.totalCount;
   } catch (e) {
-    // microCMS未接続時はフォールバック（空配列）
     console.error("microCMS fetch error:", e);
   }
 
@@ -64,7 +63,7 @@ export default async function NotePage() {
       <NotePageClient
         blogs={blogs}
         totalCount={totalCount}
-        categories={CATEGORIES as unknown as typeof CATEGORIES}
+        categories={CATEGORIES}
       />
     </>
   );
