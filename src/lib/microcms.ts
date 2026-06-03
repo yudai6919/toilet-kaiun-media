@@ -151,7 +151,7 @@ export async function getBlogsByCategory(
   return await client.get<BlogListResponse>({
     endpoint: "blogs",
     queries: {
-      filters: `category[equals]${category}`,
+      filters: `category[contains]${category}`,
       orders: "-publishedAt",
       ...queries,
     },
