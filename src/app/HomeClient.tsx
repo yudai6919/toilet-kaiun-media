@@ -7,6 +7,7 @@ import { CheckCircle, Calendar, Bell, MessageCircle, BookOpen, Sparkles } from "
 import type { Blog } from "@/lib/microcms";
 import ArticleCard from "@/components/ArticleCard";
 import PopularPosts from "@/components/PopularPosts";
+import VoiceBanner from "@/components/VoiceBanner";
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
@@ -442,6 +443,9 @@ export default function HomeClient({ latestBlogs, storyBlogs, categorySections }
           </motion.div>
         </div>
       </section>
+
+      {/* ─── Voice Banner ─── */}
+      <VoiceBanner bg="cream" />
 
       {/* ─── 7. 6コマ漫画 ─── */}
       <section id="manga" className="py-28 md:py-36 px-6 bg-[#F7F3EC]">

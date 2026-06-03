@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
+import VoiceBanner from "@/components/VoiceBanner";
 
 const SITE_URL = "https://totonoe-life.jp";
 
@@ -241,6 +242,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ═══════ Voice Banner ═══════ */}
+      <VoiceBanner bg="white" />
 
       {/* ═══════ 6. CTA ═══════ */}
       <section className="py-28 md:py-36 px-6 bg-[#FAF7F2]">

@@ -8,6 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ArticleCard from "@/components/ArticleCard";
 import EditorProfile from "@/components/EditorProfile";
 import PopularPosts from "@/components/PopularPosts";
+import VoiceBanner from "@/components/VoiceBanner";
 
 const SITE_URL = "https://totonoe-life.jp";
 
@@ -232,6 +233,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      {/* Voice Banner */}
+      <VoiceBanner bg="white" />
 
       {/* Back to list */}
       <section className="py-12 md:py-16 px-6 bg-[#F8F4EE]">
