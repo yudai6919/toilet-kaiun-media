@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { Sparkles, Droplets, CalendarCheck, Smartphone, BookOpen, MessageCircle, Heart, Leaf } from "lucide-react";
+import { Sparkles, Droplets, CalendarCheck, Smartphone, BookOpen, MessageCircle, Heart, Leaf, PenLine } from "lucide-react";
 
 const contentLinks = [
   { href: "/note", label: "整えノート", icon: BookOpen },
   { href: "/stories", label: "体験談", icon: MessageCircle },
+  { href: "/voice", label: "みんなの記録", icon: PenLine },
   { href: "/category/habit", label: "整える習慣", icon: CalendarCheck },
   { href: "/category/kaiun", label: "トイレ掃除 × 開運", icon: Sparkles },
   { href: "/category/mind", label: "心を整える", icon: Heart },

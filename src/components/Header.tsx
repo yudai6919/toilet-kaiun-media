@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Sparkles, BookImage, CalendarCheck, Smartphone, MessageCircle, FileText, Heart, Leaf } from "lucide-react";
+import { Sparkles, BookImage, CalendarCheck, Smartphone, MessageCircle, FileText, Heart, Leaf, PenLine } from "lucide-react";
 
 const navLinks = [
   { href: "/note", label: "整えノート", icon: FileText, desc: "すべての記事を読む" },
   { href: "/stories", label: "体験談", icon: MessageCircle, desc: "変化の記録を読む" },
+  { href: "/voice", label: "みんなの記録", icon: PenLine, desc: "整えを共有する" },
   { href: "/category/habit", label: "整える習慣", icon: CalendarCheck, desc: "毎日1分の整え習慣" },
-  { href: "/category/kaiun", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
   { href: "/category/mind", label: "心を整える", icon: Heart, desc: "掃除は動く瞑想" },
-  { href: "/category/life", label: "丁寧な暮らし", icon: Leaf, desc: "暮らし全体を整える" },
+  { href: "/category/kaiun", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
 ];
 
 const mobileNavLinks = [
@@ -18,6 +18,7 @@ const mobileNavLinks = [
   { href: "#manga", label: "漫画で読む", icon: BookImage, desc: "ストーリーで体験する" },
   { href: "/note", label: "整えノート", icon: FileText, desc: "すべての記事を読む" },
   { href: "/stories", label: "体験談", icon: MessageCircle, desc: "変化の記録を読む" },
+  { href: "/voice", label: "みんなの記録", icon: PenLine, desc: "今日の整えを共有する" },
   { href: "/category/habit", label: "整える習慣", icon: CalendarCheck, desc: "毎日1分の整え習慣" },
   { href: "/category/kaiun", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
   { href: "/category/mind", label: "心を整える", icon: Heart, desc: "掃除は動く瞑想" },
