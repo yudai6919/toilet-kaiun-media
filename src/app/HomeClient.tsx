@@ -2,12 +2,32 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle, Calendar, Bell, MessageCircle, BookOpen, Sparkles } from "lucide-react";
 import type { Blog } from "@/lib/microcms";
 import ArticleCard from "@/components/ArticleCard";
 import PopularPosts from "@/components/PopularPosts";
 import VoiceBanner from "@/components/VoiceBanner";
+
+/* ── Voice entries from localStorage ── */
+type VoiceEntry = {
+  id: string;
+  name: string;
+  content: string;
+  mood: string;
+  moodEmoji: string;
+  moodLabel: string;
+  createdAt: string;
+};
+
+const VOICE_STORAGE_KEY = "totonoe-voices";
+
+const SAMPLE_VOICES = [
+  { emoji: "😊", mood: "少し軽くなった", text: "トイレを3分だけ掃除した。\n少し気持ちが落ち着いた。", name: "匿名" },
+  { emoji: "🙂", mood: "普通", text: "朝5分だけ散歩した。", name: "ゆう" },
+  { emoji: "😌", mood: "落ち着いた", text: "玄関を掃除した。\n空気が変わった気がする。", name: "匿名" },
+];
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
@@ -32,6 +52,31 @@ type Props = {
 };
 
 export default function HomeClient({ latestBlogs, storyBlogs, categorySections }: Props) {
+  const [voiceEntries, setVoiceEntries] = useState<VoiceEntry[]>([]);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(VOICE_STORAGE_KEY);
+      if (raw) {
+        const entries: VoiceEntry[] = JSON.parse(raw);
+        // 最新3件を取得
+        setVoiceEntries(entries.slice(0, 3));
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  // 投稿があればlocalStorage、なければサンプルデータ
+  const displayVoices = voiceEntries.length > 0
+    ? voiceEntries.map((e) => ({
+        emoji: e.moodEmoji,
+        mood: e.moodLabel,
+        text: e.content,
+        name: e.name || "匿名",
+      }))
+    : SAMPLE_VOICES;
+
   return (
     <>
       {/* ─── 1. FIRST VIEW ─── */}
@@ -124,26 +169,7 @@ export default function HomeClient({ latestBlogs, storyBlogs, categorySections }
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-14">
-            {[
-              {
-                emoji: "😊",
-                mood: "少し軽くなった",
-                text: "トイレを3分だけ掃除した。\n少し気持ちが落ち着いた。",
-                name: "匿名",
-              },
-              {
-                emoji: "🙂",
-                mood: "普通",
-                text: "朝5分だけ散歩した。",
-                name: "ゆう",
-              },
-              {
-                emoji: "😌",
-                mood: "落ち着いた",
-                text: "玄関を掃除した。\n空気が変わった気がする。",
-                name: "匿名",
-              },
-            ].map((voice, i) => (
+            {displayVoices.map((voice, i) => (
               <motion.div
                 key={i}
                 variants={fade} initial="hidden" whileInView="visible" custom={i}
