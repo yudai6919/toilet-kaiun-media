@@ -99,6 +99,97 @@ export default function HomeClient({ latestBlogs, storyBlogs, categorySections }
       {/* ─── Popular Posts ─── */}
       <PopularPosts bg="cream" />
 
+      {/* ─── みんなの整えの記録 ─── */}
+      <section className="py-24 md:py-32 px-6 bg-white" aria-label="みんなの整えの記録">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            variants={fade} initial="hidden" whileInView="visible" custom={0}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
+              Voices of Totonoe
+            </p>
+            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C] mb-6">
+              みんなの整えの記録
+            </h2>
+            <div className="w-10 h-px bg-[#C8A96B]/30 mx-auto mb-8" />
+            <p className="text-sm text-[#2C2C2C]/40 leading-[2.2] tracking-wide">
+              人生は突然変わらない。
+              <br />
+              でも、小さく整えることから
+              <br className="sm:hidden" />
+              少しずつ変わり始める。
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-14">
+            {[
+              {
+                emoji: "😊",
+                mood: "少し軽くなった",
+                text: "トイレを3分だけ掃除した。\n少し気持ちが落ち着いた。",
+                name: "匿名",
+              },
+              {
+                emoji: "🙂",
+                mood: "普通",
+                text: "朝5分だけ散歩した。",
+                name: "ゆう",
+              },
+              {
+                emoji: "😌",
+                mood: "落ち着いた",
+                text: "玄関を掃除した。\n空気が変わった気がする。",
+                name: "匿名",
+              },
+            ].map((voice, i) => (
+              <motion.div
+                key={i}
+                variants={fade} initial="hidden" whileInView="visible" custom={i}
+                viewport={{ once: true }}
+                className="rounded-2xl bg-[#FAF7F2] border border-[#E8DDC8]/40 p-6 md:p-7"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl" role="img" aria-label={voice.mood}>{voice.emoji}</span>
+                  <span className="text-xs font-semibold text-[#C8A96B] tracking-wide">{voice.mood}</span>
+                </div>
+                <p className="text-sm text-[#2C2C2C]/70 leading-[2] tracking-wide whitespace-pre-line mb-5">
+                  {voice.text}
+                </p>
+                <p className="text-[11px] text-[#2C2C2C]/25 tracking-wide">
+                  by {voice.name}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            variants={fade} initial="hidden" whileInView="visible" custom={0}
+            viewport={{ once: true }}
+            className="text-center space-y-5"
+          >
+            <Link
+              href="/voice"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C8A96B]/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2C2C2C]/80 transition-all duration-300 hover:bg-[#2C2C2C] hover:text-[#FAF7F2] hover:border-transparent hover:-translate-y-0.5"
+            >
+              みんなの整えを見る <span>&rarr;</span>
+            </Link>
+            <div>
+              <p className="text-[12px] text-[#2C2C2C]/30 leading-[2] tracking-wide mb-3">
+                あなたの整えも残してみませんか？
+              </p>
+              <Link
+                href="/voice"
+                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-[#C8A96B] hover:text-[#2C2C2C] transition-colors duration-300"
+              >
+                整えを記録する <span>&rarr;</span>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ─── TOTONOEを初めて読む方へ ─── */}
       <section className="py-24 md:py-32 px-6 bg-white" aria-label="TOTONOEを初めて読む方へ">
         <div className="max-w-3xl mx-auto">
