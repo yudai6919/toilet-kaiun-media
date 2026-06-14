@@ -106,9 +106,8 @@ export const CATEGORIES = [
 
 export type Category = (typeof CATEGORIES)[number];
 
-export function eyecatchUrl(url: string, w = 1200, h = 630): string {
-  const sep = url.includes("?") ? "&" : "?";
-  return `${url}${sep}fit=crop&w=${w}&h=${h}`;
+export function eyecatchUrl(url: string): string {
+  return url;
 }
 
 export function getCategoryBySlug(slug: string): Category | undefined {

@@ -1,4 +1,4 @@
-import { getBlogBySlug, getBlogList, CATEGORIES, eyecatchUrl } from "@/lib/microcms";
+import { getBlogBySlug, getBlogList, CATEGORIES } from "@/lib/microcms";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,9 +36,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ...(blog.eyecatch && {
         images: [
           {
-            url: eyecatchUrl(blog.eyecatch.url),
-            width: 1200,
-            height: 630,
+            url: blog.eyecatch.url,
+            width: blog.eyecatch.width,
+            height: blog.eyecatch.height,
             alt: blog.title,
           },
         ],
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: blog.title,
       description: blog.description || `${blog.title} - TOTONOEの整えノート`,
-      ...(blog.eyecatch && { images: [eyecatchUrl(blog.eyecatch.url)] }),
+      ...(blog.eyecatch && { images: [blog.eyecatch.url] }),
     },
     alternates: {
       canonical: pageUrl,
@@ -114,7 +114,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           slug: blog.slug,
           publishedAt: blog.publishedAt,
           updatedAt: blog.updatedAt,
-          imageUrl: blog.eyecatch ? eyecatchUrl(blog.eyecatch.url) : undefined,
+          imageUrl: blog.eyecatch?.url,
           category: categoryLabel.ja,
         })}
       />
@@ -168,12 +168,12 @@ export default async function BlogDetailPage({ params }: PageProps) {
       {blog.eyecatch && (
         <div className="px-6 bg-[#F8F4EE] pb-12 md:pb-16">
           <div className="max-w-4xl mx-auto">
-            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-sm">
+            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-sm bg-[#F8F4EE]">
               <Image
-                src={eyecatchUrl(blog.eyecatch.url)}
+                src={blog.eyecatch.url}
                 alt={blog.title}
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width: 1024px) 896px, (min-width: 768px) 720px, 100vw"
                 priority
               />

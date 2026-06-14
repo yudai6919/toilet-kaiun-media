@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Blog } from "@/lib/microcms";
-import { eyecatchUrl } from "@/lib/microcms";
+
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr);
@@ -28,12 +28,12 @@ export default function ArticleCard({ blog, showImage = true }: Props) {
       <article className="rounded-2xl bg-[#FAF7F2] border border-[#E8DDC8]/40 overflow-hidden transition-all duration-400 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col">
         {showImage && (
           blog.eyecatch ? (
-            <div className="relative aspect-[3/2] overflow-hidden">
+            <div className="relative aspect-[3/2] overflow-hidden bg-[#F8F4EE]">
               <Image
-                src={eyecatchUrl(blog.eyecatch.url)}
+                src={blog.eyecatch.url}
                 alt={blog.title}
                 fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
               />
             </div>
