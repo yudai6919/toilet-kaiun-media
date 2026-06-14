@@ -28,7 +28,7 @@ export default function ArticleCard({ blog, showImage = true }: Props) {
       <article className="rounded-2xl bg-[#FAF7F2] border border-[#E8DDC8]/40 overflow-hidden transition-all duration-400 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col">
         {showImage && (
           blog.eyecatch ? (
-            <div className="relative aspect-[16/9] overflow-hidden">
+            <div className="relative aspect-[3/2] overflow-hidden">
               <Image
                 src={eyecatchUrl(blog.eyecatch.url)}
                 alt={blog.title}
@@ -38,7 +38,7 @@ export default function ArticleCard({ blog, showImage = true }: Props) {
               />
             </div>
           ) : (
-            <div className="aspect-[16/9] bg-gradient-to-br from-[#F8F4EE] to-[#E8DDC8]/40 flex items-center justify-center">
+            <div className="aspect-[3/2] bg-gradient-to-br from-[#F8F4EE] to-[#E8DDC8]/40 flex items-center justify-center">
               <span className="text-[#B68A3D]/20 text-3xl font-light tracking-widest">
                 TOTONOE
               </span>

@@ -168,7 +168,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       {blog.eyecatch && (
         <div className="px-6 bg-[#F8F4EE] pb-12 md:pb-16">
           <div className="max-w-4xl mx-auto">
-            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-sm">
+            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-sm">
               <Image
                 src={eyecatchUrl(blog.eyecatch.url)}
                 alt={blog.title}
