@@ -1,4 +1,4 @@
-import { getBlogBySlug, getBlogList, CATEGORIES } from "@/lib/microcms";
+import { getBlogBySlug, getBlogList, CATEGORIES, eyecatchUrl } from "@/lib/microcms";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,9 +36,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ...(blog.eyecatch && {
         images: [
           {
-            url: blog.eyecatch.url,
-            width: blog.eyecatch.width,
-            height: blog.eyecatch.height,
+            url: eyecatchUrl(blog.eyecatch.url),
+            width: 1200,
+            height: 630,
             alt: blog.title,
           },
         ],
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: blog.title,
       description: blog.description || `${blog.title} - TOTONOEの整えノート`,
-      ...(blog.eyecatch && { images: [blog.eyecatch.url] }),
+      ...(blog.eyecatch && { images: [eyecatchUrl(blog.eyecatch.url)] }),
     },
     alternates: {
       canonical: pageUrl,
@@ -114,7 +114,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           slug: blog.slug,
           publishedAt: blog.publishedAt,
           updatedAt: blog.updatedAt,
-          imageUrl: blog.eyecatch?.url,
+          imageUrl: blog.eyecatch ? eyecatchUrl(blog.eyecatch.url) : undefined,
           category: categoryLabel.ja,
         })}
       />
@@ -170,7 +170,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           <div className="max-w-4xl mx-auto">
             <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-sm">
               <Image
-                src={blog.eyecatch.url}
+                src={eyecatchUrl(blog.eyecatch.url)}
                 alt={blog.title}
                 fill
                 className="object-cover"
