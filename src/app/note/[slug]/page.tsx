@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: pageUrl,
       siteName: "TOTONOE | 整え。",
       publishedTime: blog.publishedAt,
+      modifiedTime: blog.updatedAt,
       section: categoryLabel.ja,
       ...(blog.eyecatch && {
         images: [
