@@ -9,6 +9,8 @@ import ArticleCard from "@/components/ArticleCard";
 import EditorProfile from "@/components/EditorProfile";
 import PopularPosts from "@/components/PopularPosts";
 import VoiceBanner from "@/components/VoiceBanner";
+import ArticleSummary from "@/components/ArticleSummary";
+import TableOfContents from "@/components/TableOfContents";
 
 const SITE_URL = "https://totonoe-life.jp";
 
@@ -76,6 +78,22 @@ function getCategoryLabel(category: string[]): { ja: string; en: string; slug: s
   const jaName = category[0];
   const cat = CATEGORIES.find((c) => c.ja === jaName);
   return { ja: jaName, en: cat?.en ?? "", slug: cat?.slug ?? "" };
+}
+
+function extractHeadings(html: string): { id: string; text: string }[] {
+  const results: { id: string; text: string }[] = [];
+  const re = /<h2[^>]*id="([^"]*)"[^>]*>(.*?)<\/h2>/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    results.push({ id: m[1], text: m[2].replace(/<[^>]+>/g, "") });
+  }
+  return results;
+}
+
+function splitIntroAndBody(html: string): { intro: string; body: string } {
+  const firstH2 = html.search(/<h2[\s>]/i);
+  if (firstH2 === -1) return { intro: "", body: html };
+  return { intro: html.slice(0, firstH2), body: html.slice(firstH2) };
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
@@ -186,10 +204,26 @@ export default async function BlogDetailPage({ params }: PageProps) {
       {/* Article Body */}
       <article className="py-12 md:py-20 px-6 bg-[#FAF7F2]">
         <div className="max-w-3xl mx-auto">
-          <div
-            className="article-body"
-            dangerouslySetInnerHTML={{ __html: blog.body }}
-          />
+          {(() => {
+            const headings = extractHeadings(blog.body);
+            const { intro, body } = splitIntroAndBody(blog.body);
+            return (
+              <>
+                {intro && (
+                  <div
+                    className="article-body mb-8 md:mb-10"
+                    dangerouslySetInnerHTML={{ __html: intro }}
+                  />
+                )}
+                <ArticleSummary headings={headings} />
+                <TableOfContents headings={headings} />
+                <div
+                  className="article-body"
+                  dangerouslySetInnerHTML={{ __html: body }}
+                />
+              </>
+            );
+          })()}
 
           {/* Editor Profile (E-E-A-T) */}
           <EditorProfile />
