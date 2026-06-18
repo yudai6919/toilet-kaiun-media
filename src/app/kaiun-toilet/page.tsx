@@ -1,10 +1,29 @@
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
 
+const SITE_URL = "https://totonoe-life.jp";
+
 export const metadata: Metadata = {
   title: "開運×トイレ掃除",
   description:
     "なぜトイレ掃除が運気を上げるのか。古来の知恵と現代の視点から紐解きます。",
+  openGraph: {
+    type: "website",
+    title: "開運×トイレ掃除 | TOTONOE",
+    description: "なぜトイレ掃除が運気を上げるのか。古来の知恵と現代の視点から紐解きます。",
+    url: `${SITE_URL}/kaiun-toilet`,
+    siteName: "TOTONOE | 整え。",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "開運×トイレ掃除 | TOTONOE",
+    description: "なぜトイレ掃除が運気を上げるのか。古来の知恵と現代の視点から紐解きます。",
+    images: [`${SITE_URL}/og-image.png`],
+  },
+  alternates: {
+    canonical: `${SITE_URL}/kaiun-toilet`,
+  },
 };
 
 export default function KaiunToiletPage() {

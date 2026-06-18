@@ -52,7 +52,7 @@ export function articleJsonLd({
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: title,
     description,
     url: `https://totonoe-life.jp/note/${slug}`,
@@ -66,6 +66,7 @@ export function articleJsonLd({
     publisher: {
       "@type": "Organization",
       name: "TOTONOE",
+      url: "https://totonoe-life.jp",
       logo: {
         "@type": "ImageObject",
         url: "https://totonoe-life.jp/icon-512.png",
@@ -76,12 +77,10 @@ export function articleJsonLd({
       "@id": `https://totonoe-life.jp/note/${slug}`,
     },
     articleSection: category,
-    ...(imageUrl && {
-      image: {
-        "@type": "ImageObject",
-        url: imageUrl,
-      },
-    }),
+    image: {
+      "@type": "ImageObject",
+      url: imageUrl || "https://totonoe-life.jp/og-image.png",
+    },
   };
 }
 

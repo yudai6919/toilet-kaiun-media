@@ -82,13 +82,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let blogPages: MetadataRoute.Sitemap = [];
   try {
-    const data = await getBlogList({ limit: 100 });
-    blogPages = data.contents.map((blog) => ({
-      url: `${SITE_URL}/note/${blog.slug}`,
-      lastModified: new Date(blog.updatedAt ?? blog.publishedAt),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    }));
+    let offset = 0;
+    const limit = 100;
+    while (true) {
+      const data = await getBlogList({ limit, offset, fields: "slug,updatedAt,publishedAt" });
+      blogPages.push(
+        ...data.contents.map((blog) => ({
+          url: `${SITE_URL}/note/${blog.slug}`,
+          lastModified: new Date(blog.updatedAt ?? blog.publishedAt),
+          changeFrequency: "weekly" as const,
+          priority: 0.8,
+        }))
+      );
+      if (blogPages.length >= data.totalCount) break;
+      offset += limit;
+    }
   } catch {
     // microCMS未接続時はスキップ
   }

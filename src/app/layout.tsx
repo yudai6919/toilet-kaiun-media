@@ -3,6 +3,7 @@ import { Noto_Sans_JP, Zen_Old_Mincho } from "next/font/google";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import JsonLd, { websiteJsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 const GA_ID = "G-126D80EZ2Q";
@@ -120,27 +121,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${zenOldMincho.variable} h-full antialiased`}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "TOTONOE | 整え。",
-              url: SITE_URL,
-              description: SITE_DESCRIPTION,
-              publisher: {
-                "@type": "Organization",
-                name: "TOTONOE",
-                url: SITE_URL,
-                logo: {
-                  "@type": "ImageObject",
-                  url: `${SITE_URL}/icon-512.png`,
-                },
-              },
-            }),
-          }}
-        />
+        <JsonLd data={websiteJsonLd()} />
       </head>
       <body className="min-h-full flex flex-col">
         {/* Google Analytics 4 — 本番環境のみ */}
@@ -155,9 +136,7 @@ export default function RootLayout({
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${GA_ID}', {
-                  page_path: window.location.pathname,
-                });
+                gtag('config', '${GA_ID}');
               `}
             </Script>
           </>

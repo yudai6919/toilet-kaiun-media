@@ -1,10 +1,29 @@
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
 
+const SITE_URL = "https://totonoe-life.jp";
+
 export const metadata: Metadata = {
   title: "習慣化",
   description:
     "トイレ掃除を21日間で習慣にするための科学的アプローチと実践的なテクニック。",
+  openGraph: {
+    type: "website",
+    title: "習慣化 | TOTONOE",
+    description: "トイレ掃除を21日間で習慣にするための科学的アプローチと実践的なテクニック。",
+    url: `${SITE_URL}/habit`,
+    siteName: "TOTONOE | 整え。",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "習慣化 | TOTONOE",
+    description: "トイレ掃除を21日間で習慣にするための科学的アプローチと実践的なテクニック。",
+    images: [`${SITE_URL}/og-image.png`],
+  },
+  alternates: {
+    canonical: `${SITE_URL}/habit`,
+  },
 };
 
 export default function HabitPage() {

@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { articles, getArticle } from "@/lib/articles";
 import CtaButton from "@/components/CtaButton";
 
+const SITE_URL = "https://totonoe-life.jp";
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
@@ -16,9 +18,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return {};
+  const pageUrl = `${SITE_URL}/articles/${slug}`;
   return {
     title: article.title,
     description: article.description,
+    openGraph: {
+      type: "article",
+      title: article.title,
+      description: article.description,
+      url: pageUrl,
+      siteName: "TOTONOE | 整え。",
+      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.description,
+      images: [`${SITE_URL}/og-image.png`],
+    },
+    alternates: {
+      canonical: pageUrl,
+    },
   };
 }
 

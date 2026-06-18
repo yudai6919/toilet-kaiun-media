@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import JsonLd, { articleJsonLd } from "@/components/JsonLd";
+import JsonLd, { articleJsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 import Breadcrumb from "@/components/Breadcrumb";
 import ArticleCard from "@/components/ArticleCard";
 import EditorProfile from "@/components/EditorProfile";
@@ -36,22 +36,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: blog.publishedAt,
       modifiedTime: blog.updatedAt,
       section: categoryLabel.ja,
-      ...(blog.eyecatch && {
-        images: [
-          {
-            url: blog.eyecatch.url,
-            width: blog.eyecatch.width,
-            height: blog.eyecatch.height,
-            alt: blog.title,
-          },
-        ],
-      }),
+      images: [
+        blog.eyecatch
+          ? {
+              url: blog.eyecatch.url,
+              width: blog.eyecatch.width,
+              height: blog.eyecatch.height,
+              alt: blog.title,
+            }
+          : {
+              url: `${SITE_URL}/og-image.png`,
+              width: 1200,
+              height: 630,
+              alt: blog.title,
+            },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: blog.title,
       description: blog.description || `${blog.title} - TOTONOEの整えノート`,
-      ...(blog.eyecatch && { images: [blog.eyecatch.url] }),
+      images: [blog.eyecatch?.url || `${SITE_URL}/og-image.png`],
     },
     alternates: {
       canonical: pageUrl,
@@ -82,12 +87,24 @@ function getCategoryLabel(category: string[]): { ja: string; en: string; slug: s
 
 function extractHeadings(html: string): { id: string; text: string }[] {
   const results: { id: string; text: string }[] = [];
-  const re = /<h2[^>]*id="([^"]*)"[^>]*>(.*?)<\/h2>/gi;
+  const re = /<h2([^>]*)>(.*?)<\/h2>/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
-    results.push({ id: m[1], text: m[2].replace(/<[^>]+>/g, "") });
+    const attrs = m[1];
+    const text = m[2].replace(/<[^>]+>/g, "");
+    const idMatch = attrs.match(/id="([^"]*)"/);
+    const id = idMatch ? idMatch[1] : `h2-${results.length}`;
+    results.push({ id, text });
   }
   return results;
+}
+
+function ensureHeadingIds(html: string): string {
+  let count = 0;
+  return html.replace(/<h2([^>]*)>/gi, (match, attrs) => {
+    if (/id="/.test(attrs)) return match;
+    return `<h2${attrs} id="h2-${count++}">`;
+  });
 }
 
 function splitIntroAndBody(html: string): { intro: string; body: string } {
@@ -136,6 +153,16 @@ export default async function BlogDetailPage({ params }: PageProps) {
           imageUrl: blog.eyecatch?.url,
           category: categoryLabel.ja,
         })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "整えノート", url: `${SITE_URL}/note` },
+          ...(categoryLabel.slug
+            ? [{ name: categoryLabel.ja, url: `${SITE_URL}/category/${categoryLabel.slug}` }]
+            : []),
+          { name: blog.title, url: `${SITE_URL}/note/${blog.slug}` },
+        ])}
       />
 
       {/* Hero / Header */}
@@ -205,8 +232,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
       <article className="py-12 md:py-20 px-6 bg-[#FAF7F2]">
         <div className="max-w-3xl mx-auto">
           {(() => {
-            const headings = extractHeadings(blog.body);
-            const { intro, body } = splitIntroAndBody(blog.body);
+            const processedBody = ensureHeadingIds(blog.body);
+            const headings = extractHeadings(processedBody);
+            const { intro, body } = splitIntroAndBody(processedBody);
             return (
               <>
                 {intro && (

@@ -2,10 +2,29 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
 
+const SITE_URL = "https://totonoe-life.jp";
+
 export const metadata: Metadata = {
   title: "コラム一覧",
   description:
     "トイレ掃除・開運・習慣化に関するコラム記事の一覧。",
+  openGraph: {
+    type: "website",
+    title: "コラム一覧 | TOTONOE",
+    description: "トイレ掃除・開運・習慣化に関するコラム記事の一覧。",
+    url: `${SITE_URL}/articles`,
+    siteName: "TOTONOE | 整え。",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "コラム一覧 | TOTONOE",
+    description: "トイレ掃除・開運・習慣化に関するコラム記事の一覧。",
+    images: [`${SITE_URL}/og-image.png`],
+  },
+  alternates: {
+    canonical: `${SITE_URL}/articles`,
+  },
 };
 
 export default function ArticlesPage() {
