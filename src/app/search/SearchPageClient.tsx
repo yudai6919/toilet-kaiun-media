@@ -6,6 +6,8 @@ import type { Blog } from "@/lib/microcms";
 import ArticleCard from "@/components/ArticleCard";
 import Link from "next/link";
 
+const SEARCH_TAGS = ["トイレ掃除", "開運", "習慣化", "風水", "金運", "掃除 やり方", "マインドフルネス", "運気"];
+
 type Props = {
   keyword: string;
   results: Blog[];
@@ -86,7 +88,7 @@ export default function SearchPageClient({ keyword, results, totalCount, popular
                     別のキーワードでお試しください
                   </p>
                   <div className="flex flex-wrap justify-center gap-2">
-                    {["トイレ掃除", "開運", "習慣", "風水", "掃除 コツ"].map((tag) => (
+                    {SEARCH_TAGS.slice(0, 5).map((tag) => (
                       <button
                         key={tag}
                         onClick={() => {
@@ -110,7 +112,7 @@ export default function SearchPageClient({ keyword, results, totalCount, popular
                   人気のキーワード
                 </p>
                 <div className="flex flex-wrap justify-center gap-2">
-                  {["トイレ掃除", "開運", "習慣化", "風水", "金運", "掃除 やり方", "マインドフルネス", "運気"].map((tag) => (
+                  {SEARCH_TAGS.map((tag) => (
                     <button
                       key={tag}
                       onClick={() => {

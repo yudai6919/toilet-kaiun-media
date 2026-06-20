@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, LINE_URL } from "@/lib/constants";
 import LineIcon from "@/components/LineIcon";
-
-// TODO: LINE公式アカウントURL — 開設後に差し替え
-const LINE_URL = "https://lin.ee/XXXXXXXXX";
 
 export const metadata: Metadata = {
   title: "TOTONOEアプリ｜トイレ掃除を習慣にするアプリ",

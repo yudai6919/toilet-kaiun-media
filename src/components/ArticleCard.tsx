@@ -1,12 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Blog } from "@/lib/microcms";
-
-
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr);
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
-}
+import { formatDate } from "@/lib/utils";
 
 function getDisplayCategory(category: string[]): string {
   if (!category || category.length === 0) return "";

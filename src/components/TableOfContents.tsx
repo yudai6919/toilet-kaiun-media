@@ -10,11 +10,12 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="bg-cream border border-border rounded-xl px-6 py-5 md:px-8 md:py-6 mb-10 md:mb-14">
+    <nav aria-label="目次" className="bg-cream border border-border rounded-xl px-6 py-5 md:px-8 md:py-6 mb-10 md:mb-14">
       <button
         onClick={() => setOpen((v) => !v)}
         className="flex items-center justify-between w-full text-left"
         aria-expanded={open}
+        aria-controls="toc-list"
       >
         <p className="font-[var(--font-zen-old-mincho)] text-[15px] font-bold text-ink tracking-wide">
           目次
@@ -27,6 +28,7 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
         </span>
       </button>
       <ul
+        id="toc-list"
         className={`overflow-hidden transition-all duration-300 ${open ? "mt-4 max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
       >
         {headings.map((h, i) => (

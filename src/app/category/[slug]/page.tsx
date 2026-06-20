@@ -83,8 +83,8 @@ export default async function CategoryPage({ params }: PageProps) {
     const data = await getBlogsByCategory(cat.ja, { limit: 50 });
     blogs = data.contents;
     totalCount = data.totalCount;
-  } catch (e) {
-    console.error("microCMS fetch error:", e);
+  } catch {
+    // graceful fallback
   }
 
   let recommendedBlogs: Blog[] = [];

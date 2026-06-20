@@ -1,15 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle, Calendar, Sparkles, BarChart3, MessageCircle } from "lucide-react";
 import LineIcon from "@/components/LineIcon";
 import { fade } from "@/lib/animations";
-
-// TODO: LINE公式アカウントURL — 開設後に差し替え
-const LINE_URL = "https://lin.ee/XXXXXXXXX";
-// TODO: LINE QRコード画像 — public/images/line-qr.png に配置後に有効化
-const LINE_QR_IMAGE = "/images/line-qr.png";
+import { LINE_URL } from "@/lib/constants";
 
 const features = [
   {

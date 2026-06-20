@@ -9,7 +9,9 @@ const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN ?? "";
 const apiKey = process.env.MICROCMS_API_KEY ?? "";
 
 if (!serviceDomain || !apiKey) {
-  console.warn("⚠ microCMS環境変数が未設定です。記事データは空で表示されます。");
+  if (process.env.NODE_ENV === "development") {
+    console.warn("⚠ microCMS環境変数が未設定です。記事データは空で表示されます。");
+  }
 }
 
 export const client =

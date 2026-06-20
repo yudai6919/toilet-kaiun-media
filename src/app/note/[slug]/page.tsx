@@ -12,6 +12,7 @@ import VoiceBanner from "@/components/VoiceBanner";
 import ArticleSummary from "@/components/ArticleSummary";
 import TableOfContents from "@/components/TableOfContents";
 import { SITE_URL } from "@/lib/constants";
+import { formatDate } from "@/lib/utils";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -78,11 +79,6 @@ export async function generateStaticParams() {
   } catch {
     return [];
   }
-}
-
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr);
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
 }
 
 function getCategoryLabel(category: string[]): { ja: string; en: string; slug: string } {

@@ -36,8 +36,8 @@ export default async function NotePage() {
     const data = await getAllBlogs();
     blogs = data.contents;
     totalCount = data.totalCount;
-  } catch (e) {
-    console.error("microCMS fetch error:", e);
+  } catch {
+    // graceful fallback
   }
 
   return (

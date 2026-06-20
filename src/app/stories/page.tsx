@@ -37,8 +37,8 @@ export default async function StoriesPage() {
     stories = data.contents.filter(
       (b) => b.category && b.category.includes("体験談")
     );
-  } catch (e) {
-    console.error("microCMS fetch error:", e);
+  } catch {
+    // graceful fallback
   }
 
   return (

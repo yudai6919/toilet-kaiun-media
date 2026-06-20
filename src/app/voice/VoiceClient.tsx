@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { fade } from "@/lib/animations";
 import { type VoiceEntry, VOICE_STORAGE_KEY } from "@/lib/types";
+import { formatDateWithTime } from "@/lib/utils";
+import { SITE_URL } from "@/lib/constants";
 
 type Mood = {
   emoji: string;
@@ -20,6 +22,7 @@ const moods: Mood[] = [
 ];
 
 const STORAGE_KEY = VOICE_STORAGE_KEY;
+const SHARE_HASHTAGS = "#TOTONOE\n#整えの記録";
 
 function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
@@ -40,17 +43,9 @@ function saveEntries(entries: VoiceEntry[]) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
 }
 
-// TODO: 将来的にAPIに差し替え
-// async function submitToAPI(entry: VoiceEntry) { ... }
-
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr);
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
-}
-
 function ShareButtons({ content }: { content: string }) {
-  const shareText = `今日の整え\n\n${content}\n\n#TOTONOE\n#整えの記録`;
-  const shareUrl = "https://totonoe-life.jp/voice";
+  const shareText = `今日の整え\n\n${content}\n\n${SHARE_HASHTAGS}`;
+  const shareUrl = `${SITE_URL}/voice`;
 
   const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
   const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
@@ -333,7 +328,7 @@ export default function VoiceClient() {
                         </span>
                         <span className="text-charcoal/10 text-[10px]">|</span>
                         <time className="text-[11px] text-charcoal/25 tracking-wide">
-                          {formatDate(entry.createdAt)}
+                          {formatDateWithTime(entry.createdAt)}
                         </time>
                       </div>
                       <p className="text-[13px] text-charcoal/60 leading-[2] tracking-wide">
