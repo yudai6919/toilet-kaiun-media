@@ -74,12 +74,12 @@ function ShareButtons({ content }: { content: string }) {
 
   return (
     <div className="flex items-center gap-3 mt-4">
-      <span className="text-[11px] text-[#2C2C2C]/25 tracking-wide">シェアする</span>
+      <span className="text-[11px] text-charcoal/25 tracking-wide">シェアする</span>
       <a
         href={xUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#E8DDC8]/40 text-[#2C2C2C]/40 hover:bg-[#2C2C2C] hover:text-white hover:border-transparent transition-all duration-300"
+        className="flex items-center justify-center w-8 h-8 rounded-full bg-cream border border-border/40 text-charcoal/40 hover:bg-charcoal hover:text-white hover:border-transparent transition-all duration-300"
         aria-label="Xでシェアする"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
@@ -90,7 +90,7 @@ function ShareButtons({ content }: { content: string }) {
         href={lineUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#E8DDC8]/40 text-[#06C755]/60 hover:bg-[#06C755] hover:text-white hover:border-transparent transition-all duration-300"
+        className="flex items-center justify-center w-8 h-8 rounded-full bg-cream border border-border/40 text-line-green/60 hover:bg-line-green hover:text-white hover:border-transparent transition-all duration-300"
         aria-label="LINEでシェアする"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
@@ -152,23 +152,23 @@ export default function VoiceClient() {
         <div className="max-w-3xl mx-auto text-center">
           <motion.p
             variants={fade} initial="hidden" animate="visible" custom={0}
-            className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light"
+            className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light"
           >
             Voice
           </motion.p>
           <motion.h1
             variants={fade} initial="hidden" animate="visible" custom={1}
-            className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-[#2C2C2C] mb-6"
+            className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-charcoal mb-6"
           >
             みんなの整えの記録
           </motion.h1>
           <motion.div
             variants={fade} initial="hidden" animate="visible" custom={2}
-            className="w-10 h-px bg-[#C8A96B]/30 mx-auto mb-8"
+            className="w-10 h-px bg-gold/30 mx-auto mb-8"
           />
           <motion.p
             variants={fade} initial="hidden" animate="visible" custom={2}
-            className="text-sm md:text-base text-[#2C2C2C]/40 leading-[2.2] tracking-wide"
+            className="text-sm md:text-base text-charcoal/40 leading-[2.2] tracking-wide"
           >
             人生は突然変わらない。
             <br />
@@ -181,7 +181,7 @@ export default function VoiceClient() {
       </section>
 
       {/* ═══════ Form ═══════ */}
-      <section className="py-16 md:py-20 px-6 bg-[#FAF7F2]">
+      <section className="py-16 md:py-20 px-6 bg-cream">
         <div className="max-w-xl mx-auto">
           {submitted && lastEntry ? (
             <motion.div
@@ -189,17 +189,17 @@ export default function VoiceClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="rounded-2xl bg-white border border-[#E8DDC8]/40 p-8 md:p-10 text-center">
+              <div className="rounded-2xl bg-white border border-border/40 p-8 md:p-10 text-center">
                 <p className="text-3xl mb-4">{lastEntry.moodEmoji}</p>
-                <p className="font-[var(--font-zen-old-mincho)] text-lg font-bold text-[#2C2C2C] mb-2">
+                <p className="font-[var(--font-zen-old-mincho)] text-lg font-bold text-charcoal mb-2">
                   記録しました
                 </p>
-                <p className="text-sm text-[#2C2C2C]/40 leading-[2] tracking-wide mb-6">
+                <p className="text-sm text-charcoal/40 leading-[2] tracking-wide mb-6">
                   今日の整え、お疲れさまでした。
                 </p>
 
-                <div className="rounded-xl bg-[#FAF7F2] p-5 text-left mb-6">
-                  <p className="text-[13px] text-[#2C2C2C]/60 leading-[2] tracking-wide">
+                <div className="rounded-xl bg-cream p-5 text-left mb-6">
+                  <p className="text-[13px] text-charcoal/60 leading-[2] tracking-wide">
                     {lastEntry.content}
                   </p>
                 </div>
@@ -208,7 +208,7 @@ export default function VoiceClient() {
 
                 <button
                   onClick={handleReset}
-                  className="mt-8 rounded-full border border-[#E8DDC8] px-8 py-3 text-sm font-semibold text-[#2C2C2C]/60 tracking-wide hover:border-[#C8A96B]/40 hover:text-[#2C2C2C] transition-all duration-300"
+                  className="mt-8 rounded-full border border-border px-8 py-3 text-sm font-semibold text-charcoal/60 tracking-wide hover:border-gold/40 hover:text-charcoal transition-all duration-300"
                 >
                   もうひとつ記録する
                 </button>
@@ -220,10 +220,10 @@ export default function VoiceClient() {
               viewport={{ once: true }}
             >
               <div className="text-center mb-10">
-                <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-4 font-light">
+                <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-4 font-light">
                   Record
                 </p>
-                <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+                <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal">
                   今日の整えを記録する
                 </h2>
               </div>
@@ -233,7 +233,7 @@ export default function VoiceClient() {
                 <div>
                   <label
                     htmlFor="voice-name"
-                    className="block text-[12px] text-[#2C2C2C]/40 tracking-wide mb-2"
+                    className="block text-[12px] text-charcoal/40 tracking-wide mb-2"
                   >
                     ハンドルネーム（任意）
                   </label>
@@ -244,7 +244,7 @@ export default function VoiceClient() {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="名前なし"
                     maxLength={20}
-                    className="w-full rounded-xl border border-[#E8DDC8] bg-white px-5 py-3.5 text-sm text-[#2C2C2C] placeholder:text-[#2C2C2C]/20 tracking-wide outline-none focus:border-[#C8A96B]/50 transition-colors"
+                    className="w-full rounded-xl border border-border bg-white px-5 py-3.5 text-sm text-charcoal placeholder:text-charcoal/20 tracking-wide outline-none focus:border-gold/50 transition-colors"
                   />
                 </div>
 
@@ -252,7 +252,7 @@ export default function VoiceClient() {
                 <div>
                   <label
                     htmlFor="voice-content"
-                    className="block text-[12px] text-[#2C2C2C]/40 tracking-wide mb-2"
+                    className="block text-[12px] text-charcoal/40 tracking-wide mb-2"
                   >
                     今日整えたこと
                   </label>
@@ -264,16 +264,16 @@ export default function VoiceClient() {
                     placeholder="例：朝、トイレを30秒だけ磨いた。"
                     maxLength={200}
                     rows={3}
-                    className="w-full rounded-xl border border-[#E8DDC8] bg-white px-5 py-3.5 text-sm text-[#2C2C2C] placeholder:text-[#2C2C2C]/20 tracking-wide outline-none focus:border-[#C8A96B]/50 transition-colors resize-none"
+                    className="w-full rounded-xl border border-border bg-white px-5 py-3.5 text-sm text-charcoal placeholder:text-charcoal/20 tracking-wide outline-none focus:border-gold/50 transition-colors resize-none"
                   />
-                  <p className="text-right text-[10px] text-[#2C2C2C]/20 mt-1">
+                  <p className="text-right text-[10px] text-charcoal/20 mt-1">
                     {content.length}/200
                   </p>
                 </div>
 
                 {/* Mood */}
                 <div>
-                  <p className="text-[12px] text-[#2C2C2C]/40 tracking-wide mb-3">
+                  <p className="text-[12px] text-charcoal/40 tracking-wide mb-3">
                     今日の気持ち
                   </p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -284,8 +284,8 @@ export default function VoiceClient() {
                         onClick={() => setSelectedMood(mood)}
                         className={`rounded-xl border p-3 text-center transition-all duration-300 ${
                           selectedMood?.value === mood.value
-                            ? "bg-[#2C2C2C] border-[#2C2C2C] text-white shadow-md"
-                            : "bg-white border-[#E8DDC8] hover:border-[#C8A96B]/40"
+                            ? "bg-charcoal border-charcoal text-white shadow-md"
+                            : "bg-white border-border hover:border-gold/40"
                         }`}
                       >
                         <span className="text-xl block mb-1">{mood.emoji}</span>
@@ -293,7 +293,7 @@ export default function VoiceClient() {
                           className={`text-[11px] tracking-wide ${
                             selectedMood?.value === mood.value
                               ? "text-white/70"
-                              : "text-[#2C2C2C]/40"
+                              : "text-charcoal/40"
                           }`}
                         >
                           {mood.label}
@@ -307,7 +307,7 @@ export default function VoiceClient() {
                 <button
                   type="submit"
                   disabled={!content.trim() || !selectedMood}
-                  className="w-full rounded-full bg-[#2C2C2C] py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-[#1a1a1a] hover:-translate-y-0.5 disabled:opacity-30 disabled:hover:translate-y-0"
+                  className="w-full rounded-full bg-charcoal py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-charcoal-dark hover:-translate-y-0.5 disabled:opacity-30 disabled:hover:translate-y-0"
                 >
                   記録を残す
                 </button>
@@ -322,10 +322,10 @@ export default function VoiceClient() {
         <section className="py-20 md:py-28 px-6 bg-white">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-14">
-              <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
+              <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
                 Records
               </p>
-              <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+              <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal">
                 みんなの記録
               </h2>
             </div>
@@ -337,7 +337,7 @@ export default function VoiceClient() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="rounded-2xl bg-[#FAF7F2] border border-[#E8DDC8]/40 p-6 md:p-7"
+                  className="rounded-2xl bg-cream border border-border/40 p-6 md:p-7"
                 >
                   <div className="flex items-start gap-4">
                     <span className="text-2xl flex-shrink-0 mt-0.5">
@@ -345,18 +345,18 @@ export default function VoiceClient() {
                     </span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-[12px] font-semibold text-[#2C2C2C]/60 tracking-wide">
+                        <span className="text-[12px] font-semibold text-charcoal/60 tracking-wide">
                           {entry.name}
                         </span>
-                        <span className="text-[#2C2C2C]/10 text-[10px]">|</span>
-                        <time className="text-[11px] text-[#2C2C2C]/25 tracking-wide">
+                        <span className="text-charcoal/10 text-[10px]">|</span>
+                        <time className="text-[11px] text-charcoal/25 tracking-wide">
                           {formatDate(entry.createdAt)}
                         </time>
                       </div>
-                      <p className="text-[13px] text-[#2C2C2C]/60 leading-[2] tracking-wide">
+                      <p className="text-[13px] text-charcoal/60 leading-[2] tracking-wide">
                         {entry.content}
                       </p>
-                      <p className="text-[11px] text-[#C8A96B]/50 mt-2 tracking-wide">
+                      <p className="text-[11px] text-gold/50 mt-2 tracking-wide">
                         {entry.moodLabel}
                       </p>
                     </div>
@@ -369,18 +369,18 @@ export default function VoiceClient() {
       )}
 
       {/* ═══════ CTA ═══════ */}
-      <section className="py-24 md:py-32 px-6 bg-[#FAF7F2]">
+      <section className="py-24 md:py-32 px-6 bg-cream">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             variants={fade} initial="hidden" whileInView="visible" custom={0}
             viewport={{ once: true }}
           >
-            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-6 leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-6 leading-[1.6] tracking-[0.04em] text-charcoal">
               小さな整えが、
               <br />
               誰かの勇気になるかもしれない。
             </h2>
-            <p className="text-[#2C2C2C]/40 text-sm md:text-base leading-[2] tracking-wide mb-12">
+            <p className="text-charcoal/40 text-sm md:text-base leading-[2] tracking-wide mb-12">
               あなたの「今日の整え」が、
               <br className="sm:hidden" />
               同じように立ち止まっている誰かの
@@ -390,13 +390,13 @@ export default function VoiceClient() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/note"
-                className="rounded-full bg-[#2C2C2C] px-9 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-[#1a1a1a] hover:-translate-y-0.5 inline-flex items-center gap-2"
+                className="rounded-full bg-charcoal px-9 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-charcoal-dark hover:-translate-y-0.5 inline-flex items-center gap-2"
               >
                 記事を読む <span>&rarr;</span>
               </Link>
               <Link
                 href="/stories"
-                className="rounded-full border border-[#2C2C2C]/15 px-9 py-4 text-sm font-semibold text-[#2C2C2C]/70 tracking-wide transition-all duration-300 hover:border-[#C8A96B] hover:text-[#2C2C2C] hover:-translate-y-0.5 inline-flex items-center gap-2"
+                className="rounded-full border border-charcoal/15 px-9 py-4 text-sm font-semibold text-charcoal/70 tracking-wide transition-all duration-300 hover:border-gold hover:text-charcoal hover:-translate-y-0.5 inline-flex items-center gap-2"
               >
                 体験談を読む <span>&rarr;</span>
               </Link>

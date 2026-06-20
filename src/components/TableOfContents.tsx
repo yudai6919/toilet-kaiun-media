@@ -10,17 +10,17 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="bg-[#FAF7F2] border border-[#E8DDC8] rounded-xl px-6 py-5 md:px-8 md:py-6 mb-10 md:mb-14">
+    <nav className="bg-cream border border-border rounded-xl px-6 py-5 md:px-8 md:py-6 mb-10 md:mb-14">
       <button
         onClick={() => setOpen((v) => !v)}
         className="flex items-center justify-between w-full text-left"
         aria-expanded={open}
       >
-        <p className="font-[var(--font-zen-old-mincho)] text-[15px] font-bold text-[#2B2118] tracking-wide">
+        <p className="font-[var(--font-zen-old-mincho)] text-[15px] font-bold text-ink tracking-wide">
           目次
         </p>
         <span
-          className={`text-[#B68A3D]/60 text-xs transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`text-gold-dark/60 text-xs transition-transform duration-300 ${open ? "rotate-180" : ""}`}
           aria-hidden
         >
           ▼
@@ -30,7 +30,7 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
         className={`overflow-hidden transition-all duration-300 ${open ? "mt-4 max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
       >
         {headings.map((h, i) => (
-          <li key={h.id} className="border-b border-[#E8DDC8]/60 last:border-b-0">
+          <li key={h.id} className="border-b border-border/60 last:border-b-0">
             <a
               href={`#${h.id}`}
               onClick={(e) => {
@@ -41,9 +41,9 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
                   history.replaceState(null, "", `#${h.id}`);
                 }
               }}
-              className="flex items-start gap-3 py-3 text-sm text-[#2B2118]/65 leading-relaxed tracking-wide hover:text-[#B68A3D] transition-colors"
+              className="flex items-start gap-3 py-3 text-sm text-ink/65 leading-relaxed tracking-wide hover:text-gold-dark transition-colors"
             >
-              <span className="text-[#C49A4A]/50 text-xs mt-[3px] shrink-0">
+              <span className="text-gold-mid/50 text-xs mt-[3px] shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span>{h.text}</span>

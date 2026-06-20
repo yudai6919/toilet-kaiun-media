@@ -81,26 +81,26 @@ export default function AppPage() {
           />
 
           <div className="text-center mt-8">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#FAF7F2] border border-[#E8DDC8]/50 px-5 py-2 mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#C8A96B] animate-pulse" />
-              <span className="text-[11px] text-[#2C2C2C]/50 font-semibold tracking-wide">
+            <div className="inline-flex items-center gap-2 rounded-full bg-cream border border-border/50 px-5 py-2 mb-8">
+              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+              <span className="text-[11px] text-charcoal/50 font-semibold tracking-wide">
                 開発中
               </span>
             </div>
 
-            <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
+            <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
               App
             </p>
-            <h1 className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-[#2C2C2C] mb-6">
+            <h1 className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-charcoal mb-6">
               TOTONOEアプリ
             </h1>
-            <div className="w-10 h-px bg-[#C8A96B]/30 mx-auto mb-8" />
-            <p className="font-[var(--font-zen-old-mincho)] text-lg md:text-xl text-[#C8A96B] font-normal tracking-[0.06em] leading-[1.8] mb-8">
+            <div className="w-10 h-px bg-gold/30 mx-auto mb-8" />
+            <p className="font-[var(--font-zen-old-mincho)] text-lg md:text-xl text-gold font-normal tracking-[0.06em] leading-[1.8] mb-8">
               人生変えたいなら、
               <br />
               まずトイレを磨け。
             </p>
-            <p className="text-sm md:text-base text-[#2C2C2C]/45 leading-[2.2] tracking-wide">
+            <p className="text-sm md:text-base text-charcoal/45 leading-[2.2] tracking-wide">
               小さな習慣を記録し、
               <br className="sm:hidden" />
               人生を少しずつ整えるアプリを準備しています。
@@ -110,20 +110,20 @@ export default function AppPage() {
       </section>
 
       {/* App Mockup */}
-      <section className="py-16 md:py-20 px-6 bg-[#FAF7F2]">
+      <section className="py-16 md:py-20 px-6 bg-cream">
         <div className="max-w-sm mx-auto">
-          <div className="bg-[#2C2C2C] rounded-3xl p-8 md:p-12 shadow-2xl">
-            <div className="aspect-[9/16] bg-[#333] rounded-2xl flex items-center justify-center border border-white/5">
+          <div className="bg-charcoal rounded-3xl p-8 md:p-12 shadow-2xl">
+            <div className="aspect-[9/16] bg-charcoal-light rounded-2xl flex items-center justify-center border border-white/5">
               <div className="text-center px-6 space-y-6">
-                <p className="text-[#C8A96B] text-5xl">&#10022;</p>
+                <p className="text-gold text-5xl">&#10022;</p>
                 <div>
                   <p className="text-white text-2xl font-bold mb-1">TOTONOE</p>
                   <p className="text-white/30 text-xs">整え。</p>
                 </div>
-                <div className="bg-[#2C2C2C] rounded-xl p-4 text-left space-y-3">
+                <div className="bg-charcoal rounded-xl p-4 text-left space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-white/50 text-xs">連続記録</span>
-                    <span className="text-[#C8A96B] text-sm font-bold">21日</span>
+                    <span className="text-gold text-sm font-bold">21日</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-white/50 text-xs">今月の掃除</span>
@@ -131,10 +131,10 @@ export default function AppPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-white/50 text-xs">獲得バッジ</span>
-                    <span className="text-[#C8A96B] text-sm font-bold">5</span>
+                    <span className="text-gold text-sm font-bold">5</span>
                   </div>
                 </div>
-                <div className="bg-[#C8A96B] text-[#2C2C2C] rounded-full py-3 px-6 text-sm font-bold">
+                <div className="bg-gold text-charcoal rounded-full py-3 px-6 text-sm font-bold">
                   今日の掃除を記録
                 </div>
               </div>
@@ -147,10 +147,10 @@ export default function AppPage() {
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
+            <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
               Features
             </p>
-            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal">
               できること
             </h2>
           </div>
@@ -159,12 +159,12 @@ export default function AppPage() {
             {features.map((f) => (
               <div
                 key={f.title}
-                className="rounded-2xl bg-[#FAF7F2] border border-[#E8DDC8]/40 p-7 md:p-8"
+                className="rounded-2xl bg-cream border border-border/40 p-7 md:p-8"
               >
-                <h3 className="text-base font-bold text-[#2C2C2C] mb-2 tracking-wide">
+                <h3 className="text-base font-bold text-charcoal mb-2 tracking-wide">
                   {f.title}
                 </h3>
-                <p className="text-[13px] text-[#2C2C2C]/45 leading-[2] tracking-wide">
+                <p className="text-[13px] text-charcoal/45 leading-[2] tracking-wide">
                   {f.desc}
                 </p>
               </div>
@@ -174,29 +174,29 @@ export default function AppPage() {
       </section>
 
       {/* LINE CTA */}
-      <section className="py-24 md:py-32 px-6 bg-[#FAF7F2]">
+      <section className="py-24 md:py-32 px-6 bg-cream">
         <div className="max-w-xl mx-auto text-center">
-          <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
+          <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
             LINE
           </p>
-          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C] mb-5">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal mb-5">
             先行案内はLINEで
             <br className="sm:hidden" />
             お届けします
           </h2>
-          <div className="w-10 h-px bg-[#C8A96B]/30 mx-auto mb-10" />
+          <div className="w-10 h-px bg-gold/30 mx-auto mb-10" />
 
-          <div className="rounded-2xl bg-white border border-[#E8DDC8]/40 p-7 md:p-8 mb-10">
-            <p className="text-[10px] text-[#C8A96B]/60 tracking-[0.3em] uppercase mb-5 font-light">
+          <div className="rounded-2xl bg-white border border-border/40 p-7 md:p-8 mb-10">
+            <p className="text-[10px] text-gold/60 tracking-[0.3em] uppercase mb-5 font-light">
               配信内容
             </p>
             <ul className="space-y-3">
               {["アプリのリリース情報", "新しい記事のお知らせ", "整える習慣のヒント", "限定コンテンツ"].map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 text-[13px] text-[#2C2C2C]/60 tracking-wide"
+                  className="flex items-center gap-3 text-[13px] text-charcoal/60 tracking-wide"
                 >
-                  <span className="w-1 h-1 rounded-full bg-[#C8A96B]/40 flex-shrink-0" />
+                  <span className="w-1 h-1 rounded-full bg-gold/40 flex-shrink-0" />
                   {item}
                 </li>
               ))}
@@ -207,12 +207,12 @@ export default function AppPage() {
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 rounded-full bg-[#06C755] px-10 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-[#05b34c] hover:-translate-y-0.5 shadow-lg shadow-[#06C755]/20 mb-4"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-line-green px-10 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-line-green-hover hover:-translate-y-0.5 shadow-lg shadow-line-green/20 mb-4"
           >
             <LineIcon className="w-5 h-5" />
             LINEで登録する
           </a>
-          <p className="text-[11px] text-[#2C2C2C]/20 tracking-wide">
+          <p className="text-[11px] text-charcoal/20 tracking-wide">
             無料で登録できます
           </p>
         </div>
@@ -221,12 +221,12 @@ export default function AppPage() {
       {/* Final CTA */}
       <section className="py-28 md:py-36 px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-[1.6] tracking-[0.04em] text-charcoal">
             毎日の整えを、
             <br />
             記録する習慣へ。
           </h2>
-          <p className="text-[#2C2C2C]/40 text-sm md:text-base leading-[2] tracking-wide mb-12">
+          <p className="text-charcoal/40 text-sm md:text-base leading-[2] tracking-wide mb-12">
             TOTONOEアプリで、
             <br className="sm:hidden" />
             小さな習慣を続ける力を。
@@ -236,14 +236,14 @@ export default function AppPage() {
               href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-full bg-[#06C755] px-10 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-[#05b34c] hover:-translate-y-0.5 shadow-lg shadow-[#06C755]/20"
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-line-green px-10 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-line-green-hover hover:-translate-y-0.5 shadow-lg shadow-line-green/20"
             >
               <LineIcon className="w-5 h-5" />
               LINEで先行案内を受け取る
             </a>
             <Link
               href="/note"
-              className="rounded-full border border-[#2C2C2C]/15 px-9 py-4 text-sm font-semibold text-[#2C2C2C]/70 tracking-wide transition-all duration-300 hover:border-[#C8A96B] hover:text-[#2C2C2C] hover:-translate-y-0.5 inline-flex items-center gap-2"
+              className="rounded-full border border-charcoal/15 px-9 py-4 text-sm font-semibold text-charcoal/70 tracking-wide transition-all duration-300 hover:border-gold hover:text-charcoal hover:-translate-y-0.5 inline-flex items-center gap-2"
             >
               記事を読む <span>&rarr;</span>
             </Link>

@@ -74,17 +74,17 @@ export default function VoicesPage() {
   return (
     <>
       {/* Hero Header */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6 bg-[#F8F4EE]">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6 bg-cream-warm">
         <div className="max-w-3xl mx-auto text-center">
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={0}
-            className="text-[#B68A3D]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light"
+            className="text-gold-dark/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light"
           >
             Voices
           </motion.p>
           <motion.h1
             variants={fadeUp} initial="hidden" animate="visible" custom={1}
-            className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-[#2B2118] mb-6"
+            className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-ink mb-6"
           >
             少しずつ、
             <br />
@@ -92,7 +92,7 @@ export default function VoicesPage() {
           </motion.h1>
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="text-[#2B2118]/50 text-sm md:text-base leading-relaxed tracking-wide"
+            className="text-ink/50 text-sm md:text-base leading-relaxed tracking-wide"
           >
             トイレ掃除を続けた人たちの、小さな変化の記録。
             <br />
@@ -113,7 +113,7 @@ export default function VoicesPage() {
                 whileInView="visible"
                 custom={i % 2}
                 viewport={{ once: true, margin: "-40px" }}
-                className="group bg-white rounded-3xl overflow-hidden shadow-lg border border-[#B68A3D]/[0.06] transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                className="group bg-white rounded-3xl overflow-hidden shadow-lg border border-gold-dark/[0.06] transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/9] overflow-hidden">
@@ -126,7 +126,7 @@ export default function VoicesPage() {
                   />
                   <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 to-transparent" />
                   <div className="absolute top-4 right-4 bg-white/85 backdrop-blur-sm rounded-full px-3 py-1.5">
-                    <span className="text-[10px] text-[#B68A3D] font-semibold tracking-wide">
+                    <span className="text-[10px] text-gold-dark font-semibold tracking-wide">
                       {voice.days}
                     </span>
                   </div>
@@ -134,29 +134,29 @@ export default function VoicesPage() {
 
                 {/* Content */}
                 <div className="px-7 py-7 sm:px-8 sm:py-8">
-                  <p className="text-[#B68A3D]/60 text-[10px] tracking-[0.3em] uppercase mb-3 font-light">
+                  <p className="text-gold-dark/60 text-[10px] tracking-[0.3em] uppercase mb-3 font-light">
                     {voice.tag}
                   </p>
-                  <h2 className="font-[var(--font-zen-old-mincho)] text-lg sm:text-xl font-bold leading-[1.6] tracking-[0.03em] text-[#2B2118] mb-4">
+                  <h2 className="font-[var(--font-zen-old-mincho)] text-lg sm:text-xl font-bold leading-[1.6] tracking-[0.03em] text-ink mb-4">
                     {voice.title}
                   </h2>
-                  <div className="w-8 h-px bg-[#B68A3D]/20 mb-4" />
-                  <p className="text-[13px] text-[#2B2118]/50 leading-[2] tracking-wide mb-6">
+                  <div className="w-8 h-px bg-gold-dark/20 mb-4" />
+                  <p className="text-[13px] text-ink/50 leading-[2] tracking-wide mb-6">
                     {voice.body}
                   </p>
 
                   {/* Changes list */}
-                  <div className="bg-[#F8F4EE] rounded-2xl px-5 py-4">
-                    <p className="text-[10px] text-[#B68A3D]/60 tracking-[0.3em] uppercase mb-3 font-light">
+                  <div className="bg-cream-warm rounded-2xl px-5 py-4">
+                    <p className="text-[10px] text-gold-dark/60 tracking-[0.3em] uppercase mb-3 font-light">
                       変化の記録
                     </p>
                     <ul className="space-y-2">
                       {voice.changes.map((change) => (
                         <li
                           key={change}
-                          className="flex items-start gap-2 text-[13px] text-[#2B2118]/60 leading-relaxed"
+                          className="flex items-start gap-2 text-[13px] text-ink/60 leading-relaxed"
                         >
-                          <span className="text-[#B68A3D] mt-0.5 text-xs">+</span>
+                          <span className="text-gold-dark mt-0.5 text-xs">+</span>
                           {change}
                         </li>
                       ))}
@@ -170,16 +170,16 @@ export default function VoicesPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 md:py-28 px-6 bg-[#F8F4EE]">
+      <section className="py-20 md:py-28 px-6 bg-cream-warm">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
             viewport={{ once: true }}
           >
-            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.5] tracking-[0.04em] text-[#2B2118] mb-5">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.5] tracking-[0.04em] text-ink mb-5">
               次は、あなたの番かもしれない。
             </h2>
-            <p className="text-[#2B2118]/50 text-sm md:text-base leading-relaxed tracking-wide mb-10">
+            <p className="text-ink/50 text-sm md:text-base leading-relaxed tracking-wide mb-10">
               大きなことは何も要りません。
               <br />
               まず今日、目の前のトイレを1分だけ磨いてみてください。
@@ -187,13 +187,13 @@ export default function VoicesPage() {
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <Link
                 href="/#habit"
-                className="flex items-center justify-center gap-2 rounded-full bg-[#C49A4A] px-9 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#B68A3D] hover:-translate-y-0.5"
+                className="flex items-center justify-center gap-2 rounded-full bg-gold-mid px-9 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-gold-dark hover:-translate-y-0.5"
               >
                 今日から整える <span>&rarr;</span>
               </Link>
               <Link
                 href="/"
-                className="flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-cream"
+                className="flex items-center justify-center gap-2 rounded-full border border-gold-mid/25 bg-white/60 px-9 py-4 text-sm font-semibold text-ink/80 transition-all duration-300 hover:bg-ink hover:text-cream"
               >
                 トップに戻る
               </Link>

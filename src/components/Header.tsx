@@ -84,8 +84,8 @@ export default function Header() {
       {/* Mobile fullscreen menu */}
       {open && (
         <div
-          className="md:hidden fixed left-0 right-0 z-[60] overflow-y-auto"
-          style={{ backgroundColor: "#FAF7F2", top: "64px", height: "calc(100vh - 64px)" }}
+          className="md:hidden fixed left-0 right-0 z-[60] overflow-y-auto bg-cream"
+          style={{ top: "64px", height: "calc(100vh - 64px)" }}
         >
           <nav aria-label="モバイルナビゲーション" className="flex flex-col h-full px-6 pt-8 pb-10">
             <div className="flex-1 space-y-1">

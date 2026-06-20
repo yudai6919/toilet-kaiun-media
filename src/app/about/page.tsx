@@ -124,14 +124,14 @@ export default function AboutPage() {
           />
 
           <div className="text-center mt-8 md:mt-12">
-            <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-8 font-light">
+            <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-8 font-light">
               About
             </p>
-            <h1 className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-[#2C2C2C] mb-8">
+            <h1 className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-charcoal mb-8">
               TOTONOEについて
             </h1>
-            <div className="w-10 h-px bg-[#C8A96B]/30 mx-auto mb-8" />
-            <p className="font-[var(--font-zen-old-mincho)] text-lg md:text-xl text-[#C8A96B] font-normal tracking-[0.06em] leading-[1.8]">
+            <div className="w-10 h-px bg-gold/30 mx-auto mb-8" />
+            <p className="font-[var(--font-zen-old-mincho)] text-lg md:text-xl text-gold font-normal tracking-[0.06em] leading-[1.8]">
               人生変えたいなら、
               <br />
               まずトイレを磨け。
@@ -141,15 +141,15 @@ export default function AboutPage() {
       </section>
 
       {/* ═══════ 2. TOTONOEとは ═══════ */}
-      <section className="py-24 md:py-32 px-6 bg-[#FAF7F2]">
+      <section className="py-24 md:py-32 px-6 bg-cream">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
+          <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
             What is TOTONOE
           </p>
-          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C] mb-10">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal mb-10">
             TOTONOEとは
           </h2>
-          <div className="space-y-6 text-sm md:text-base text-[#2C2C2C]/55 leading-[2.2] tracking-wide">
+          <div className="space-y-6 text-sm md:text-base text-charcoal/55 leading-[2.2] tracking-wide">
             <p>
               TOTONOEは、「空間・習慣・心を整える」をテーマにした読みものサイトです。
             </p>
@@ -166,13 +166,13 @@ export default function AboutPage() {
       {/* ═══════ 3. なぜこのサイトを作ったのか ═══════ */}
       <section className="py-24 md:py-32 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
+          <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
             Our Story
           </p>
-          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C] mb-10">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal mb-10">
             なぜこのサイトを作ったのか
           </h2>
-          <div className="space-y-6 text-sm md:text-base text-[#2C2C2C]/55 leading-[2.2] tracking-wide">
+          <div className="space-y-6 text-sm md:text-base text-charcoal/55 leading-[2.2] tracking-wide">
             <p>
               何かを変えたい。でも、何から始めればいいかわからない。そんな日がありました。
             </p>
@@ -190,13 +190,13 @@ export default function AboutPage() {
       </section>
 
       {/* ═══════ 4. TOTONOEの価値観 ═══════ */}
-      <section className="py-24 md:py-32 px-6 bg-[#FAF7F2]">
+      <section className="py-24 md:py-32 px-6 bg-cream">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
+            <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
               Values
             </p>
-            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal">
               TOTONOEの価値観
             </h2>
           </div>
@@ -205,15 +205,15 @@ export default function AboutPage() {
             {values.map((v) => (
               <div
                 key={v.num}
-                className="rounded-2xl bg-white border border-[#E8DDC8]/40 p-7 md:p-8"
+                className="rounded-2xl bg-white border border-border/40 p-7 md:p-8"
               >
-                <p className="text-[#C8A96B]/30 text-3xl font-light font-[var(--font-zen-old-mincho)] mb-4">
+                <p className="text-gold/30 text-3xl font-light font-[var(--font-zen-old-mincho)] mb-4">
                   {v.num}
                 </p>
-                <h3 className="text-base font-bold text-[#2C2C2C] mb-3 tracking-wide">
+                <h3 className="text-base font-bold text-charcoal mb-3 tracking-wide">
                   {v.title}
                 </h3>
-                <p className="text-[13px] text-[#2C2C2C]/45 leading-[2] tracking-wide">
+                <p className="text-[13px] text-charcoal/45 leading-[2] tracking-wide">
                   {v.desc}
                 </p>
               </div>
@@ -225,13 +225,13 @@ export default function AboutPage() {
       {/* ═══════ 5. このサイトで伝えたいこと ═══════ */}
       <section className="py-24 md:py-32 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
+          <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
             Our Message
           </p>
-          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C] mb-10">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal mb-10">
             このサイトで伝えたいこと
           </h2>
-          <div className="space-y-6 text-sm md:text-base text-[#2C2C2C]/55 leading-[2.2] tracking-wide">
+          <div className="space-y-6 text-sm md:text-base text-charcoal/55 leading-[2.2] tracking-wide">
             <p>
               TOTONOEが伝えたいのは、「掃除のやり方」ではありません。
             </p>
@@ -249,14 +249,14 @@ export default function AboutPage() {
       <VoiceBanner bg="white" />
 
       {/* ═══════ 6. CTA ═══════ */}
-      <section className="py-28 md:py-36 px-6 bg-[#FAF7F2]">
+      <section className="py-28 md:py-36 px-6 bg-cream">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-[1.6] tracking-[0.04em] text-charcoal">
             まずは今日、
             <br />
             ひとつだけ整えてみませんか。
           </h2>
-          <p className="text-[#2C2C2C]/40 text-sm md:text-base leading-[2] tracking-wide mb-12">
+          <p className="text-charcoal/40 text-sm md:text-base leading-[2] tracking-wide mb-12">
             大きなことを始める必要はありません。
             <br />
             まず、目の前のトイレを
@@ -266,13 +266,13 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/note"
-              className="rounded-full bg-[#2C2C2C] px-9 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-[#1a1a1a] hover:-translate-y-0.5 inline-flex items-center gap-2"
+              className="rounded-full bg-charcoal px-9 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-charcoal-dark hover:-translate-y-0.5 inline-flex items-center gap-2"
             >
               記事を読む <span>&rarr;</span>
             </Link>
             <Link
               href="/stories"
-              className="rounded-full border border-[#2C2C2C]/15 px-9 py-4 text-sm font-semibold text-[#2C2C2C]/70 tracking-wide transition-all duration-300 hover:border-[#C8A96B] hover:text-[#2C2C2C] hover:-translate-y-0.5 inline-flex items-center gap-2"
+              className="rounded-full border border-charcoal/15 px-9 py-4 text-sm font-semibold text-charcoal/70 tracking-wide transition-all duration-300 hover:border-gold hover:text-charcoal hover:-translate-y-0.5 inline-flex items-center gap-2"
             >
               整えの記録を見る <span>&rarr;</span>
             </Link>

@@ -18,16 +18,16 @@ export default function PopularPosts({
 
   if (posts.length === 0) return null;
 
-  const bgClass = bg === "white" ? "bg-white" : "bg-[#FAF7F2]";
+  const bgClass = bg === "white" ? "bg-white" : "bg-cream";
 
   return (
     <section className={`py-20 md:py-28 px-6 ${bgClass}`} aria-label={title}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
+          <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
             Popular
           </p>
-          <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal">
             {title}
           </h2>
         </div>
@@ -43,8 +43,8 @@ export default function PopularPosts({
               <article
                 className={`rounded-2xl border overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col ${
                   post.rank === 1
-                    ? "bg-[#2C2C2C] border-[#2C2C2C] text-white"
-                    : "bg-[#FAF7F2] border-[#E8DDC8]/40"
+                    ? "bg-charcoal border-charcoal text-white"
+                    : "bg-cream border-border/40"
                 }`}
               >
                 <div className="px-6 py-6 md:px-7 md:py-7 flex flex-col flex-1">
@@ -52,14 +52,14 @@ export default function PopularPosts({
                   <div className="flex items-center gap-3 mb-4">
                     <span
                       className={`font-[var(--font-zen-old-mincho)] text-2xl font-light ${
-                        post.rank === 1 ? "text-[#C8A96B]" : "text-[#C8A96B]/30"
+                        post.rank === 1 ? "text-gold" : "text-gold/30"
                       }`}
                     >
                       {String(post.rank).padStart(2, "0")}
                     </span>
                     <span
                       className={`text-[10px] font-semibold tracking-[0.2em] uppercase ${
-                        post.rank === 1 ? "text-[#C8A96B]/70" : "text-[#C8A96B]"
+                        post.rank === 1 ? "text-gold/70" : "text-gold"
                       }`}
                     >
                       {post.category}
@@ -70,8 +70,8 @@ export default function PopularPosts({
                   <h3
                     className={`font-[var(--font-zen-old-mincho)] text-[15px] md:text-base font-bold leading-[1.7] tracking-[0.02em] mb-3 flex-1 transition-colors duration-300 ${
                       post.rank === 1
-                        ? "text-white group-hover:text-[#C8A96B]"
-                        : "text-[#2C2C2C] group-hover:text-[#C8A96B]"
+                        ? "text-white group-hover:text-gold"
+                        : "text-charcoal group-hover:text-gold"
                     }`}
                   >
                     {post.title}
@@ -80,7 +80,7 @@ export default function PopularPosts({
                   {/* Description */}
                   <p
                     className={`text-[12px] leading-[1.8] tracking-wide line-clamp-2 mb-4 ${
-                      post.rank === 1 ? "text-white/40" : "text-[#2C2C2C]/35"
+                      post.rank === 1 ? "text-white/40" : "text-charcoal/35"
                     }`}
                   >
                     {post.description}
@@ -90,8 +90,8 @@ export default function PopularPosts({
                   <span
                     className={`text-[12px] font-semibold transition-colors duration-300 ${
                       post.rank === 1
-                        ? "text-[#C8A96B]/50 group-hover:text-[#C8A96B]"
-                        : "text-[#C8A96B]/50 group-hover:text-[#C8A96B]"
+                        ? "text-gold/50 group-hover:text-gold"
+                        : "text-gold/50 group-hover:text-gold"
                     }`}
                   >
                     読む &rarr;

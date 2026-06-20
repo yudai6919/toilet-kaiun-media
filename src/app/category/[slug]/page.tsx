@@ -146,21 +146,21 @@ export default async function CategoryPage({ params }: PageProps) {
             ]}
           />
 
-          <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
+          <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
             {cat.en}
           </p>
-          <h1 className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-[#2C2C2C] mb-6">
+          <h1 className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-charcoal mb-6">
             {cat.ja}
           </h1>
-          <div className="w-10 h-px bg-[#C8A96B]/30 mb-6" />
-          <p className="text-sm md:text-base text-[#2C2C2C]/45 leading-[2.2] tracking-wide max-w-lg">
+          <div className="w-10 h-px bg-gold/30 mb-6" />
+          <p className="text-sm md:text-base text-charcoal/45 leading-[2.2] tracking-wide max-w-lg">
             {cat.description}
           </p>
         </div>
       </section>
 
       {/* ═══════ Category Navigation ═══════ */}
-      <section className="py-5 px-6 bg-white border-t border-[#E8DDC8]/40">
+      <section className="py-5 px-6 bg-white border-t border-border/40">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-wrap justify-center gap-2 md:gap-3">
             {CATEGORY_NAV.map((c) => (
@@ -169,8 +169,8 @@ export default async function CategoryPage({ params }: PageProps) {
                 href={c.href}
                 className={`rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 ${
                   c.slug === slug
-                    ? "bg-[#2C2C2C] text-white shadow-md"
-                    : "bg-[#FAF7F2] border border-[#E8DDC8]/60 text-[#2C2C2C]/55 hover:border-[#C8A96B]/40 hover:text-[#2C2C2C]"
+                    ? "bg-charcoal text-white shadow-md"
+                    : "bg-cream border border-border/60 text-charcoal/55 hover:border-gold/40 hover:text-charcoal"
                 }`}
               >
                 {c.ja}
@@ -185,7 +185,7 @@ export default async function CategoryPage({ params }: PageProps) {
         <div className="max-w-5xl mx-auto">
           {blogs.length > 0 ? (
             <>
-              <p className="text-[12px] text-[#2C2C2C]/25 tracking-wide mb-10 text-center">
+              <p className="text-[12px] text-charcoal/25 tracking-wide mb-10 text-center">
                 {totalCount}件の記事
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
@@ -196,11 +196,11 @@ export default async function CategoryPage({ params }: PageProps) {
             </>
           ) : (
             <div className="text-center py-24">
-              <div className="w-10 h-px bg-[#C8A96B]/20 mx-auto mb-8" />
-              <p className="text-[#2C2C2C]/30 text-sm tracking-wide mb-3">
+              <div className="w-10 h-px bg-gold/20 mx-auto mb-8" />
+              <p className="text-charcoal/30 text-sm tracking-wide mb-3">
                 まだ記事がありません
               </p>
-              <p className="text-[#2C2C2C]/20 text-xs tracking-wide">
+              <p className="text-charcoal/20 text-xs tracking-wide">
                 このカテゴリの記事は準備中です。
               </p>
             </div>
@@ -210,13 +210,13 @@ export default async function CategoryPage({ params }: PageProps) {
 
       {/* ═══════ まず読んでほしい記事 ═══════ */}
       {recommendedBlogs.length > 0 && (
-        <section className="py-20 md:py-28 px-6 bg-[#FAF7F2]" aria-label="まず読んでほしい記事">
+        <section className="py-20 md:py-28 px-6 bg-cream" aria-label="まず読んでほしい記事">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
-              <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
+              <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
                 Pick Up
               </p>
-              <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+              <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal">
                 まず読んでほしい記事
               </h2>
             </div>
@@ -236,10 +236,10 @@ export default async function CategoryPage({ params }: PageProps) {
       <section className="py-16 md:py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-[#C8A96B]/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
+            <p className="text-gold/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
               Categories
             </p>
-            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-charcoal">
               ほかのカテゴリを読む
             </h2>
           </div>
@@ -250,13 +250,13 @@ export default async function CategoryPage({ params }: PageProps) {
                 <Link
                   key={c.slug}
                   href={c.href}
-                  className="group rounded-2xl bg-[#FAF7F2] border border-[#E8DDC8]/40 p-6 hover:border-[#C8A96B]/30 hover:shadow-md transition-all duration-300"
+                  className="group rounded-2xl bg-cream border border-border/40 p-6 hover:border-gold/30 hover:shadow-md transition-all duration-300"
                 >
-                  <h3 className="text-sm font-bold text-[#2C2C2C] mb-2 group-hover:text-[#C8A96B] transition-colors duration-300">
+                  <h3 className="text-sm font-bold text-charcoal mb-2 group-hover:text-gold transition-colors duration-300">
                     {c.ja}
                   </h3>
                   {catData && (
-                    <p className="text-[11px] text-[#2C2C2C]/35 leading-[1.8] line-clamp-2">
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8] line-clamp-2">
                       {catData.description}
                     </p>
                   )}
@@ -268,14 +268,14 @@ export default async function CategoryPage({ params }: PageProps) {
       </section>
 
       {/* ═══════ CTA ═══════ */}
-      <section className="py-24 md:py-32 px-6 bg-[#FAF7F2]">
+      <section className="py-24 md:py-32 px-6 bg-cream">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-6 leading-[1.6] tracking-[0.04em] text-[#2C2C2C]">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-6 leading-[1.6] tracking-[0.04em] text-charcoal">
             読むだけで終わらせない。
             <br />
             今日、ひとつ整える。
           </h2>
-          <p className="text-[#2C2C2C]/40 text-sm md:text-base leading-[2] tracking-wide mb-12">
+          <p className="text-charcoal/40 text-sm md:text-base leading-[2] tracking-wide mb-12">
             TOTONOEは、トイレ掃除を
             <br className="sm:hidden" />
             毎日の整える習慣に変えるための
@@ -284,7 +284,7 @@ export default async function CategoryPage({ params }: PageProps) {
           </p>
           <Link
             href="/note"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2C2C2C] px-10 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-[#1a1a1a] hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-charcoal px-10 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-charcoal-dark hover:-translate-y-0.5"
           >
             すべての記事を見る <span>&rarr;</span>
           </Link>

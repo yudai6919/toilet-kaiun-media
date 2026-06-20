@@ -61,7 +61,7 @@ export default function TestimonialBanner() {
   }, []);
 
   return (
-    <section id="testimonial" className="py-24 md:py-32 bg-[#F8F4EE]">
+    <section id="testimonial" className="py-24 md:py-32 bg-cream-warm">
       {/* Section Header */}
       <motion.div
         variants={fadeUp}
@@ -71,15 +71,15 @@ export default function TestimonialBanner() {
         viewport={{ once: true }}
         className="text-center mb-12 md:mb-14 px-6"
       >
-        <p className="text-[#B68A3D]/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
+        <p className="text-gold-dark/50 text-[10px] tracking-[0.5em] uppercase mb-5 font-light">
           Voices
         </p>
-        <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-[2.2rem] font-bold leading-[1.5] tracking-[0.04em] text-[#2B2118] mb-5">
+        <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-[2.2rem] font-bold leading-[1.5] tracking-[0.04em] text-ink mb-5">
           少しずつ、
           <br />
           流れが変わり始めた。
         </h2>
-        <p className="text-[#2B2118]/50 text-sm md:text-base leading-relaxed tracking-wide">
+        <p className="text-ink/50 text-sm md:text-base leading-relaxed tracking-wide">
           トイレ掃除を続けた人たちの、
           <br className="sm:hidden" />
           小さな変化の記録。
@@ -117,17 +117,17 @@ export default function TestimonialBanner() {
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/15 to-transparent" />
                 {/* Days badge */}
                 <div className="absolute bottom-4 left-4 bg-white/85 backdrop-blur-sm rounded-full px-3 py-1.5">
-                  <span className="text-[10px] text-[#B68A3D] font-semibold tracking-wide">
+                  <span className="text-[10px] text-gold-dark font-semibold tracking-wide">
                     {item.days}
                   </span>
                 </div>
               </div>
 
               {/* Text */}
-              <p className="text-[#B68A3D]/60 text-[10px] tracking-[0.3em] uppercase mb-2 font-light">
+              <p className="text-gold-dark/60 text-[10px] tracking-[0.3em] uppercase mb-2 font-light">
                 {item.tag}
               </p>
-              <h3 className="font-[var(--font-zen-old-mincho)] text-base sm:text-lg font-bold leading-[1.6] tracking-[0.02em] text-[#2B2118] group-hover:text-[#B68A3D] transition-colors duration-300">
+              <h3 className="font-[var(--font-zen-old-mincho)] text-base sm:text-lg font-bold leading-[1.6] tracking-[0.02em] text-ink group-hover:text-gold-dark transition-colors duration-300">
                 {item.title}
               </h3>
             </Link>
@@ -147,8 +147,8 @@ export default function TestimonialBanner() {
               }}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === activeIndex
-                  ? "w-6 bg-[#B68A3D]"
-                  : "w-1.5 bg-[#B68A3D]/20"
+                  ? "w-6 bg-gold-dark"
+                  : "w-1.5 bg-gold-dark/20"
               }`}
               aria-label={`体験談 ${i + 1}`}
             />
@@ -159,7 +159,7 @@ export default function TestimonialBanner() {
         <div className="text-center mt-10 px-6">
           <Link
             href="/voices"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#B68A3D] hover:text-[#2B2118] transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-gold-dark hover:text-ink transition-colors duration-300"
           >
             すべての体験談を見る
             <span>&rarr;</span>

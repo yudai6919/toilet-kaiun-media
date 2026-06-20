@@ -25,10 +25,10 @@ export default function ArticleCard({ blog, showImage = true }: Props) {
       aria-label={`${blog.title}を読む`}
       className="group block h-full"
     >
-      <article className="rounded-2xl bg-[#FAF7F2] border border-[#E8DDC8]/40 overflow-hidden transition-all duration-400 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col">
+      <article className="rounded-2xl bg-cream border border-border/40 overflow-hidden transition-all duration-400 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col">
         {showImage && (
           blog.eyecatch ? (
-            <div className="relative aspect-[3/2] overflow-hidden bg-[#F8F4EE]">
+            <div className="relative aspect-[3/2] overflow-hidden bg-cream-warm">
               <Image
                 src={blog.eyecatch.url}
                 alt={blog.title}
@@ -38,8 +38,8 @@ export default function ArticleCard({ blog, showImage = true }: Props) {
               />
             </div>
           ) : (
-            <div className="aspect-[3/2] bg-gradient-to-br from-[#F8F4EE] to-[#E8DDC8]/40 flex items-center justify-center">
-              <span className="text-[#B68A3D]/20 text-3xl font-light tracking-widest">
+            <div className="aspect-[3/2] bg-gradient-to-br from-cream-warm to-border/40 flex items-center justify-center">
+              <span className="text-gold-dark/20 text-3xl font-light tracking-widest">
                 TOTONOE
               </span>
             </div>
@@ -48,26 +48,26 @@ export default function ArticleCard({ blog, showImage = true }: Props) {
 
         <div className="px-6 py-5 md:px-7 md:py-6 flex flex-col flex-1">
           <div className="flex items-center gap-3 mb-2.5">
-            <span className="text-[#B68A3D] text-[10px] font-semibold tracking-[0.2em] uppercase">
+            <span className="text-gold-dark text-[10px] font-semibold tracking-[0.2em] uppercase">
               {getDisplayCategory(blog.category)}
             </span>
-            <span className="text-[#2B2118]/15 text-[10px]">|</span>
+            <span className="text-ink/15 text-[10px]">|</span>
             <time
               dateTime={blog.publishedAt}
-              className="text-[11px] text-[#2B2118]/25 tracking-wide"
+              className="text-[11px] text-ink/25 tracking-wide"
             >
               {formatDate(blog.publishedAt)}
             </time>
           </div>
-          <h3 className="font-[var(--font-zen-old-mincho)] text-[15px] md:text-base font-bold leading-[1.7] tracking-[0.02em] text-[#2B2118] mb-2 group-hover:text-[#B68A3D] transition-colors duration-300 flex-1">
+          <h3 className="font-[var(--font-zen-old-mincho)] text-[15px] md:text-base font-bold leading-[1.7] tracking-[0.02em] text-ink mb-2 group-hover:text-gold-dark transition-colors duration-300 flex-1">
             {blog.title}
           </h3>
           {blog.description && (
-            <p className="text-[12px] text-[#2B2118]/35 leading-[1.8] tracking-wide line-clamp-2 mb-3">
+            <p className="text-[12px] text-ink/35 leading-[1.8] tracking-wide line-clamp-2 mb-3">
               {blog.description}
             </p>
           )}
-          <span className="text-[12px] font-semibold text-[#B68A3D]/50 group-hover:text-[#B68A3D] transition-colors duration-300">
+          <span className="text-[12px] font-semibold text-gold-dark/50 group-hover:text-gold-dark transition-colors duration-300">
             読む &rarr;
           </span>
         </div>

@@ -86,16 +86,16 @@ export default function FocusArticles() {
         className="flex items-baseline justify-between px-6 md:px-[max(1.5rem,calc((100vw-64rem)/2))] mb-8 md:mb-10"
       >
         <div className="flex items-baseline gap-4">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-[#2B2118]">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-ink">
             FOCUS
           </h2>
-          <span className="text-sm text-[#2B2118]/40 tracking-wide hidden sm:inline">
+          <span className="text-sm text-ink/40 tracking-wide hidden sm:inline">
             注目記事
           </span>
         </div>
         <Link
           href="/note"
-          className="text-sm font-semibold text-[#B68A3D] hover:text-[#2B2118] transition-colors duration-300 flex items-center gap-1.5"
+          className="text-sm font-semibold text-gold-dark hover:text-ink transition-colors duration-300 flex items-center gap-1.5"
         >
           すべて見る
           <span>&rarr;</span>
@@ -132,12 +132,12 @@ export default function FocusArticles() {
               </div>
 
               {/* Category */}
-              <p className="text-[#B68A3D] text-[11px] font-semibold tracking-wide mb-1.5">
+              <p className="text-gold-dark text-[11px] font-semibold tracking-wide mb-1.5">
                 {article.category}
               </p>
 
               {/* Title */}
-              <h3 className="text-[15px] font-bold leading-[1.7] text-[#2B2118] group-hover:text-[#B68A3D] transition-colors duration-300">
+              <h3 className="text-[15px] font-bold leading-[1.7] text-ink group-hover:text-gold-dark transition-colors duration-300">
                 {article.title}
               </h3>
             </Link>
@@ -157,8 +157,8 @@ export default function FocusArticles() {
               }}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === activeIndex
-                  ? "w-5 bg-[#B68A3D]"
-                  : "w-1.5 bg-[#B68A3D]/20"
+                  ? "w-5 bg-gold-dark"
+                  : "w-1.5 bg-gold-dark/20"
               }`}
               aria-label={`記事 ${i + 1}`}
             />

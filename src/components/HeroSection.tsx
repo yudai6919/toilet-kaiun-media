@@ -39,14 +39,14 @@ export default function HeroSection() {
           <div className="max-w-xl lg:max-w-[580px]">
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={0}
-              className="text-[#B68A3D]/50 text-[10px] tracking-[0.5em] uppercase mb-8 lg:mb-10 font-light"
+              className="text-gold-dark/50 text-[10px] tracking-[0.5em] uppercase mb-8 lg:mb-10 font-light"
             >
               Toilet Cleaning Habit
             </motion.p>
 
             <motion.h1
               variants={fadeUp} initial="hidden" animate="visible" custom={1}
-              className="font-[var(--font-zen-old-mincho)] text-[3.2rem] lg:text-[3.6rem] xl:text-[4.2rem] font-bold leading-[1.3] tracking-[0.04em] text-[#2B2118] mb-5"
+              className="font-[var(--font-zen-old-mincho)] text-[3.2rem] lg:text-[3.6rem] xl:text-[4.2rem] font-bold leading-[1.3] tracking-[0.04em] text-ink mb-5"
             >
               人生変えたいなら、
               <br />
@@ -55,19 +55,19 @@ export default function HeroSection() {
 
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={2}
-              className="font-[var(--font-zen-old-mincho)] text-lg lg:text-xl text-[#B68A3D] font-normal mb-10 tracking-[0.08em]"
+              className="font-[var(--font-zen-old-mincho)] text-lg lg:text-xl text-gold-dark font-normal mb-10 tracking-[0.08em]"
             >
               トイレ掃除を、人生を整える習慣へ。
             </motion.p>
 
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible" custom={3}
-              className="w-12 h-px bg-[#B68A3D]/30 mb-10"
+              className="w-12 h-px bg-gold-dark/30 mb-10"
             />
 
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible" custom={3}
-              className="text-[15px] text-[#2B2118]/55 leading-[2.2] mb-14 tracking-wide"
+              className="text-[15px] text-ink/55 leading-[2.2] mb-14 tracking-wide"
             >
               <p>
                 トイレは、幸運の入口。<br />
@@ -82,13 +82,13 @@ export default function HeroSection() {
             >
               <Link
                 href="#habit"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#C49A4A] px-9 py-[18px] text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#B68A3D] hover:-translate-y-0.5 hover:shadow-xl"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-gold-mid px-9 py-[18px] text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-gold-dark hover:-translate-y-0.5 hover:shadow-xl"
               >
                 今日から整える <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
               </Link>
               <Link
                 href="#manga"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-[#C49A4A]/25 bg-white/60 backdrop-blur-sm px-9 py-[18px] text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-cream hover:border-transparent hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-gold-mid/25 bg-white/60 backdrop-blur-sm px-9 py-[18px] text-sm font-semibold text-ink/80 transition-all duration-300 hover:bg-ink hover:text-cream hover:border-transparent hover:-translate-y-0.5"
               >
                 漫画で読む <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
               </Link>
@@ -122,14 +122,14 @@ export default function HeroSection() {
           <div className="relative z-10 w-full px-7 sm:px-10 pb-10 text-center">
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={0}
-              className="text-[#B68A3D]/60 text-[9px] tracking-[0.5em] uppercase mb-5 font-light"
+              className="text-gold-dark/60 text-[9px] tracking-[0.5em] uppercase mb-5 font-light"
             >
               Toilet Cleaning Habit
             </motion.p>
 
             <motion.h1
               variants={fadeUp} initial="hidden" animate="visible" custom={1}
-              className="font-[var(--font-zen-old-mincho)] text-[2.1rem] sm:text-[2.6rem] font-bold leading-[1.35] tracking-[0.04em] text-[#2B2118] mb-4"
+              className="font-[var(--font-zen-old-mincho)] text-[2.1rem] sm:text-[2.6rem] font-bold leading-[1.35] tracking-[0.04em] text-ink mb-4"
             >
               人生変えたいなら、<br />
               <span className="font-black text-[2.4rem] sm:text-[2.9rem] tracking-[0.06em]">まずトイレを磨け。</span>
@@ -137,7 +137,7 @@ export default function HeroSection() {
 
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={2}
-              className="font-[var(--font-zen-old-mincho)] text-base sm:text-lg text-[#B68A3D] font-normal tracking-[0.08em]"
+              className="font-[var(--font-zen-old-mincho)] text-base sm:text-lg text-gold-dark font-normal tracking-[0.08em]"
             >
               トイレ掃除を、人生を整える習慣へ。
             </motion.p>
@@ -148,12 +148,12 @@ export default function HeroSection() {
         <div className="px-7 py-10 sm:px-10 sm:py-14 text-center">
           <motion.div
             variants={fadeUp} initial="hidden" animate="visible" custom={3}
-            className="w-10 h-px bg-[#B68A3D]/30 mx-auto mb-8"
+            className="w-10 h-px bg-gold-dark/30 mx-auto mb-8"
           />
 
           <motion.div
             variants={fadeUp} initial="hidden" animate="visible" custom={3}
-            className="text-sm text-[#2B2118]/55 leading-[2.2] mb-10 tracking-wide"
+            className="text-sm text-ink/55 leading-[2.2] mb-10 tracking-wide"
           >
             <p>
               トイレは、幸運の入口。<br />
@@ -168,13 +168,13 @@ export default function HeroSection() {
           >
             <Link
               href="#habit"
-              className="flex items-center justify-center gap-2 rounded-full bg-[#C49A4A] px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#B68A3D]"
+              className="flex items-center justify-center gap-2 rounded-full bg-gold-mid px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-gold-dark"
             >
               今日から整える <span>&rarr;</span>
             </Link>
             <Link
               href="#manga"
-              className="flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 px-8 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-cream"
+              className="flex items-center justify-center gap-2 rounded-full border border-gold-mid/25 bg-white/60 px-8 py-4 text-sm font-semibold text-ink/80 transition-all duration-300 hover:bg-ink hover:text-cream"
             >
               漫画で読む <span>&rarr;</span>
             </Link>

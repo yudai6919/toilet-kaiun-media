@@ -27,10 +27,10 @@ type Props = {
 function EmptyState() {
   return (
     <div className="text-center py-20">
-      <p className="text-[#2B2118]/30 text-sm tracking-wide mb-2">
+      <p className="text-ink/30 text-sm tracking-wide mb-2">
         まだ記事がありません
       </p>
-      <p className="text-[#2B2118]/20 text-xs">
+      <p className="text-ink/20 text-xs">
         microCMSに記事を追加すると、ここに表示されます。
       </p>
     </div>
@@ -47,23 +47,23 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
   return (
     <>
       {/* ========== 1. Hero ========== */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6 bg-[#F8F4EE]">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6 bg-cream-warm">
         <div className="max-w-3xl mx-auto text-center">
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={0}
-            className="text-[#B68A3D]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light"
+            className="text-gold-dark/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light"
           >
             Note
           </motion.p>
           <motion.h1
             variants={fadeUp} initial="hidden" animate="visible" custom={1}
-            className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-[#2B2118] mb-5"
+            className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-ink mb-5"
           >
             整えノート
           </motion.h1>
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="font-[var(--font-zen-old-mincho)] text-base md:text-lg text-[#B68A3D] font-normal tracking-[0.06em] mb-8"
+            className="font-[var(--font-zen-old-mincho)] text-base md:text-lg text-gold-dark font-normal tracking-[0.06em] mb-8"
           >
             トイレ掃除、習慣、心、暮らし。
             <br className="sm:hidden" />
@@ -71,11 +71,11 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
           </motion.p>
           <motion.div
             variants={fadeUp} initial="hidden" animate="visible" custom={3}
-            className="w-10 h-px bg-[#B68A3D]/30 mx-auto mb-8"
+            className="w-10 h-px bg-gold-dark/30 mx-auto mb-8"
           />
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={3}
-            className="text-sm text-[#2B2118]/45 leading-[2.2] tracking-wide"
+            className="text-sm text-ink/45 leading-[2.2] tracking-wide"
           >
             変わりたい日も、立ち止まりたい日も。
             <br />
@@ -94,10 +94,10 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <p className="text-[#B68A3D]/50 text-[10px] tracking-[0.5em] uppercase mb-4 font-light">
+            <p className="text-gold-dark/50 text-[10px] tracking-[0.5em] uppercase mb-4 font-light">
               Categories
             </p>
-            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2B2118]">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-ink">
               カテゴリから探す
             </h2>
           </motion.div>
@@ -111,12 +111,12 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
               <Link
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
-                className="group rounded-2xl bg-[#F8F4EE] border border-[#E8DDC8]/50 p-5 hover:border-[#B68A3D]/30 hover:shadow-md transition-all duration-300 text-center"
+                className="group rounded-2xl bg-cream-warm border border-border/50 p-5 hover:border-gold-dark/30 hover:shadow-md transition-all duration-300 text-center"
               >
-                <p className="text-[#B68A3D]/50 text-[8px] tracking-[0.3em] uppercase mb-1.5 font-light">
+                <p className="text-gold-dark/50 text-[8px] tracking-[0.3em] uppercase mb-1.5 font-light">
                   {cat.en}
                 </p>
-                <h3 className="text-[13px] font-bold text-[#2B2118] group-hover:text-[#B68A3D] transition-colors duration-300">
+                <h3 className="text-[13px] font-bold text-ink group-hover:text-gold-dark transition-colors duration-300">
                   {cat.ja}
                 </h3>
               </Link>
@@ -126,17 +126,17 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
       </section>
 
       {/* ========== 3. Category Filter + Articles ========== */}
-      <section className="py-16 md:py-24 px-6 bg-[#FAF7F2]">
+      <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-5xl mx-auto">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-[#2B2118]">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold leading-[1.6] tracking-[0.04em] text-ink">
               すべての記事
             </h2>
-            <p className="text-[12px] text-[#2B2118]/30 tracking-wide mt-2">
+            <p className="text-[12px] text-ink/30 tracking-wide mt-2">
               {totalCount}件の記事
             </p>
           </motion.div>
@@ -151,8 +151,8 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
               onClick={() => setActiveCategory(null)}
               className={`rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 ${
                 activeCategory === null
-                  ? "bg-[#2B2118] text-[#FAF7F2] shadow-md"
-                  : "bg-white border border-[#E8DDC8] text-[#2B2118]/60 hover:border-[#B68A3D]/40 hover:text-[#2B2118]"
+                  ? "bg-ink text-cream shadow-md"
+                  : "bg-white border border-border text-ink/60 hover:border-gold-dark/40 hover:text-ink"
               }`}
             >
               すべて
@@ -165,8 +165,8 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
                 }
                 className={`rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 ${
                   activeCategory === cat.ja
-                    ? "bg-[#2B2118] text-[#FAF7F2] shadow-md"
-                    : "bg-white border border-[#E8DDC8] text-[#2B2118]/60 hover:border-[#B68A3D]/40 hover:text-[#2B2118]"
+                    ? "bg-ink text-cream shadow-md"
+                    : "bg-white border border-border text-ink/60 hover:border-gold-dark/40 hover:text-ink"
                 }`}
               >
                 {cat.ja}
@@ -206,22 +206,22 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
             variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
             viewport={{ once: true }}
           >
-            <p className="text-[#B68A3D]/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
+            <p className="text-gold-dark/50 text-[10px] tracking-[0.5em] uppercase mb-6 font-light">
               Voices
             </p>
-            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.5] tracking-[0.04em] text-[#2B2118] mb-5">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold leading-[1.5] tracking-[0.04em] text-ink mb-5">
               少しずつ、
               <br />
               流れが変わり始めた。
             </h2>
-            <p className="text-[#2B2118]/45 text-sm md:text-base leading-relaxed tracking-wide mb-10">
+            <p className="text-ink/45 text-sm md:text-base leading-relaxed tracking-wide mb-10">
               トイレ掃除を続けた人たちの、
               <br className="sm:hidden" />
               小さな変化の記録。
             </p>
             <Link
               href="/stories"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-[#F8F4EE]/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-[#FAF7F2] hover:border-transparent hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-gold-mid/25 bg-cream-warm/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-ink/80 transition-all duration-300 hover:bg-ink hover:text-cream hover:border-transparent hover:-translate-y-0.5"
             >
               体験談を読む <span>&rarr;</span>
             </Link>
@@ -230,18 +230,18 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
       </section>
 
       {/* ========== 5. Final CTA ========== */}
-      <section className="py-24 md:py-32 px-6 bg-[#FAF7F2]">
+      <section className="py-24 md:py-32 px-6 bg-cream">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" custom={0}
             viewport={{ once: true }}
           >
-            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-[1.5] tracking-[0.04em] text-[#2B2118]">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-[1.5] tracking-[0.04em] text-ink">
               読むだけで終わらせない。
               <br />
               今日、ひとつ整える。
             </h2>
-            <p className="text-[#2B2118]/45 text-sm md:text-base leading-relaxed tracking-wide mb-10">
+            <p className="text-ink/45 text-sm md:text-base leading-relaxed tracking-wide mb-10">
               TOTONOEは、トイレ掃除を
               <br className="sm:hidden" />
               毎日の整える習慣に変えるための
@@ -250,7 +250,7 @@ export default function NotePageClient({ blogs, totalCount, categories }: Props)
             </p>
             <Link
               href="/#app"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#C49A4A] px-10 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#B68A3D] hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-mid px-10 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-gold-dark hover:-translate-y-0.5"
             >
               今日から整える <span>&rarr;</span>
             </Link>

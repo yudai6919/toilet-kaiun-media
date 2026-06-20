@@ -23,7 +23,7 @@ export default function Breadcrumb({ items }: Props) {
       <JsonLd data={breadcrumbJsonLd(jsonLdItems)} />
       <nav
         aria-label="パンくずリスト"
-        className="flex items-center gap-2 text-[11px] text-[#2B2118]/30 tracking-wide mb-8 flex-wrap"
+        className="flex items-center gap-2 text-[11px] text-ink/30 tracking-wide mb-8 flex-wrap"
       >
         {items.map((item, i) => {
           const isLast = i === items.length - 1;
@@ -31,13 +31,13 @@ export default function Breadcrumb({ items }: Props) {
             <span key={item.href} className="flex items-center gap-2">
               {i > 0 && <span aria-hidden="true">/</span>}
               {isLast ? (
-                <span aria-current="page" className="text-[#2B2118]/50 truncate max-w-[200px]">
+                <span aria-current="page" className="text-ink/50 truncate max-w-[200px]">
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className="hover:text-[#B68A3D] transition-colors"
+                  className="hover:text-gold-dark transition-colors"
                 >
                   {item.label}
                 </Link>

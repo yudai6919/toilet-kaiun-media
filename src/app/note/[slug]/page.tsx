@@ -163,7 +163,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         })}
       />
       {/* Hero / Header */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-6 bg-[#F8F4EE]">
+      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-6 bg-cream-warm">
         <div className="max-w-3xl mx-auto">
           <Breadcrumb
             items={[
@@ -180,27 +180,27 @@ export default async function BlogDetailPage({ params }: PageProps) {
             {categoryLabel.slug ? (
               <Link
                 href={`/category/${categoryLabel.slug}`}
-                className="text-[#B68A3D] text-[10px] font-semibold tracking-[0.2em] uppercase hover:text-[#2B2118] transition-colors"
+                className="text-gold-dark text-[10px] font-semibold tracking-[0.2em] uppercase hover:text-ink transition-colors"
               >
                 {categoryLabel.ja}
               </Link>
             ) : (
-              <span className="text-[#B68A3D] text-[10px] font-semibold tracking-[0.2em] uppercase">
+              <span className="text-gold-dark text-[10px] font-semibold tracking-[0.2em] uppercase">
                 {categoryLabel.ja}
               </span>
             )}
-            <span className="text-[#2B2118]/15 text-[10px]">|</span>
-            <time dateTime={blog.publishedAt} className="text-[11px] text-[#2B2118]/30 tracking-wide">
+            <span className="text-ink/15 text-[10px]">|</span>
+            <time dateTime={blog.publishedAt} className="text-[11px] text-ink/30 tracking-wide">
               {formatDate(blog.publishedAt)}
             </time>
           </div>
 
-          <h1 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-4xl font-bold leading-[1.5] tracking-[0.03em] text-[#2B2118] mb-6">
+          <h1 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl lg:text-4xl font-bold leading-[1.5] tracking-[0.03em] text-ink mb-6">
             {blog.title}
           </h1>
 
           {blog.description && (
-            <p className="text-sm md:text-base text-[#2B2118]/45 leading-[2] tracking-wide">
+            <p className="text-sm md:text-base text-ink/45 leading-[2] tracking-wide">
               {blog.description}
             </p>
           )}
@@ -209,9 +209,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
       {/* Eyecatch */}
       {blog.eyecatch && (
-        <div className="px-6 bg-[#F8F4EE] pb-12 md:pb-16">
+        <div className="px-6 bg-cream-warm pb-12 md:pb-16">
           <div className="max-w-4xl mx-auto">
-            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-sm bg-[#F8F4EE]">
+            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-sm bg-cream-warm">
               <Image
                 src={blog.eyecatch.url}
                 alt={blog.title}
@@ -226,7 +226,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       )}
 
       {/* Article Body */}
-      <article className="py-12 md:py-20 px-6 bg-[#FAF7F2]">
+      <article className="py-12 md:py-20 px-6 bg-cream">
         <div className="max-w-3xl mx-auto">
           {(() => {
             const processedBody = ensureHeadingIds(blog.body);
@@ -260,15 +260,15 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
       {/* Related Articles — Card Style */}
       {relatedBlogs.length > 0 && (
-        <section className="py-16 md:py-24 px-6 bg-[#F8F4EE]" aria-label="関連記事">
+        <section className="py-16 md:py-24 px-6 bg-cream-warm" aria-label="関連記事">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-8 h-px bg-[#B68A3D]/30" />
-              <p className="text-[#B68A3D]/60 text-[10px] font-semibold tracking-[0.3em] uppercase">
+              <div className="w-8 h-px bg-gold-dark/30" />
+              <p className="text-gold-dark/60 text-[10px] font-semibold tracking-[0.3em] uppercase">
                 Related
               </p>
             </div>
-            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold text-[#2B2118] mb-8 tracking-[0.03em]">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold text-ink mb-8 tracking-[0.03em]">
               あわせて読みたい
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -282,11 +282,11 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
       {/* Category Link */}
       {categoryLabel.slug && (
-        <section className="py-10 md:py-14 px-6 bg-[#F8F4EE] border-t border-[#E8DDC8]/50">
+        <section className="py-10 md:py-14 px-6 bg-cream-warm border-t border-border/50">
           <div className="max-w-3xl mx-auto text-center">
             <Link
               href={`/category/${categoryLabel.slug}`}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-[#FAF7F2] hover:border-transparent hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-gold-mid/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-ink/80 transition-all duration-300 hover:bg-ink hover:text-cream hover:border-transparent hover:-translate-y-0.5"
             >
               「{categoryLabel.ja}」の記事をもっと見る <span aria-hidden="true">&rarr;</span>
             </Link>
@@ -298,11 +298,11 @@ export default async function BlogDetailPage({ params }: PageProps) {
       <VoiceBanner bg="white" />
 
       {/* Back to list */}
-      <section className="py-12 md:py-16 px-6 bg-[#F8F4EE]">
+      <section className="py-12 md:py-16 px-6 bg-cream-warm">
         <div className="max-w-3xl mx-auto text-center">
           <Link
             href="/note"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-[#FAF7F2] hover:border-transparent hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-gold-mid/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-ink/80 transition-all duration-300 hover:bg-ink hover:text-cream hover:border-transparent hover:-translate-y-0.5"
           >
             <span aria-hidden="true">&larr;</span> 整えノートに戻る
           </Link>
@@ -310,14 +310,14 @@ export default async function BlogDetailPage({ params }: PageProps) {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 md:py-28 px-6 bg-[#FAF7F2]">
+      <section className="py-20 md:py-28 px-6 bg-cream">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-5 leading-[1.5] tracking-[0.04em] text-[#2B2118]">
+          <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-5 leading-[1.5] tracking-[0.04em] text-ink">
             人生を変えるきっかけは、
             <br />
             いつも小さな行動から。
           </h2>
-          <p className="text-[#2B2118]/45 text-sm md:text-base leading-relaxed tracking-wide mb-10">
+          <p className="text-ink/45 text-sm md:text-base leading-relaxed tracking-wide mb-10">
             TOTONOEは、トイレ掃除を
             <br className="sm:hidden" />
             毎日の整える習慣に変えるための
@@ -326,7 +326,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           </p>
           <Link
             href="/#app"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#C49A4A] px-10 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#B68A3D] hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-mid px-10 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-gold-dark hover:-translate-y-0.5"
           >
             今日から整える <span aria-hidden="true">&rarr;</span>
           </Link>
