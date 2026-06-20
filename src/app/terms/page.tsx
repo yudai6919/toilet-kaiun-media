@@ -5,6 +5,20 @@ const SITE_URL = "https://totonoe-life.jp";
 export const metadata: Metadata = {
   title: "利用規約",
   description: "TOTONOEの利用規約。サービスの利用条件について。",
+  openGraph: {
+    type: "website",
+    title: "利用規約 | TOTONOE",
+    description: "TOTONOEの利用規約。サービスの利用条件について。",
+    url: `${SITE_URL}/terms`,
+    siteName: "TOTONOE | 整え。",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "利用規約 | TOTONOE",
+    description: "TOTONOEの利用規約。サービスの利用条件について。",
+    images: [`${SITE_URL}/og-image.png`],
+  },
   alternates: {
     canonical: `${SITE_URL}/terms`,
   },

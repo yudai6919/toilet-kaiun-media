@@ -15,6 +15,14 @@ export const metadata: Metadata = {
       "トイレ掃除、習慣、心、暮らし。人生を少しずつ整えるための読みもの。",
     url: `${SITE_URL}/note`,
     type: "website",
+    siteName: "TOTONOE | 整え。",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "整えノート | トイレ掃除・開運・習慣化の読みもの",
+    description: "トイレ掃除、習慣、心、暮らし。人生を少しずつ整えるための読みもの。",
+    images: [`${SITE_URL}/og-image.png`],
   },
   alternates: {
     canonical: `${SITE_URL}/note`,

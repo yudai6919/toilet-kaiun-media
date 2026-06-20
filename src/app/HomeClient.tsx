@@ -721,10 +721,10 @@ export default function HomeClient({ latestBlogs, storyBlogs, categorySections }
             className="text-center"
           >
             <Link
-              href="#"
+              href="/app"
               className="rounded-full bg-[#C8A96B] px-10 py-4 text-sm font-semibold text-white tracking-wide transition-all duration-300 hover:bg-[#b89a5c] hover:-translate-y-0.5 inline-flex items-center gap-2"
             >
-              無料で始める <span>&rarr;</span>
+              無料で始める <span aria-hidden="true">&rarr;</span>
             </Link>
             <p className="text-white/20 text-xs mt-4 tracking-wide">iOS / Android 対応・無料</p>
           </motion.div>

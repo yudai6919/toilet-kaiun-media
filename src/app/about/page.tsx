@@ -82,8 +82,10 @@ export default function AboutPage() {
           },
           description:
             "TOTONOEは、空間・習慣・心を整えるための読みものサイトです。トイレ掃除をきっかけに、人生を少しずつ整えるヒントを発信しています。",
-          sameAs: [],
-          foundingDate: "2026",
+          sameAs: [
+            "https://totonoe-life.jp",
+          ],
+          foundingDate: "2026-01-01",
           knowsAbout: [
             "トイレ掃除",
             "習慣化",
