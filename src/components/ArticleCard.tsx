@@ -18,7 +18,7 @@ export default function ArticleCard({ blog, showImage = true }: Props) {
     <Link
       href={`/note/${blog.slug}`}
       aria-label={`${blog.title}を読む`}
-      className="group block h-full"
+      className="group block h-full rounded-2xl focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 outline-none"
     >
       <article className="rounded-2xl bg-cream border border-border/40 overflow-hidden transition-all duration-400 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col">
         {showImage && (

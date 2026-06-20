@@ -45,6 +45,7 @@ export default function SearchPageClient({ keyword, results, totalCount, popular
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="キーワードで記事を探す..."
+              aria-label="検索キーワード"
               className="w-full rounded-full border border-border bg-white px-6 py-4 pr-14 text-sm text-ink placeholder-ink/30 outline-none focus:border-gold-mid focus:ring-2 focus:ring-gold-mid/20 transition-all"
               autoFocus
             />

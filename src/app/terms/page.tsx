@@ -3,11 +3,11 @@ import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "利用規約",
-  description: "TOTONOEの利用規約。サービスの利用条件について。",
+  description: "TOTONOEの利用規約。当サイトが提供するコンテンツの利用条件、著作権、免責事項、禁止事項について定めています。ご利用前にご確認ください。",
   openGraph: {
     type: "website",
     title: "利用規約 | TOTONOE",
-    description: "TOTONOEの利用規約。サービスの利用条件について。",
+    description: "TOTONOEの利用規約。コンテンツの利用条件、著作権、免責事項について。",
     url: `${SITE_URL}/terms`,
     siteName: "TOTONOE | 整え。",
     images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "利用規約 | TOTONOE",
-    description: "TOTONOEの利用規約。サービスの利用条件について。",
+    description: "TOTONOEの利用規約。コンテンツの利用条件について。",
     images: [`${SITE_URL}/og-image.png`],
   },
   alternates: {

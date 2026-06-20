@@ -38,7 +38,7 @@ export default function PopularPosts({
               key={post.slug}
               href={`/note/${post.slug}`}
               aria-label={`${post.title}を読む`}
-              className={`group block h-full ${post.rank === 1 ? "md:col-span-2 lg:col-span-1" : ""}`}
+              className={`group block h-full rounded-2xl focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 outline-none ${post.rank === 1 ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
               <article
                 className={`rounded-2xl border overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col ${

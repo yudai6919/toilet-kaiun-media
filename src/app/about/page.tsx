@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
-import JsonLd from "@/components/JsonLd";
+import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import VoiceBanner from "@/components/VoiceBanner";
 import { SITE_URL } from "@/lib/constants";
 
@@ -68,6 +68,13 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "TOTONOEについて", url: `${SITE_URL}/about` },
+        ])}
+      />
+
       {/* JSON-LD: Organization */}
       <JsonLd
         data={{

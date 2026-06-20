@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
+import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -28,6 +29,12 @@ export const metadata: Metadata = {
 export default function HabitPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "習慣化", url: `${SITE_URL}/habit` },
+        ])}
+      />
       <section className="pt-32 md:pt-40 pb-24 md:pb-32 px-6">
         <div className="max-w-3xl mx-auto">
           <p className="text-gold text-xs tracking-[0.3em] mb-4 text-center">
