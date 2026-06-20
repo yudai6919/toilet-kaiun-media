@@ -43,7 +43,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav aria-label="メインナビゲーション" className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -79,7 +79,7 @@ export default function Header() {
           className="md:hidden fixed left-0 right-0 z-[60] overflow-y-auto"
           style={{ backgroundColor: "#FAF7F2", top: "64px", height: "calc(100vh - 64px)" }}
         >
-          <nav className="flex flex-col h-full px-6 pt-8 pb-10">
+          <nav aria-label="モバイルナビゲーション" className="flex flex-col h-full px-6 pt-8 pb-10">
             <div className="flex-1 space-y-1">
               {mobileNavLinks.map((link) => (
                 <Link
@@ -105,7 +105,7 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold to-gold-light px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-gold/20"
               >
-                無料で始める <span>&rarr;</span>
+                無料で始める <span aria-hidden="true">&rarr;</span>
               </Link>
               <p className="text-center text-[10px] text-warm-gray-light tracking-[0.3em]">TOTONOE</p>
             </div>

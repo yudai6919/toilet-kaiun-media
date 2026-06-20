@@ -15,6 +15,15 @@ export const metadata: Metadata = {
       "トイレ掃除を続けた人たちの、小さな変化の記録。人生が少しずつ整い始めた体験談。",
     url: `${SITE_URL}/stories`,
     type: "website",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    siteName: "TOTONOE | 整え。",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "整えの記録 | 体験談",
+    description:
+      "トイレ掃除を続けた人たちの、小さな変化の記録。人生が少しずつ整い始めた体験談。",
+    images: [`${SITE_URL}/og-image.png`],
   },
   alternates: {
     canonical: `${SITE_URL}/stories`,

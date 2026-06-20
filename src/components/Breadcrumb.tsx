@@ -31,7 +31,7 @@ export default function Breadcrumb({ items }: Props) {
             <span key={item.href} className="flex items-center gap-2">
               {i > 0 && <span aria-hidden="true">/</span>}
               {isLast ? (
-                <span className="text-[#2B2118]/50 truncate max-w-[200px]">
+                <span aria-current="page" className="text-[#2B2118]/50 truncate max-w-[200px]">
                   {item.label}
                 </span>
               ) : (

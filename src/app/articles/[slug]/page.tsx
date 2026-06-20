@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: article.description,
       url: pageUrl,
       siteName: "TOTONOE | 整え。",
-      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: article.title }],
     },
     twitter: {
       card: "summary_large_image",

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getBlogList, CATEGORIES } from "@/lib/microcms";
+import { articles } from "@/lib/articles";
 
 const SITE_URL = "https://totonoe-life.jp";
 
@@ -101,5 +102,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // microCMS未接続時はスキップ
   }
 
-  return [...staticPages, ...categoryPages, ...blogPages];
+  const articlePages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/articles`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...articles.map((a) => ({
+      url: `${SITE_URL}/articles/${a.slug}`,
+      lastModified: new Date(a.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    {
+      url: `${SITE_URL}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+  ];
+
+  return [...staticPages, ...categoryPages, ...blogPages, ...articlePages];
 }

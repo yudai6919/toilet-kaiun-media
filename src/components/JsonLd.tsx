@@ -29,6 +29,14 @@ export function websiteJsonLd() {
         url: "https://totonoe-life.jp/icon-512.png",
       },
     },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://totonoe-life.jp/note?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
@@ -80,6 +88,8 @@ export function articleJsonLd({
     image: {
       "@type": "ImageObject",
       url: imageUrl || "https://totonoe-life.jp/og-image.png",
+      width: 1200,
+      height: 630,
     },
   };
 }

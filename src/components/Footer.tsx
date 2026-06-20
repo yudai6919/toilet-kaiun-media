@@ -45,15 +45,15 @@ export default function Footer() {
               className="inline-flex items-center gap-2 mt-6 rounded-full bg-gold/10 border border-gold/20 px-5 py-2.5 text-xs font-semibold text-gold hover:bg-gold hover:text-charcoal transition-all duration-300"
             >
               今日から整える
-              <span>&rarr;</span>
+              <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
 
           {/* Content links */}
           <div className="md:col-span-3">
-            <p className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
+            <h2 className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
               カテゴリ
-            </p>
+            </h2>
             <ul className="space-y-3">
               {contentLinks.map((link) => (
                 <li key={link.href}>
@@ -74,9 +74,9 @@ export default function Footer() {
 
           {/* Guide links */}
           <div className="md:col-span-3">
-            <p className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
+            <h2 className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
               ガイド
-            </p>
+            </h2>
             <ul className="space-y-3">
               {guideLinks.map((link) => (
                 <li key={link.href}>
@@ -97,9 +97,9 @@ export default function Footer() {
 
           {/* App column */}
           <div className="md:col-span-2">
-            <p className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
+            <h2 className="text-xs font-semibold text-cream tracking-[0.15em] uppercase mb-5">
               About / App
-            </p>
+            </h2>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -145,11 +145,11 @@ export default function Footer() {
             &copy; 2026 TOTONOE All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-[11px] text-cream-dark/30">
-            <Link href="#" className="hover:text-cream-dark/60 transition-colors">
+            <Link href="/privacy" className="hover:text-cream-dark/60 transition-colors">
               プライバシーポリシー
             </Link>
             <span className="w-px h-3 bg-cream-dark/15" />
-            <Link href="#" className="hover:text-cream-dark/60 transition-colors">
+            <Link href="/terms" className="hover:text-cream-dark/60 transition-colors">
               利用規約
             </Link>
           </div>

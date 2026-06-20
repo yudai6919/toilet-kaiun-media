@@ -13,7 +13,7 @@ export default function ArticleSummary({ headings }: { headings: Heading[] }) {
       <ul className="space-y-3">
         {points.map((point, i) => (
           <li key={i} className="flex items-start gap-3 text-sm text-[#2B2118]/70 leading-relaxed tracking-wide">
-            <span className="text-[#C49A4A] text-[13px] mt-[2px] shrink-0">✓</span>
+            <span aria-hidden="true" className="text-[#C49A4A] text-[13px] mt-[2px] shrink-0">✓</span>
             <span>{point}</span>
           </li>
         ))}

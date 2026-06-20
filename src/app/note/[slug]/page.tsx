@@ -66,8 +66,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export async function generateStaticParams() {
   try {
-    const data = await getBlogList({ limit: 100, fields: "slug" });
-    return data.contents.map((blog) => ({ slug: blog.slug }));
+    const slugs: { slug: string }[] = [];
+    let offset = 0;
+    const limit = 100;
+    while (true) {
+      const data = await getBlogList({ limit, offset, fields: "slug" });
+      slugs.push(...data.contents.map((blog) => ({ slug: blog.slug })));
+      if (slugs.length >= data.totalCount) break;
+      offset += limit;
+    }
+    return slugs;
   } catch {
     return [];
   }
@@ -154,17 +162,6 @@ export default async function BlogDetailPage({ params }: PageProps) {
           category: categoryLabel.ja,
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "TOP", url: SITE_URL },
-          { name: "整えノート", url: `${SITE_URL}/note` },
-          ...(categoryLabel.slug
-            ? [{ name: categoryLabel.ja, url: `${SITE_URL}/category/${categoryLabel.slug}` }]
-            : []),
-          { name: blog.title, url: `${SITE_URL}/note/${blog.slug}` },
-        ])}
-      />
-
       {/* Hero / Header */}
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-6 bg-[#F8F4EE]">
         <div className="max-w-3xl mx-auto">
@@ -291,7 +288,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
               href={`/category/${categoryLabel.slug}`}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-[#FAF7F2] hover:border-transparent hover:-translate-y-0.5"
             >
-              「{categoryLabel.ja}」の記事をもっと見る <span>&rarr;</span>
+              「{categoryLabel.ja}」の記事をもっと見る <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </section>
@@ -307,7 +304,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             href="/note"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C49A4A]/25 bg-white/60 backdrop-blur-sm px-9 py-4 text-sm font-semibold text-[#2B2118]/80 transition-all duration-300 hover:bg-[#2B2118] hover:text-[#FAF7F2] hover:border-transparent hover:-translate-y-0.5"
           >
-            <span>&larr;</span> 整えノートに戻る
+            <span aria-hidden="true">&larr;</span> 整えノートに戻る
           </Link>
         </div>
       </section>
@@ -331,7 +328,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             href="/#app"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#C49A4A] px-10 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#B68A3D] hover:-translate-y-0.5"
           >
-            今日から整える <span>&rarr;</span>
+            今日から整える <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </section>

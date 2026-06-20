@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import { getBlogList, getBlogsByCategory, CATEGORIES, type Blog } from "@/lib/microcms";
 import HomeClient from "./HomeClient";
+
+const SITE_URL = "https://totonoe-life.jp";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: SITE_URL,
+  },
+};
 
 export default async function Home() {
   let latestBlogs: Blog[] = [];

@@ -16,6 +16,14 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/voice`,
     type: "website",
     siteName: "TOTONOE | 整え。",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "みんなの整えの記録 | TOTONOE",
+    description:
+      "TOTONOEの読者が共有する、小さな整えの記録。今日整えたことを記録して、静かな一歩を共有しましょう。",
+    images: [`${SITE_URL}/og-image.png`],
   },
   alternates: {
     canonical: `${SITE_URL}/voice`,

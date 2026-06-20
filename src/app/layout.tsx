@@ -82,7 +82,6 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   alternates: {
-    canonical: SITE_URL,
     types: {
       "application/rss+xml": `${SITE_URL}/rss.xml`,
     },
@@ -141,8 +140,11 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#2B2118] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">
+          メインコンテンツへスキップ
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

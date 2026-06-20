@@ -18,8 +18,16 @@ export async function GET() {
   let items = "";
 
   try {
-    const data = await getBlogList({ limit: 50 });
-    items = data.contents
+    let allBlogs: Awaited<ReturnType<typeof getBlogList>>["contents"] = [];
+    let offset = 0;
+    const limit = 100;
+    while (true) {
+      const data = await getBlogList({ limit, offset, fields: "title,slug,description,publishedAt,category" });
+      allBlogs.push(...data.contents);
+      if (allBlogs.length >= data.totalCount) break;
+      offset += limit;
+    }
+    items = allBlogs
       .map(
         (blog) => `
     <item>

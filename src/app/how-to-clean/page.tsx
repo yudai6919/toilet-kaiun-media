@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import CtaButton from "@/components/CtaButton";
 
 const SITE_URL = "https://totonoe-life.jp";
@@ -50,6 +51,27 @@ export default function HowToCleanPage() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "1分でできるトイレ掃除のやり方",
+          description: "1分でできるトイレ掃除の手順を、初心者向けにわかりやすく解説します。",
+          totalTime: "PT1M",
+          supply: [
+            { "@type": "HowToSupply", name: "トイレクリーナーシート（流せるタイプ）" },
+            { "@type": "HowToSupply", name: "トイレブラシ（週1回用）" },
+            { "@type": "HowToSupply", name: "トイレ用中性洗剤（週1回用）" },
+          ],
+          step: steps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.title,
+            text: s.desc,
+            url: `${SITE_URL}/how-to-clean#step-${s.num}`,
+          })),
+        }}
+      />
       <section className="pt-32 md:pt-40 pb-24 md:pb-32 px-6">
         <div className="max-w-3xl mx-auto">
           <p className="text-gold text-xs tracking-[0.3em] mb-4 text-center">

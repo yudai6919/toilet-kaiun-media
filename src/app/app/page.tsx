@@ -18,6 +18,14 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/app`,
     type: "website",
     siteName: "TOTONOE | 整え。",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TOTONOEアプリ｜トイレ掃除を習慣にするアプリ",
+    description:
+      "トイレ掃除や小さな習慣を記録し、人生を少しずつ整えるTOTONOEアプリ。先行案内はLINEで受付中。",
+    images: [`${SITE_URL}/og-image.png`],
   },
   alternates: {
     canonical: `${SITE_URL}/app`,
