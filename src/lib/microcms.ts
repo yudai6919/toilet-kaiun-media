@@ -146,6 +146,22 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   return data.contents[0] ?? null;
 }
 
+/** Search blogs by keyword (full-text) */
+export async function searchBlogs(
+  keyword: string,
+  queries?: MicroCMSQueries
+): Promise<BlogListResponse> {
+  if (!client || !keyword.trim()) return emptyResponse;
+  return await client.get<BlogListResponse>({
+    endpoint: "blogs",
+    queries: {
+      q: keyword.trim(),
+      orders: "-publishedAt",
+      ...queries,
+    },
+  });
+}
+
 /** Fetch blogs filtered by category */
 export async function getBlogsByCategory(
   category: string,
