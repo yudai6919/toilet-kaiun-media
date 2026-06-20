@@ -15,8 +15,8 @@ const navLinks = [
 
 const mobileNavLinks = [
   { href: "/search", label: "記事を検索", icon: Search, desc: "キーワードで記事を探す" },
-  { href: "#about", label: "TOTONOEとは", icon: Sparkles, desc: "サービスの紹介" },
-  { href: "#manga", label: "漫画で読む", icon: BookImage, desc: "ストーリーで体験する" },
+  { href: "/#about", label: "TOTONOEとは", icon: Sparkles, desc: "サービスの紹介" },
+  { href: "/#manga", label: "漫画で読む", icon: BookImage, desc: "ストーリーで体験する" },
   { href: "/note", label: "整えノート", icon: FileText, desc: "すべての記事を読む" },
   { href: "/stories", label: "体験談", icon: MessageCircle, desc: "変化の記録を読む" },
   { href: "/voice", label: "みんなの記録", icon: PenLine, desc: "今日の整えを共有する" },
@@ -24,7 +24,7 @@ const mobileNavLinks = [
   { href: "/category/kaiun", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
   { href: "/category/mind", label: "心を整える", icon: Heart, desc: "掃除は動く瞑想" },
   { href: "/category/life", label: "丁寧な暮らし", icon: Leaf, desc: "暮らし全体を整える" },
-  { href: "#app", label: "アプリ", icon: Smartphone, desc: "無料で記録・継続サポート" },
+  { href: "/#app", label: "アプリ", icon: Smartphone, desc: "無料で記録・継続サポート" },
 ];
 
 export default function Header() {
@@ -62,7 +62,7 @@ export default function Header() {
             <Search className="h-4 w-4" strokeWidth={1.8} />
           </Link>
           <Link
-            href="#app"
+            href="/#app"
             className="rounded-full bg-charcoal text-cream px-5 py-2 text-xs font-semibold hover:bg-charcoal-light transition-colors"
           >
             無料で始める
@@ -109,7 +109,7 @@ export default function Header() {
 
             <div className="space-y-3 pt-6 border-t border-cream-dark/30">
               <Link
-                href="#app"
+                href="/#app"
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold to-gold-light px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-gold/20"
               >

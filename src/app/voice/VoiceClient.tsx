@@ -3,15 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-const fade = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: i * 0.12, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
-  }),
-};
+import { fade } from "@/lib/animations";
+import { type VoiceEntry, VOICE_STORAGE_KEY } from "@/lib/types";
 
 type Mood = {
   emoji: string;
@@ -26,17 +19,7 @@ const moods: Mood[] = [
   { emoji: "🥲", label: "まだつらい", value: "tough" },
 ];
 
-type VoiceEntry = {
-  id: string;
-  name: string;
-  content: string;
-  mood: string;
-  moodEmoji: string;
-  moodLabel: string;
-  createdAt: string;
-};
-
-const STORAGE_KEY = "totonoe-voices";
+const STORAGE_KEY = VOICE_STORAGE_KEY;
 
 function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);

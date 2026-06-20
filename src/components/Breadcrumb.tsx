@@ -1,7 +1,6 @@
 import Link from "next/link";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 type BreadcrumbItem = {
   label: string;

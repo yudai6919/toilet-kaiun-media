@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "習慣化",

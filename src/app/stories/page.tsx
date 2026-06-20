@@ -2,8 +2,7 @@ import { getBlogList, type Blog } from "@/lib/microcms";
 import type { Metadata } from "next";
 import StoriesPageClient from "./StoriesPageClient";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "整えの記録 | 体験談",

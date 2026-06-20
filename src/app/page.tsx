@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { getBlogList, getBlogsByCategory, CATEGORIES, type Blog } from "@/lib/microcms";
+import { SITE_URL } from "@/lib/constants";
 import HomeClient from "./HomeClient";
-
-const SITE_URL = "https://totonoe-life.jp";
 
 export const metadata: Metadata = {
   alternates: {

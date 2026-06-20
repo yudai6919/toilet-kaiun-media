@@ -4,12 +4,10 @@ import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd, { websiteJsonLd } from "@/components/JsonLd";
+import { SITE_URL, SITE_NAME } from "@/lib/constants";
 import "./globals.css";
 
 const GA_ID = "G-126D80EZ2Q";
-
-const SITE_URL = "https://totonoe-life.jp";
-const SITE_NAME = "TOTONOE | 整え。";
 const SITE_DESCRIPTION =
   "トイレ掃除を、人生を整える習慣へ。たった1分の積み重ねが心と運を整える。開運・習慣化・丁寧な暮らしのためのメディアサイト。";
 

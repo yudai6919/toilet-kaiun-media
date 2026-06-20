@@ -1,6 +1,5 @@
 import { getBlogList } from "@/lib/microcms";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 const SITE_TITLE = "TOTONOE | 整え。";
 const SITE_DESCRIPTION =
   "トイレ掃除を、人生を整える習慣へ。たった1分の積み重ねが心と運を整える。開運・習慣化・丁寧な暮らしのためのメディアサイト。";

@@ -4,18 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fade } from "@/lib/animations";
-
-type VoiceEntry = {
-  id: string;
-  name: string;
-  content: string;
-  mood: string;
-  moodEmoji: string;
-  moodLabel: string;
-  createdAt: string;
-};
-
-const VOICE_STORAGE_KEY = "totonoe-voices";
+import { type VoiceEntry, VOICE_STORAGE_KEY } from "@/lib/types";
 
 const SAMPLE_VOICES = [
   { emoji: "😊", mood: "少し軽くなった", text: "トイレを3分だけ掃除した。\n少し気持ちが落ち着いた。", name: "匿名" },

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "コラム一覧",

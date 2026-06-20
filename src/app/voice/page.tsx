@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import VoiceClient from "./VoiceClient";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "みんなの整えの記録 | TOTONOE",

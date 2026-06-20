@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import WaitlistClient from "./WaitlistClient";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "TOTONOEアプリ開発中｜先行案内受付中",

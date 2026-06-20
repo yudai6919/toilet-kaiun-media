@@ -3,8 +3,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import VoiceBanner from "@/components/VoiceBanner";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "TOTONOEについて｜人生変えたいなら、まずトイレを磨け。",

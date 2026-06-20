@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getBlogList, CATEGORIES } from "@/lib/microcms";
 import { articles } from "@/lib/articles";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [

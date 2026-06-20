@@ -1,9 +1,8 @@
-import { getBlogList, CATEGORIES, type Blog } from "@/lib/microcms";
+import { getAllBlogs, CATEGORIES, type Blog } from "@/lib/microcms";
 import type { Metadata } from "next";
 import NotePageClient from "./NotePageClient";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "整えノート | トイレ掃除・開運・習慣化の読みもの",
@@ -34,7 +33,7 @@ export default async function NotePage() {
   let totalCount = 0;
 
   try {
-    const data = await getBlogList({ limit: 50 });
+    const data = await getAllBlogs();
     blogs = data.contents;
     totalCount = data.totalCount;
   } catch (e) {

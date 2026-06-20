@@ -3,8 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, getArticle } from "@/lib/articles";
 import CtaButton from "@/components/CtaButton";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 type Props = {
   params: Promise<{ slug: string }>;

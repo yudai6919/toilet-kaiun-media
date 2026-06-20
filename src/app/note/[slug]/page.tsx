@@ -11,8 +11,7 @@ import PopularPosts from "@/components/PopularPosts";
 import VoiceBanner from "@/components/VoiceBanner";
 import ArticleSummary from "@/components/ArticleSummary";
 import TableOfContents from "@/components/TableOfContents";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 type PageProps = { params: Promise<{ slug: string }> };
 

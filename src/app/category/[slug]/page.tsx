@@ -6,8 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import PopularPosts from "@/components/PopularPosts";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 const RECOMMENDED_SLUGS = [
   "clean-toilet-when-life-not-going-well",

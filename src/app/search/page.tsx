@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { searchBlogs, getBlogList, type Blog } from "@/lib/microcms";
 import SearchPageClient from "./SearchPageClient";
-
-const SITE_URL = "https://totonoe-life.jp";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "検索",

@@ -132,6 +132,27 @@ export async function getBlogList(queries?: MicroCMSQueries): Promise<BlogListRe
   });
 }
 
+/** Fetch all blogs (handles pagination for 100+ articles) */
+export async function getAllBlogs(): Promise<BlogListResponse> {
+  if (!client) return emptyResponse;
+  const PER_PAGE = 100;
+  const first = await getBlogList({ limit: PER_PAGE, offset: 0 });
+  if (first.totalCount <= PER_PAGE) return first;
+
+  const remaining = Math.ceil((first.totalCount - PER_PAGE) / PER_PAGE);
+  const rest = await Promise.all(
+    Array.from({ length: remaining }, (_, i) =>
+      getBlogList({ limit: PER_PAGE, offset: PER_PAGE * (i + 1) })
+    )
+  );
+  return {
+    contents: [first.contents, ...rest.map((r) => r.contents)].flat(),
+    totalCount: first.totalCount,
+    offset: 0,
+    limit: first.totalCount,
+  };
+}
+
 /** Fetch single blog by slug */
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   if (!client) return null;
