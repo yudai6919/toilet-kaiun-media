@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Sparkles, BookImage, CalendarCheck, Smartphone, MessageCircle, FileText, Heart, Leaf, PenLine } from "lucide-react";
+import { Sparkles, BookImage, CalendarCheck, Smartphone, MessageCircle, FileText, Heart, Leaf, PenLine, Search } from "lucide-react";
 
 const navLinks = [
   { href: "/note", label: "整えノート", icon: FileText, desc: "すべての記事を読む" },
@@ -14,6 +14,7 @@ const navLinks = [
 ];
 
 const mobileNavLinks = [
+  { href: "/search", label: "記事を検索", icon: Search, desc: "キーワードで記事を探す" },
   { href: "#about", label: "TOTONOEとは", icon: Sparkles, desc: "サービスの紹介" },
   { href: "#manga", label: "漫画で読む", icon: BookImage, desc: "ストーリーで体験する" },
   { href: "/note", label: "整えノート", icon: FileText, desc: "すべての記事を読む" },
@@ -53,6 +54,13 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/search"
+            className="text-warm-gray hover:text-charcoal transition-colors"
+            aria-label="検索"
+          >
+            <Search className="h-4 w-4" strokeWidth={1.8} />
+          </Link>
           <Link
             href="#app"
             className="rounded-full bg-charcoal text-cream px-5 py-2 text-xs font-semibold hover:bg-charcoal-light transition-colors"
