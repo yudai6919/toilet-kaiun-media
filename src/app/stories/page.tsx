@@ -5,7 +5,7 @@ import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "整えの記録 | 体験談",
+  title: "整えの記録｜トイレ掃除を続けた人たちの体験談",
   description:
     "トイレ掃除を続けた人たちの、小さな変化の記録。朝が楽になった、部屋を片付けられた、気持ちが軽くなった。人生が少しずつ整い始めた体験談を集めました。",
   openGraph: {

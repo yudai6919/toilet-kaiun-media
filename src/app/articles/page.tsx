@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
+import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "コラム一覧",
+  title: "コラム一覧｜トイレ掃除・開運・習慣化の読みもの",
   description:
     "トイレ掃除と開運の関係、習慣化のコツ、心を整える方法に関するコラム記事の一覧。TOTONOEが厳選した読みものを通じて、暮らしを少しずつ整えるヒントをお届けします。",
   openGraph: {
@@ -29,7 +30,34 @@ export const metadata: Metadata = {
 
 export default function ArticlesPage() {
   return (
-    <section className="pt-32 md:pt-40 pb-24 md:pb-32 px-6">
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "コラム", url: `${SITE_URL}/articles` },
+        ])}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "コラム一覧",
+          description: "トイレ掃除と開運の関係、習慣化のコツ、心を整える方法に関するコラム記事の一覧。",
+          url: `${SITE_URL}/articles`,
+          isPartOf: { "@type": "WebSite", name: "TOTONOE | 整え。", url: SITE_URL },
+          mainEntity: {
+            "@type": "ItemList",
+            numberOfItems: articles.length,
+            itemListElement: articles.map((a, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${SITE_URL}/articles/${a.slug}`,
+              name: a.title,
+            })),
+          },
+        }}
+      />
+      <section className="pt-32 md:pt-40 pb-24 md:pb-32 px-6">
       <div className="max-w-4xl mx-auto">
         <p className="text-gold text-xs tracking-[0.3em] mb-4 text-center">
           ARTICLES
@@ -71,5 +99,6 @@ export default function ArticlesPage() {
         </div>
       </div>
     </section>
+    </>
   );
 }

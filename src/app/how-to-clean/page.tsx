@@ -4,7 +4,7 @@ import CtaButton from "@/components/CtaButton";
 import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "トイレ掃除のやり方",
+  title: "トイレ掃除のやり方｜たった1分・3ステップで完了",
   description:
     "1分でできるトイレ掃除の手順を、初心者向けにわかりやすく解説します。",
   openGraph: {

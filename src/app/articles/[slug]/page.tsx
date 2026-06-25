@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, getArticle } from "@/lib/articles";
 import CtaButton from "@/components/CtaButton";
+import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 
 type Props = {
@@ -95,7 +96,35 @@ export default async function ArticlePage({ params }: Props) {
   const content = articleContent[slug] || [article.description];
 
   return (
-    <section className="pt-32 md:pt-40 pb-24 md:pb-32 px-6">
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "コラム", url: `${SITE_URL}/articles` },
+          { name: article.title, url: `${SITE_URL}/articles/${slug}` },
+        ])}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: article.title,
+          description: article.description,
+          url: `${SITE_URL}/articles/${slug}`,
+          datePublished: article.date,
+          dateModified: article.date,
+          author: { "@type": "Organization", name: "TOTONOE", url: SITE_URL },
+          publisher: {
+            "@type": "Organization",
+            name: "TOTONOE",
+            url: SITE_URL,
+            logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-512.png` },
+          },
+          image: `${SITE_URL}/og-image.png`,
+          mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/articles/${slug}` },
+        }}
+      />
+      <section className="pt-32 md:pt-40 pb-24 md:pb-32 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="mb-12">
           <Link
@@ -162,5 +191,6 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       </div>
     </section>
+    </>
   );
 }

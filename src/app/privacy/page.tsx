@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "プライバシーポリシー",
+  title: "プライバシーポリシー｜個人情報の取り扱いについて",
   description: "TOTONOEのプライバシーポリシー。個人情報の取り扱い方針、Cookieの使用、Google Analyticsによるアクセス解析、お問い合わせ時の情報管理について詳しくご説明しています。",
   openGraph: {
     type: "website",

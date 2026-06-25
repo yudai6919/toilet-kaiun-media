@@ -4,7 +4,7 @@ import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "習慣化",
+  title: "トイレ掃除の習慣化｜21日間で身につく継続のコツ",
   description:
     "トイレ掃除を21日間で習慣にするための科学的アプローチと実践的なテクニック。",
   openGraph: {

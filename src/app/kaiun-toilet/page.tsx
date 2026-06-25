@@ -4,7 +4,7 @@ import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "開運×トイレ掃除",
+  title: "開運×トイレ掃除｜運気を上げる掃除の秘訣",
   description:
     "なぜトイレ掃除が運気を上げるのか。古来の知恵と現代の視点から紐解きます。",
   openGraph: {
