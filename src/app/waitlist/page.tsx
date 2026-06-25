@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "トイレ掃除や小さな習慣を記録し、人生を少しずつ整えるTOTONOEアプリ。先行案内受付中。",
     url: `${SITE_URL}/waitlist`,
     type: "website",
+    locale: "ja_JP",
     siteName: "TOTONOE | 整え。",
     images: [
       {

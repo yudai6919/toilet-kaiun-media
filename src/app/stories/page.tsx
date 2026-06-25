@@ -14,7 +14,8 @@ export const metadata: Metadata = {
       "トイレ掃除を続けた人たちの、小さな変化の記録。人生が少しずつ整い始めた体験談。",
     url: `${SITE_URL}/stories`,
     type: "website",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "整えの記録 - TOTONOE" }],
     siteName: "TOTONOE | 整え。",
   },
   twitter: {

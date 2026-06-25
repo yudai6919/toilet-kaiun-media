@@ -7,61 +7,61 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
-      lastModified: new Date(),
+      lastModified: "2025-06-01",
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${SITE_URL}/note`,
-      lastModified: new Date(),
+      lastModified: "2025-06-01",
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/stories`,
-      lastModified: new Date(),
+      lastModified: "2025-06-01",
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/kaiun-toilet`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/how-to-clean`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/habit`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/app`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${SITE_URL}/about`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${SITE_URL}/waitlist`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/voice`,
-      lastModified: new Date(),
+      lastModified: "2025-06-01",
       changeFrequency: "daily",
       priority: 0.7,
     },
@@ -69,7 +69,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${SITE_URL}/category/${cat.slug}`,
-    lastModified: new Date(),
+    lastModified: "2025-06-01",
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
@@ -98,25 +98,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articlePages: MetadataRoute.Sitemap = [
     {
       url: `${SITE_URL}/articles`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     ...articles.map((a) => ({
       url: `${SITE_URL}/articles/${a.slug}`,
-      lastModified: new Date(a.date),
+      lastModified: a.date,
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
     {
       url: `${SITE_URL}/privacy`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/terms`,
-      lastModified: new Date(),
+      lastModified: "2025-05-01",
       changeFrequency: "yearly",
       priority: 0.3,
     },

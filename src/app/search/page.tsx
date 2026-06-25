@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     description: "TOTONOEの記事を検索。トイレ掃除・開運・習慣化に関する記事を探せます。",
     url: `${SITE_URL}/search`,
     siteName: "TOTONOE | 整え。",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "検索 - TOTONOE" }],
   },
   robots: { index: false, follow: true },
   alternates: {

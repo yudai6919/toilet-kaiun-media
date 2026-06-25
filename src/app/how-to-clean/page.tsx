@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     description: "1分でできるトイレ掃除の手順を、初心者向けにわかりやすく解説します。",
     url: `${SITE_URL}/how-to-clean`,
     siteName: "TOTONOE | 整え。",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "トイレ掃除のやり方 - TOTONOE" }],
   },
   twitter: {
     card: "summary_large_image",

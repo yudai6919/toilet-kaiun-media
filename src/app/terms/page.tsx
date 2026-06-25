@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     description: "TOTONOEの利用規約。コンテンツの利用条件、著作権、免責事項について。",
     url: `${SITE_URL}/terms`,
     siteName: "TOTONOE | 整え。",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "利用規約 - TOTONOE" }],
   },
   twitter: {
     card: "summary_large_image",

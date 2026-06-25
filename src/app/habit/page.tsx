@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     description: "トイレ掃除を21日間で習慣にするための科学的アプローチと実践的なテクニック。",
     url: `${SITE_URL}/habit`,
     siteName: "TOTONOE | 整え。",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "習慣化 - TOTONOE" }],
   },
   twitter: {
     card: "summary_large_image",

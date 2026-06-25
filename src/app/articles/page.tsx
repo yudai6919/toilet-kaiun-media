@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     description: "トイレ掃除と開運の関係、習慣化のコツ、心を整える方法に関するコラム記事の一覧。",
     url: `${SITE_URL}/articles`,
     siteName: "TOTONOE | 整え。",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "コラム一覧 - TOTONOE" }],
   },
   twitter: {
     card: "summary_large_image",

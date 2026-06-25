@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import ArticleCard from "@/components/ArticleCard";
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
-import JsonLd from "@/components/JsonLd";
+import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import PopularPosts from "@/components/PopularPosts";
 import { SITE_URL } from "@/lib/constants";
 
@@ -49,6 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: cat.description,
       url: pageUrl,
       type: "website",
+      locale: "ja_JP",
       siteName: "TOTONOE | 整え。",
       images: [
         {
@@ -99,6 +100,15 @@ export default async function CategoryPage({ params }: PageProps) {
 
   return (
     <>
+      {/* JSON-LD: BreadcrumbList */}
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "整えノート", url: `${SITE_URL}/note` },
+          { name: cat.ja, url: `${SITE_URL}/category/${slug}` },
+        ])}
+      />
+
       {/* JSON-LD: CollectionPage */}
       <JsonLd
         data={{

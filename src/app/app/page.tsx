@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/app`,
     type: "website",
     siteName: "TOTONOE | 整え。",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "TOTONOEアプリ" }],
   },
   twitter: {
     card: "summary_large_image",

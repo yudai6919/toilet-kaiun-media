@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     description: "TOTONOEのプライバシーポリシー。個人情報の取り扱い方針、Cookieの使用、Google Analyticsによるアクセス解析について。",
     url: `${SITE_URL}/privacy`,
     siteName: "TOTONOE | 整え。",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "プライバシーポリシー - TOTONOE" }],
   },
   twitter: {
     card: "summary_large_image",

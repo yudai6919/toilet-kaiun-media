@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/note`,
     type: "website",
     siteName: "TOTONOE | 整え。",
-    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "整えノート - TOTONOE" }],
   },
   twitter: {
     card: "summary_large_image",

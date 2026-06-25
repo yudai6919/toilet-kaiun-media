@@ -26,7 +26,13 @@ export async function GET() {
       if (allBlogs.length >= data.totalCount) break;
       offset += limit;
     }
+    const seen = new Set<string>();
     items = allBlogs
+      .filter((blog) => {
+        if (seen.has(blog.slug)) return false;
+        seen.add(blog.slug);
+        return true;
+      })
       .map(
         (blog) => `
     <item>

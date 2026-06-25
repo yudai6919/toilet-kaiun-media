@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: blog.description || `${blog.title} - TOTONOEの整えノート`,
     openGraph: {
       type: "article",
+      locale: "ja_JP",
       title: blog.title,
       description: blog.description || `${blog.title} - TOTONOEの整えノート`,
       url: pageUrl,

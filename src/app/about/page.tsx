@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "TOTONOEは、空間・習慣・心を整えるための読みものサイトです。トイレ掃除をきっかけに、人生を少しずつ整えるヒントを発信しています。",
     url: `${SITE_URL}/about`,
     type: "website",
+    locale: "ja_JP",
     siteName: "TOTONOE | 整え。",
     images: [
       {
