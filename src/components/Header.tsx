@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/voice", label: "みんなの記録", icon: PenLine, desc: "整えを共有する" },
   { href: "/category/habit", label: "整える習慣", icon: CalendarCheck, desc: "毎日1分の整え習慣" },
   { href: "/category/mind", label: "心を整える", icon: Heart, desc: "掃除は動く瞑想" },
-  { href: "/category/kaiun", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
+  { href: "/kaiun-toilet", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
 ];
 
 const mobileNavLinks = [
@@ -21,7 +21,7 @@ const mobileNavLinks = [
   { href: "/stories", label: "体験談", icon: MessageCircle, desc: "変化の記録を読む" },
   { href: "/voice", label: "みんなの記録", icon: PenLine, desc: "今日の整えを共有する" },
   { href: "/category/habit", label: "整える習慣", icon: CalendarCheck, desc: "毎日1分の整え習慣" },
-  { href: "/category/kaiun", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
+  { href: "/kaiun-toilet", label: "開運", icon: Sparkles, desc: "トイレ掃除×開運" },
   { href: "/category/mind", label: "心を整える", icon: Heart, desc: "掃除は動く瞑想" },
   { href: "/category/life", label: "丁寧な暮らし", icon: Leaf, desc: "暮らし全体を整える" },
   { href: "/#app", label: "アプリ", icon: Smartphone, desc: "無料で記録・継続サポート" },

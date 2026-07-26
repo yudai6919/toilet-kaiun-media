@@ -25,9 +25,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${SITE_URL}/kaiun-toilet`,
-      lastModified: "2025-05-01",
-      changeFrequency: "monthly",
-      priority: 0.6,
+      lastModified: "2026-07-26",
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${SITE_URL}/how-to-clean`,

@@ -12,7 +12,7 @@ const contentLinks = [
 ];
 
 const guideLinks = [
-  { href: "/kaiun-toilet", label: "開運×トイレ掃除", icon: Sparkles },
+  { href: "/kaiun-toilet", label: "トイレ掃除で開運", icon: Sparkles },
   { href: "/how-to-clean", label: "掃除のやり方", icon: Droplets },
   { href: "/habit", label: "習慣化ガイド", icon: CalendarCheck },
 ];
