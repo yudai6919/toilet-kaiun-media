@@ -50,7 +50,7 @@ export default function HeroSection() {
             >
               人生変えたいなら、
               <br />
-              <span className="font-black tracking-[0.06em]">まずトイレを磨け。</span>
+              <span className="font-bold tracking-[0.06em]">まずトイレを磨け。</span>
             </motion.h1>
 
             <motion.p
@@ -132,7 +132,7 @@ export default function HeroSection() {
               className="font-[var(--font-zen-old-mincho)] text-[2.1rem] sm:text-[2.6rem] font-bold leading-[1.35] tracking-[0.04em] text-ink mb-4"
             >
               人生変えたいなら、<br />
-              <span className="font-black text-[2.4rem] sm:text-[2.9rem] tracking-[0.06em]">まずトイレを磨け。</span>
+              <span className="font-bold text-[2.4rem] sm:text-[2.9rem] tracking-[0.06em]">まずトイレを磨け。</span>
             </motion.h1>
 
             <motion.p

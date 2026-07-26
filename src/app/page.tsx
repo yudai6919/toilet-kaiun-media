@@ -3,6 +3,8 @@ import { getBlogList, getBlogsByCategory, CATEGORIES, type Blog } from "@/lib/mi
 import { SITE_URL } from "@/lib/constants";
 import HomeClient from "./HomeClient";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
@@ -22,34 +24,31 @@ export default async function Home() {
 
   const categorySections: CategorySection[] = [];
 
+  const targetCategories = CATEGORIES.filter((c) => c.slug !== "stories");
+
   try {
-    const data = await getBlogList({ limit: 50 });
-    latestBlogs = data.contents;
-    storyBlogs = data.contents.filter(
+    const [latestData, ...categoryResults] = await Promise.all([
+      getBlogList({ limit: 50 }),
+      ...targetCategories.map((cat) => getBlogsByCategory(cat.ja, { limit: 6 })),
+    ]);
+
+    latestBlogs = latestData.contents;
+    storyBlogs = latestData.contents.filter(
       (b) => b.category && b.category.includes("体験談")
     );
-  } catch {
-    // microCMS未接続時はフォールバック
-  }
 
-  const targetCategories = CATEGORIES.filter((c) => c.slug !== "stories");
-  for (const cat of targetCategories) {
-    try {
-      const data = await getBlogsByCategory(cat.ja, { limit: 6 });
+    targetCategories.forEach((cat, i) => {
       categorySections.push({
         slug: cat.slug,
         ja: cat.ja,
         en: cat.en,
-        blogs: data.contents,
+        blogs: categoryResults[i]?.contents ?? [],
       });
-    } catch {
-      categorySections.push({
-        slug: cat.slug,
-        ja: cat.ja,
-        en: cat.en,
-        blogs: [],
-      });
-    }
+    });
+  } catch {
+    targetCategories.forEach((cat) => {
+      categorySections.push({ slug: cat.slug, ja: cat.ja, en: cat.en, blogs: [] });
+    });
   }
 
   return (

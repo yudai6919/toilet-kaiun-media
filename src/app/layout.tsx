@@ -14,14 +14,14 @@ const SITE_DESCRIPTION =
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "700"],
   display: "swap",
 });
 
 const zenOldMincho = Zen_Old_Mincho({
   variable: "--font-zen-old-mincho",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "700"],
   display: "swap",
 });
 

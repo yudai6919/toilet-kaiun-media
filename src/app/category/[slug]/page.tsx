@@ -1,5 +1,7 @@
 import { getBlogsByCategory, getBlogList, CATEGORIES, getCategoryBySlug, type Blog } from "@/lib/microcms";
 import type { Metadata } from "next";
+
+export const revalidate = 60;
 import { notFound } from "next/navigation";
 import ArticleCard from "@/components/ArticleCard";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -79,23 +81,20 @@ export default async function CategoryPage({ params }: PageProps) {
 
   let blogs: Blog[] = [];
   let totalCount = 0;
-
-  try {
-    const data = await getBlogsByCategory(cat.ja, { limit: 50 });
-    blogs = data.contents;
-    totalCount = data.totalCount;
-  } catch {
-    // graceful fallback
-  }
-
   let recommendedBlogs: Blog[] = [];
+
   try {
-    const data = await getBlogList({ limit: 50 });
+    const [categoryData, recData] = await Promise.all([
+      getBlogsByCategory(cat.ja, { limit: 50 }),
+      getBlogList({ limit: 50 }),
+    ]);
+    blogs = categoryData.contents;
+    totalCount = categoryData.totalCount;
     recommendedBlogs = RECOMMENDED_SLUGS
-      .map((s) => data.contents.find((b) => b.slug === s))
+      .map((s) => recData.contents.find((b) => b.slug === s))
       .filter((b): b is Blog => b != null);
   } catch {
-    // fallback
+    // graceful fallback
   }
 
   return (

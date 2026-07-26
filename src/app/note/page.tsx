@@ -4,6 +4,8 @@ import NotePageClient from "./NotePageClient";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "整えノート | トイレ掃除・開運・習慣化の読みもの",
   description:

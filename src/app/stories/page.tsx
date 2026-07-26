@@ -4,6 +4,8 @@ import StoriesPageClient from "./StoriesPageClient";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "整えの記録｜トイレ掃除を続けた人たちの体験談",
   description:
