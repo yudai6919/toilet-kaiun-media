@@ -443,11 +443,106 @@ export default function KaiunToiletPage() {
             </div>
           </section>
 
-          {/* 関連ページへの内部リンク */}
+          {/* 関連記事：トイレ掃除×開運 */}
           <section className="border-t border-border/40 pt-16">
-            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold mb-8 leading-[1.5] tracking-[0.04em] text-charcoal">
-              あわせて読みたい
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold mb-4 leading-[1.5] tracking-[0.04em] text-charcoal">
+              トイレ掃除×開運をもっと深く知る
             </h2>
+            <p className="text-sm text-charcoal/40 mb-8">トイレ掃除と開運に関する記事を目的別にまとめました。</p>
+
+            <div className="space-y-10">
+              <div>
+                <p className="text-xs font-semibold text-gold/60 tracking-[0.2em] uppercase mb-4">体験談・実例</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Link href="/note/toilet-cleaning-mysterious-experiences" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除の不思議体験7選</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">「掃除を始めたら人生が変わった」実話集</p>
+                  </Link>
+                  <Link href="/note/toilet-cleaning-money-luck-stories" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除で金運アップした体験談5選</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">臨時収入・昇給など金運が変わった実話</p>
+                  </Link>
+                  <Link href="/note/toilet-cleaning-celebrities" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除で成功した有名人10選</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">ビートたけし・松下幸之助の習慣</p>
+                  </Link>
+                  <Link href="/note/toilet-cleaning-love-luck" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除で恋愛運アップ？</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">風水と心理学で読み解く開運の仕組み</p>
+                  </Link>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold text-gold/60 tracking-[0.2em] uppercase mb-4">よくある疑問</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Link href="/note/toilet-cleaning-uso" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除で開運は嘘？本当？</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">効果がない人に共通する特徴を解説</p>
+                  </Link>
+                  <Link href="/note/toilet-cleaning-effects-timeline" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除の効果はいつから？</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">1日目〜半年の変化タイムライン</p>
+                  </Link>
+                  <Link href="/note/toilet-cleaning-morning-night" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除は朝と夜どっちが効果的？</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">風水・習慣化の視点で解説</p>
+                  </Link>
+                  <Link href="/note/toilet-cleaning-spiritual-meaning" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除のスピリチュアルな意味</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">浄化・波動・感謝の本質</p>
+                  </Link>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold text-gold/60 tracking-[0.2em] uppercase mb-4">風水・烏枢沙摩明王</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Link href="/note/toilet-ng-items-feng-shui" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレに置いてはいけないもの5選</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">風水で運気を下げるNG行動と改善法</p>
+                  </Link>
+                  <Link href="/note/toilet-feng-shui-direction" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレの風水｜方角別の色・対策</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">鬼門の正しい対処法</p>
+                  </Link>
+                  <Link href="/note/ususama-myouou-toilet" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">烏枢沙摩明王とトイレ掃除</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">開運の守護尊が教える浄化の習慣</p>
+                  </Link>
+                  <Link href="/note/ususama-ofuda-how-to-place" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">烏枢沙摩明王のお札の貼り方</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">正しい位置・方角・注意点</p>
+                  </Link>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold text-gold/60 tracking-[0.2em] uppercase mb-4">玄関掃除×開運</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Link href="/note/entrance-cleaning-luck" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">玄関掃除で運気アップ</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">効果がすごい理由と正しいやり方</p>
+                  </Link>
+                  <Link href="/note/genkan-cleaning-unki-effects" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">玄関掃除を続けた結果がすごい</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">運気が変わる7つの理由</p>
+                  </Link>
+                  <Link href="/note/genkan-cleaning-mysterious-experiences" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">玄関掃除の不思議体験5選</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">人生が変わった人に起きたこと</p>
+                  </Link>
+                  <Link href="/note/genkan-ng-items-feng-shui" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">玄関に置いてはいけないもの7選</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">風水で運気を下げるNG習慣</p>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ガイドページへのリンク */}
+          <section className="border-t border-border/40 pt-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Link
                 href="/how-to-clean"
@@ -475,34 +570,6 @@ export default function KaiunToiletPage() {
                 </h3>
                 <p className="text-[11px] text-charcoal/35 leading-[1.8]">
                   21日間で身につく継続のコツ
-                </p>
-              </Link>
-              <Link
-                href="/category/kaiun"
-                className="group rounded-2xl bg-cream border border-border/40 p-6 hover:border-gold/30 hover:shadow-md transition-all duration-300"
-              >
-                <p className="text-[10px] text-gold/50 tracking-[0.3em] uppercase mb-2">
-                  ARTICLES
-                </p>
-                <h3 className="text-sm font-bold text-charcoal mb-2 group-hover:text-gold transition-colors">
-                  開運カテゴリの記事一覧
-                </h3>
-                <p className="text-[11px] text-charcoal/35 leading-[1.8]">
-                  トイレ掃除×開運に関する記事をまとめて読む
-                </p>
-              </Link>
-              <Link
-                href="/stories"
-                className="group rounded-2xl bg-cream border border-border/40 p-6 hover:border-gold/30 hover:shadow-md transition-all duration-300"
-              >
-                <p className="text-[10px] text-gold/50 tracking-[0.3em] uppercase mb-2">
-                  STORIES
-                </p>
-                <h3 className="text-sm font-bold text-charcoal mb-2 group-hover:text-gold transition-colors">
-                  体験談を読む
-                </h3>
-                <p className="text-[11px] text-charcoal/35 leading-[1.8]">
-                  トイレ掃除を続けた人たちの変化の記録
                 </p>
               </Link>
             </div>

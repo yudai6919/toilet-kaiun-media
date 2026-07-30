@@ -113,6 +113,22 @@ function ensureHeadingIds(html: string): string {
   });
 }
 
+function extractFaqs(html: string): { question: string; answer: string }[] {
+  const faqSectionMatch = html.match(/<h2[^>]*>.*?よくある質問.*?<\/h2>([\s\S]*?)(?=<h2[\s>]|$)/i);
+  if (!faqSectionMatch) return [];
+  const section = faqSectionMatch[1];
+  const faqs: { question: string; answer: string }[] = [];
+  const re = /<h3[^>]*>(.*?)<\/h3>([\s\S]*?)(?=<h3[\s>]|$)/gi;
+  let m;
+  while ((m = re.exec(section)) !== null) {
+    const question = m[1].replace(/<[^>]+>/g, "").trim();
+    const answerHtml = m[2];
+    const answer = answerHtml.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    if (question && answer) faqs.push({ question, answer });
+  }
+  return faqs;
+}
+
 function splitIntroAndBody(html: string): { intro: string; body: string } {
   const firstH2 = html.search(/<h2[\s>]/i);
   if (firstH2 === -1) return { intro: "", body: html };
@@ -147,6 +163,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
     // fallback
   }
 
+  const faqs = extractFaqs(blog.body);
+
   return (
     <>
       <JsonLd
@@ -160,6 +178,22 @@ export default async function BlogDetailPage({ params }: PageProps) {
           category: categoryLabel.ja,
         })}
       />
+      {faqs.length > 0 && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }}
+        />
+      )}
       {/* Hero / Header */}
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-6 bg-cream-warm">
         <div className="max-w-3xl mx-auto">
