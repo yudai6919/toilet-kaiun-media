@@ -7,61 +7,49 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
-      lastModified: "2025-06-01",
+      lastModified: "2026-07-30",
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${SITE_URL}/note`,
-      lastModified: "2025-06-01",
+      lastModified: "2026-07-30",
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/stories`,
-      lastModified: "2025-06-01",
+      lastModified: "2026-07-30",
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/kaiun-toilet`,
-      lastModified: "2026-07-26",
+      lastModified: "2026-07-30",
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/how-to-clean`,
-      lastModified: "2025-05-01",
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/habit`,
-      lastModified: "2025-05-01",
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/app`,
-      lastModified: "2025-05-01",
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${SITE_URL}/about`,
-      lastModified: "2025-05-01",
+      lastModified: "2026-07-30",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/waitlist`,
-      lastModified: "2025-05-01",
+      url: `${SITE_URL}/habit`,
+      lastModified: "2026-07-30",
       changeFrequency: "monthly",
-      priority: 0.6,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/about`,
+      lastModified: "2026-07-30",
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${SITE_URL}/voice`,
-      lastModified: "2025-06-01",
+      lastModified: "2026-07-30",
       changeFrequency: "daily",
       priority: 0.7,
     },
@@ -69,7 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${SITE_URL}/category/${cat.slug}`,
-    lastModified: "2025-06-01",
+    lastModified: "2026-07-30",
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));

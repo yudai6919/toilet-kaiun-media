@@ -86,7 +86,7 @@ export default function KaiunToiletPage() {
             "トイレ掃除で開運できる理由を風水・烏枢沙摩明王・心理学の視点から徹底解説。",
           url: `${SITE_URL}/kaiun-toilet`,
           datePublished: "2025-06-01",
-          dateModified: "2026-07-26",
+          dateModified: "2026-07-30",
           author: {
             "@type": "Organization",
             name: "TOTONOE",

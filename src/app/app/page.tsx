@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "TOTONOEアプリ｜トイレ掃除を習慣にするアプリ",
   description:
     "トイレ掃除や小さな習慣を記録し、人生を少しずつ整えるTOTONOEアプリ。現在開発中。先行案内はLINEで受付中。",
+  robots: { index: false, follow: true },
   openGraph: {
     title: "TOTONOEアプリ｜トイレ掃除を習慣にするアプリ",
     description:
