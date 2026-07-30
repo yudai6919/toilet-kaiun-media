@@ -541,6 +541,24 @@ export default function KaiunToiletPage() {
             </div>
           </section>
 
+          {/* お風呂・キッチン掃除×開運 */}
+          <section className="border-t border-border/40 pt-16">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold mb-4 leading-[1.5] tracking-[0.04em] text-charcoal">
+              掃除×開運を他の場所にも広げる
+            </h2>
+            <p className="text-sm text-charcoal/40 mb-8">トイレ以外の場所も整えて、家全体の運気を底上げしましょう。</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Link href="/note/ofuro-cleaning-kaiun" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">お風呂掃除で開運できる？</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">浴室の浄化習慣と運気アップの方法</p>
+              </Link>
+              <Link href="/note/kitchen-cleaning-feng-shui" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">キッチン掃除で金運アップ</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">風水が教える台所の開運ポイント</p>
+              </Link>
+            </div>
+          </section>
+
           {/* ガイドページへのリンク */}
           <section className="border-t border-border/40 pt-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
