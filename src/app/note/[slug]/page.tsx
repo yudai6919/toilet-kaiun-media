@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: blog.title,
-    description: blog.description || `${blog.title} - TOTONOEの整えノート`,
+    description: blog.description || generateFallbackDescription(blog.title, blog.body),
     openGraph: {
       type: "article",
       locale: "ja_JP",
       title: blog.title,
-      description: blog.description || `${blog.title} - TOTONOEの整えノート`,
+      description: blog.description || generateFallbackDescription(blog.title, blog.body),
       url: pageUrl,
       siteName: "TOTONOE | 整え。",
       publishedTime: blog.publishedAt,
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: "summary_large_image",
       title: blog.title,
-      description: blog.description || `${blog.title} - TOTONOEの整えノート`,
+      description: blog.description || generateFallbackDescription(blog.title, blog.body),
       images: [blog.eyecatch?.url || `${SITE_URL}/og-image.png`],
     },
     alternates: {
@@ -82,6 +82,13 @@ export async function generateStaticParams() {
   } catch {
     return [];
   }
+}
+
+function generateFallbackDescription(title: string, body: string): string {
+  const text = body.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const firstSentence = text.match(/^(.{40,120}?[。！？])/);
+  if (firstSentence) return firstSentence[1];
+  return text.slice(0, 120) + "…";
 }
 
 function getCategoryLabel(category: string[]): { ja: string; en: string; slug: string } {
@@ -167,6 +174,16 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "TOP", url: SITE_URL },
+          { name: "整えノート", url: `${SITE_URL}/note` },
+          ...(categoryLabel.slug
+            ? [{ name: categoryLabel.ja, url: `${SITE_URL}/category/${categoryLabel.slug}` }]
+            : []),
+          { name: blog.title, url: `${SITE_URL}/note/${blog.slug}` },
+        ])}
+      />
       <JsonLd
         data={articleJsonLd({
           title: blog.title,

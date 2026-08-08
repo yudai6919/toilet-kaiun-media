@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/lib/constants";
+
 type JsonLdProps = {
   data: Record<string, unknown>;
 };
@@ -17,23 +19,23 @@ export function websiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "TOTONOE | 整え。",
-    url: "https://totonoe-life.jp",
+    url: SITE_URL,
     description:
       "トイレ掃除を、人生を整える習慣へ。たった1分の積み重ねが心と運を整える。開運・習慣化・丁寧な暮らしのためのメディアサイト。",
     publisher: {
       "@type": "Organization",
       name: "TOTONOE",
-      url: "https://totonoe-life.jp",
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://totonoe-life.jp/icon-512.png",
+        url: `${SITE_URL}/icon-512.png`,
       },
     },
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://totonoe-life.jp/note?q={search_term_string}",
+        urlTemplate: `${SITE_URL}/note?q={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
     },
@@ -63,31 +65,31 @@ export function articleJsonLd({
     "@type": "BlogPosting",
     headline: title,
     description,
-    url: `https://totonoe-life.jp/note/${slug}`,
+    url: `${SITE_URL}/note/${slug}`,
     datePublished: publishedAt,
     dateModified: updatedAt ?? publishedAt,
     author: {
       "@type": "Organization",
       name: "TOTONOE",
-      url: "https://totonoe-life.jp",
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
       name: "TOTONOE",
-      url: "https://totonoe-life.jp",
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://totonoe-life.jp/icon-512.png",
+        url: `${SITE_URL}/icon-512.png`,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://totonoe-life.jp/note/${slug}`,
+      "@id": `${SITE_URL}/note/${slug}`,
     },
     articleSection: category,
     image: {
       "@type": "ImageObject",
-      url: imageUrl || "https://totonoe-life.jp/og-image.png",
+      url: imageUrl || `${SITE_URL}/og-image.png`,
       width: 1200,
       height: 630,
     },

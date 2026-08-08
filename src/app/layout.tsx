@@ -39,16 +39,6 @@ export const metadata: Metadata = {
     template: "%s | TOTONOE",
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    "トイレ掃除",
-    "開運",
-    "習慣化",
-    "整える",
-    "丁寧な暮らし",
-    "運気アップ",
-    "掃除習慣",
-    "TOTONOE",
-  ],
   authors: [{ name: "TOTONOE" }],
   creator: "TOTONOE",
   publisher: "TOTONOE",
@@ -116,7 +106,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSansJP.variable} ${zenOldMincho.variable} h-full antialiased`}>
+    <html lang="ja" suppressHydrationWarning className={`${notoSansJP.variable} ${zenOldMincho.variable} h-full antialiased`}>
       <head>
         <JsonLd data={websiteJsonLd()} />
       </head>

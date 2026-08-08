@@ -7,57 +7,63 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
-      lastModified: "2026-07-30",
+      lastModified: "2026-08-09",
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${SITE_URL}/note`,
-      lastModified: "2026-07-30",
+      lastModified: "2026-08-09",
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/stories`,
-      lastModified: "2026-07-30",
+      lastModified: "2026-08-09",
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/kaiun-toilet`,
-      lastModified: "2026-07-30",
+      lastModified: "2026-08-09",
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/how-to-clean`,
-      lastModified: "2026-07-30",
+      lastModified: "2026-08-09",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${SITE_URL}/habit`,
-      lastModified: "2026-07-30",
+      lastModified: "2026-08-09",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${SITE_URL}/about`,
-      lastModified: "2026-07-30",
+      lastModified: "2026-08-09",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${SITE_URL}/voice`,
-      lastModified: "2026-07-30",
+      lastModified: "2026-08-09",
       changeFrequency: "daily",
       priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/search`,
+      lastModified: "2026-08-09",
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
   ];
 
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${SITE_URL}/category/${cat.slug}`,
-    lastModified: "2026-07-30",
+    lastModified: "2026-08-09",
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
