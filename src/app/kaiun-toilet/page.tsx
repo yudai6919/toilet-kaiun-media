@@ -86,7 +86,7 @@ export default function KaiunToiletPage() {
             "トイレ掃除で開運できる理由を風水・烏枢沙摩明王・心理学の視点から徹底解説。",
           url: `${SITE_URL}/kaiun-toilet`,
           datePublished: "2025-06-01",
-          dateModified: "2026-07-30",
+          dateModified: "2026-08-09",
           author: {
             "@type": "Organization",
             name: "TOTONOE",
@@ -513,6 +513,18 @@ export default function KaiunToiletPage() {
                   <Link href="/note/ususama-ofuda-how-to-place" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
                     <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">烏枢沙摩明王のお札の貼り方</h3>
                     <p className="text-[11px] text-charcoal/35 leading-[1.8]">正しい位置・方角・注意点</p>
+                  </Link>
+                  <Link href="/note/toilet-god-ususama-guide" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレの神様・烏枢沙摩明王とは？</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">ご利益・歴史・参拝できる寺院まとめ</p>
+                  </Link>
+                  <Link href="/note/ususama-mantra-cleaning" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">烏枢沙摩明王の真言</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">トイレ掃除で唱える浄化の言葉</p>
+                  </Link>
+                  <Link href="/note/ususama-phone-wallpaper" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                    <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">烏枢沙摩明王の待ち受け画像で開運</h3>
+                    <p className="text-[11px] text-charcoal/35 leading-[1.8]">効果的な設定方法と注意点</p>
                   </Link>
                 </div>
               </div>
