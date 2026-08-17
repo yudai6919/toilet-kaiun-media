@@ -86,7 +86,7 @@ export default function KaiunToiletPage() {
             "トイレ掃除で開運できる理由を風水・烏枢沙摩明王・心理学の視点から徹底解説。",
           url: `${SITE_URL}/kaiun-toilet`,
           datePublished: "2025-06-01",
-          dateModified: "2026-08-09",
+          dateModified: "2026-08-17",
           author: {
             "@type": "Organization",
             name: "TOTONOE",
@@ -550,6 +550,32 @@ export default function KaiunToiletPage() {
                   </Link>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* 開運の知恵・科学 */}
+          <section className="border-t border-border/40 pt-16">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold mb-4 leading-[1.5] tracking-[0.04em] text-charcoal">
+              開運の知恵と科学
+            </h2>
+            <p className="text-sm text-charcoal/40 mb-8">風水の知恵と現代科学の両面から、掃除×開運の本質に迫ります。</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Link href="/note/cleaning-luck-scientific-evidence" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">掃除で運気が上がる科学的根拠</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">心理学と脳科学が証明する5つのメカニズム</p>
+              </Link>
+              <Link href="/note/2026-water-year-cleaning-luck" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">2026年は水の年！一白水星の開運掃除</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">9年に1度の水回り掃除チャンス</p>
+              </Link>
+              <Link href="/note/danshari-declutter-kaiun" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">断捨離で開運する方法</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">風水が教える「捨てる」と運気が変わる理由</p>
+              </Link>
+              <Link href="/note/why-toilet-cleaning-brings-luck" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除はなぜ開運につながるのか？</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">風水だけではない本当の理由</p>
+              </Link>
             </div>
           </section>
 
