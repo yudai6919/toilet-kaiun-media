@@ -7,14 +7,14 @@ import { SITE_URL } from "@/lib/constants";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "トイレ掃除で開運｜運気が上がる理由と効果的なやり方",
+  title: "トイレ掃除で開運する方法｜金運・恋愛運・健康運が上がる理由と正しいやり方【2026年最新】",
   description:
-    "トイレ掃除で開運できる理由を風水・烏枢沙摩明王・心理学の視点から徹底解説。金運・健康運・恋愛運別の効果、成功者の実践例、具体的な掃除方法、やってはいけないNG行動まで網羅した完全ガイド。",
+    "トイレ掃除で開運できる理由を風水・烏枢沙摩明王・心理学・脳科学の視点から徹底解説。金運・健康運・恋愛運・仕事運別の効果、松下幸之助など成功者の実践例、毎日1分でできる具体的な掃除方法、やってはいけないNG行動まで網羅した完全ガイド。2026年一白水星の水の年に最も効果的な開運掃除法も紹介。",
   openGraph: {
     type: "article",
-    title: "トイレ掃除で開運｜運気が上がる理由と効果的なやり方",
+    title: "トイレ掃除で開運する方法｜金運・恋愛運・健康運が上がる理由と正しいやり方【2026年最新】",
     description:
-      "トイレ掃除で開運できる理由を風水・心理学の視点から徹底解説。金運・健康運・恋愛運別の効果、成功者の実践例、具体的な掃除方法まで網羅。",
+      "トイレ掃除で開運できる理由を風水・心理学・脳科学から徹底解説。金運・健康運・恋愛運別の効果、成功者の実践例、毎日1分の具体的な掃除方法まで完全ガイド。",
     url: `${SITE_URL}/kaiun-toilet`,
     siteName: "TOTONOE | 整え。",
     locale: "ja_JP",
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "トイレ掃除で開運｜運気が上がる理由と効果的なやり方",
+    title: "トイレ掃除で開運する方法｜金運・恋愛運・健康運が上がる理由と正しいやり方【2026年最新】",
     description:
-      "トイレ掃除で開運できる理由を風水・心理学の視点から徹底解説。金運・健康運・恋愛運別の効果と具体的なやり方。",
+      "トイレ掃除で開運できる理由を風水・心理学・脳科学から徹底解説。金運・健康運・恋愛運別の効果と毎日1分の具体的なやり方。",
     images: [`${SITE_URL}/og-image.png`],
   },
   alternates: {
@@ -65,6 +65,16 @@ const faqs = [
     answer:
       "トイレのフタを開けっぱなしにする、換気をしない、掃除道具を汚れたまま放置する、トイレに不要な物を置きすぎるなどがNG行動です。また、嫌々やると効果が半減するとも言われています。感謝の気持ちで取り組むことが大切です。",
   },
+  {
+    question: "2026年にトイレ掃除の開運効果が高まるのはなぜですか？",
+    answer:
+      "2026年は九星気学で一白水星が中宮に入る「水の年」です。水のエネルギーが最も強まる9年に1度の年であり、水回りの掃除による浄化効果が最大化します。特にトイレは水の気が最も集中する場所であるため、2026年のトイレ掃除は通常の年以上に大きな開運効果が期待できます。",
+  },
+  {
+    question: "トイレ掃除で運気が上がることに科学的根拠はありますか？",
+    answer:
+      "はい。心理学ではプリンストン大学の研究で散らかった環境が脳の処理能力を低下させることが判明し、自己効力感の理論では小さな達成体験（毎日の掃除）の積み重ねが自信と行動力を高めることが証明されています。また、清潔な環境がコルチゾール（ストレスホルモン）を低下させるという研究結果もあります。これらの科学的メカニズムが組み合わさり、掃除を習慣にした人が「運が良くなった」と実感する好循環が生まれます。",
+  },
 ];
 
 export default function KaiunToiletPage() {
@@ -81,12 +91,12 @@ export default function KaiunToiletPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: "トイレ掃除で開運｜運気が上がる理由と効果的なやり方",
+          headline: "トイレ掃除で開運する方法｜金運・恋愛運・健康運が上がる理由と正しいやり方",
           description:
             "トイレ掃除で開運できる理由を風水・烏枢沙摩明王・心理学の視点から徹底解説。",
           url: `${SITE_URL}/kaiun-toilet`,
           datePublished: "2025-06-01",
-          dateModified: "2026-08-17",
+          dateModified: "2026-09-09",
           author: {
             "@type": "Organization",
             name: "TOTONOE",
@@ -148,15 +158,15 @@ export default function KaiunToiletPage() {
             KAIUN × TOILET CLEANING
           </p>
           <h1 className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-charcoal mb-6">
-            トイレ掃除で開運｜
+            トイレ掃除で開運する方法｜
             <br className="hidden md:block" />
             運気が上がる理由と
             <br className="hidden md:block" />
-            効果的なやり方
+            正しいやり方
           </h1>
           <div className="w-10 h-px bg-gold/30 mb-6" />
           <p className="text-sm md:text-base text-charcoal/50 leading-[2.2] tracking-wide max-w-lg">
-            なぜ多くの成功者がトイレ掃除を大切にするのか。風水・烏枢沙摩明王・心理学の3つの視点から「トイレ掃除と開運」の関係を徹底解説します。金運・健康運・恋愛運・仕事運別の効果から、今日から実践できる具体的な方法まで。
+            なぜ多くの成功者がトイレ掃除を大切にするのか。風水・烏枢沙摩明王・心理学・脳科学の視点から「トイレ掃除で開運できる理由」を徹底解説。金運・健康運・恋愛運・仕事運別の効果から、毎日1分でできる具体的な掃除方法まで。2026年一白水星の年に最も効果的な開運アクションも紹介します。
           </p>
         </div>
       </section>
@@ -204,8 +214,13 @@ export default function KaiunToiletPage() {
               </a>
             </li>
             <li>
+              <a href="#2026" className="hover:text-gold transition-colors">
+                8. 2026年のトイレ掃除開運
+              </a>
+            </li>
+            <li>
               <a href="#faq" className="hover:text-gold transition-colors">
-                8. よくある質問
+                9. よくある質問
               </a>
             </li>
           </ol>
@@ -424,7 +439,55 @@ export default function KaiunToiletPage() {
             </div>
           </section>
 
-          {/* Section 8: FAQ */}
+          {/* Section 8: 2026年 */}
+          <section id="2026">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-8 leading-[1.5] tracking-[0.04em] text-charcoal">
+              2026年はトイレ掃除の開運効果が最大化する年
+            </h2>
+            <div className="space-y-5 text-charcoal/65 leading-[2] tracking-wide text-[15px]">
+              <p>
+                2026年は九星気学で<strong className="text-charcoal">一白水星</strong>が中宮に入る年。9年に1度の「水の年」であり、水回りの掃除が最も開運に直結するタイミングです。
+              </p>
+              <p>
+                一白水星は「水」を象徴し、浄化・財運・人間関係を司ります。トイレ・キッチン・お風呂という水を使う場所を整えることが、そのまま2026年最強の開運アクションになるのです。
+              </p>
+              <p>
+                <strong className="text-charcoal">2026年に特に意識したいポイント：</strong>
+              </p>
+              <ul className="space-y-2 pl-2">
+                <li className="flex items-start gap-3">
+                  <span className="text-gold font-bold mt-0.5 shrink-0">◎</span>
+                  <span>毎朝1分のトイレ掃除を習慣にする（水の年の浄化エネルギーを最大活用）</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-gold font-bold mt-0.5 shrink-0">◎</span>
+                  <span>排水口を週1回徹底洗浄する（水の流れ＝運気の流れ）</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-gold font-bold mt-0.5 shrink-0">◎</span>
+                  <span>トイレマットやタオルを白・紺系に変える（一白水星のラッキーカラー）</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-gold font-bold mt-0.5 shrink-0">◎</span>
+                  <span>
+                    <Link href="/note/ususama-mantra-cleaning" className="text-gold font-semibold hover:underline">
+                      烏枢沙摩明王の真言
+                    </Link>
+                    を唱えながら掃除する（浄化×真言の相乗効果）
+                  </span>
+                </li>
+              </ul>
+              <p>
+                次の一白水星年は2035年。このチャンスを逃さず、今年中にトイレ掃除の習慣を確立しましょう。詳しくは
+                <Link href="/note/2026-water-year-cleaning-luck" className="text-gold font-semibold hover:underline">
+                  2026年一白水星の水回り掃除開運ガイド
+                </Link>
+                をご覧ください。
+              </p>
+            </div>
+          </section>
+
+          {/* Section 9: FAQ */}
           <section id="faq">
             <h2 className="font-[var(--font-zen-old-mincho)] text-2xl md:text-3xl font-bold mb-8 leading-[1.5] tracking-[0.04em] text-charcoal">
               トイレ掃除と開運に関するよくある質問
