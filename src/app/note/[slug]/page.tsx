@@ -16,6 +16,18 @@ import TableOfContents from "@/components/TableOfContents";
 import { SITE_URL } from "@/lib/constants";
 import { formatDate } from "@/lib/utils";
 
+const CANONICAL_MAP: Record<string, string> = {
+  // Group 1: "トイレ掃除 続けた結果" → canonical: daily-toilet-cleaning-results
+  "toilet-luck-seven-changes": "daily-toilet-cleaning-results",
+  "toilet-cleaning-results": "daily-toilet-cleaning-results",
+  // Group 2: "成功者 トイレ掃除" → canonical: toilet-cleaning-famous-people
+  "why-successful-people-clean-toilets": "toilet-cleaning-famous-people",
+  "successful-people-clean-toilets": "toilet-cleaning-famous-people",
+  // Group 3: "トイレ掃除 開運 本当" → canonical: toilet-cleaning-luck
+  "toilet-cleaning-kaiun-truth": "toilet-cleaning-luck",
+  "why-toilet-cleaning-brings-luck": "toilet-cleaning-luck",
+};
+
 type PageProps = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -25,6 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const categoryLabel = getCategoryLabel(blog.category);
   const pageUrl = `${SITE_URL}/note/${slug}`;
+  const canonicalUrl = CANONICAL_MAP[slug] ? `${SITE_URL}/note/${CANONICAL_MAP[slug]}` : pageUrl;
 
   return {
     title: blog.title,
@@ -62,7 +75,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [blog.eyecatch?.url || `${SITE_URL}/og-image.png`],
     },
     alternates: {
-      canonical: pageUrl,
+      canonical: canonicalUrl,
     },
   };
 }
