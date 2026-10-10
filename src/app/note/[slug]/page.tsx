@@ -164,7 +164,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   let relatedBlogs: typeof blog[] = [];
   try {
-    const data = await getBlogList({ limit: 50 });
+    const data = await getBlogList({ limit: 100 });
     const allOther = data.contents.filter((b) => b.slug !== slug);
 
     const sameCat = allOther.filter(
@@ -314,6 +314,16 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
           {/* Editor Profile (E-E-A-T) */}
           <EditorProfile />
+
+          {/* Pillar page backlink for kaiun articles */}
+          {blog.category?.includes("トイレ掃除 × 開運") && (
+            <div className="mt-12 mb-8 p-6 bg-cream rounded-2xl border border-border/40">
+              <p className="text-xs text-charcoal/40 tracking-wide mb-2">この記事は総合ガイドの一部です</p>
+              <Link href="/kaiun-toilet" className="text-sm font-semibold text-charcoal hover:text-gold transition-colors">
+                → トイレ掃除で開運する方法｜総合ガイドを読む
+              </Link>
+            </div>
+          )}
         </div>
       </article>
 

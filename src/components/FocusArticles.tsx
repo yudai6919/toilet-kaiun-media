@@ -17,38 +17,38 @@ const fadeUp = {
 const articles = [
   {
     id: 1,
-    image: "/images/testimonial-banner.png",
+    image: "/images/testimonial-banner.webp",
     category: "開運コラム",
     title: "なぜ成功者はトイレ掃除をするのか？その本当の理由",
-    href: "/articles/toilet-souji-kaiun-riyu",
+    href: "/note/toilet-souji-kaiun-riyu",
   },
   {
     id: 2,
-    image: "/images/testimonial-banner.png",
+    image: "/images/testimonial-banner.webp",
     category: "習慣化",
     title: "「たった1分」が人生を変える。最小習慣の科学",
-    href: "/articles/mainichi-1pun-toilet",
+    href: "/note/mainichi-1pun-toilet",
   },
   {
     id: 3,
-    image: "/images/testimonial-banner.png",
+    image: "/images/testimonial-banner.webp",
     category: "体験談",
     title: "掃除を始めて3ヶ月。夫婦関係が変わった話",
     href: "/stories",
   },
   {
     id: 4,
-    image: "/images/testimonial-banner.png",
+    image: "/images/testimonial-banner.webp",
     category: "風水・開運",
     title: "風水師が教える、運気が上がるトイレの整え方",
     href: "/kaiun-toilet",
   },
   {
     id: 5,
-    image: "/images/testimonial-banner.png",
+    image: "/images/testimonial-banner.webp",
     category: "マインド",
     title: "「場」を整えると、心が整う。空間と心理の関係",
-    href: "/articles/souji-meiso",
+    href: "/note/souji-meiso",
   },
 ];
 

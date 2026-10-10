@@ -19,7 +19,7 @@ export default function HeroSection() {
       {/* ===== PC: full-width background with refined overlay ===== */}
       <div className="hidden lg:block relative min-h-screen">
         <Image
-          src="/images/hero-kaiun-toilet.png"
+          src="/images/hero-kaiun-toilet.webp"
           alt="開運トイレ空間"
           fill
           priority
@@ -102,7 +102,7 @@ export default function HeroSection() {
         {/* Hero image with overlaid title */}
         <div className="relative min-h-[75vh] md:min-h-[70vh] flex items-end pb-0">
           <Image
-            src="/images/hero-kaiun-toilet.png"
+            src="/images/hero-kaiun-toilet.webp"
             alt="開運トイレ空間"
             fill
             priority

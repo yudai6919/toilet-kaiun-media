@@ -6,15 +6,30 @@ import { notFound } from "next/navigation";
 import ArticleCard from "@/components/ArticleCard";
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
-import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
+import JsonLd from "@/components/JsonLd";
 import PopularPosts from "@/components/PopularPosts";
 import { SITE_URL } from "@/lib/constants";
 
-const RECOMMENDED_SLUGS = [
-  "clean-toilet-when-life-not-going-well",
-  "toilet-cleaning-luck",
-  "daily-toilet-cleaning-habits",
-];
+const CATEGORY_RECOMMENDED_SLUGS: Record<string, string[]> = {
+  habit: ["morning-toilet-cleaning-habit", "daily-toilet-cleaning-habits", "habits-of-people-who-live-well"],
+  kaiun: ["toilet-cleaning-luck", "toilet-cleaning-famous-people", "toilet-feng-shui-color-mat"],
+  mind: ["how-to-organize-your-mind", "self-esteem-toilet-cleaning-habit", "toilet-cleaning-calm-mind"],
+  life: ["entrance-cleaning-luck", "align-shoes-habit", "genkan-ng-items-feng-shui"],
+};
+
+const CATEGORY_SEO_META: Record<string, { description: string }> = {
+  habit: { description: "トイレ掃除・玄関掃除・朝習慣など、毎日を少しずつ整えるための習慣術まとめ。風水や心理学に基づく開運習慣を紹介。" },
+  kaiun: { description: "トイレ掃除で開運する方法を徹底解説。金運・恋愛運・健康運が上がる理由、風水の基本、成功者の習慣まで。" },
+  mind: { description: "心が疲れた時、不安な時に読みたい記事まとめ。自己肯定感、ストレス対処法、人間関係の悩みを整える方法。" },
+  life: { description: "玄関・キッチン・お風呂など、暮らしの空間を整えて運気を上げる方法。風水インテリアと丁寧な暮らしの知恵。" },
+};
+
+const CATEGORY_H1: Record<string, string> = {
+  habit: "整える習慣｜毎日の小さな行動で人生が変わる",
+  kaiun: "トイレ掃除 × 開運｜運気を上げる掃除術と風水",
+  mind: "心を整える｜疲れた心を癒す考え方と習慣",
+  life: "丁寧な暮らし｜空間を整えて運気を上げる方法",
+};
 
 type CategoryNav = {
   slug: string;
@@ -42,13 +57,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cat || cat.slug === "stories") return { title: "カテゴリが見つかりません" };
 
   const pageUrl = `${SITE_URL}/category/${slug}`;
+  const seoMeta = CATEGORY_SEO_META[slug];
+  const description = seoMeta?.description ?? cat.description;
 
   return {
-    title: `${cat.ja} | 整えノート - TOTONOE`,
-    description: cat.description,
+    title: `${cat.ja}の記事一覧`,
+    description,
     openGraph: {
-      title: `${cat.ja} | 整えノート - TOTONOE`,
-      description: cat.description,
+      title: `${cat.ja}の記事一覧 | TOTONOE`,
+      description,
       url: pageUrl,
       type: "website",
       locale: "ja_JP",
@@ -64,8 +81,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cat.ja} | 整えノート - TOTONOE`,
-      description: cat.description,
+      title: `${cat.ja}の記事一覧 | TOTONOE`,
+      description,
       images: [`${SITE_URL}/og-image.png`],
     },
     alternates: {
@@ -90,7 +107,8 @@ export default async function CategoryPage({ params }: PageProps) {
     ]);
     blogs = categoryData.contents;
     totalCount = categoryData.totalCount;
-    recommendedBlogs = RECOMMENDED_SLUGS
+    const recSlugs = CATEGORY_RECOMMENDED_SLUGS[slug] ?? [];
+    recommendedBlogs = recSlugs
       .map((s) => recData.contents.find((b) => b.slug === s))
       .filter((b): b is Blog => b != null);
   } catch {
@@ -99,15 +117,6 @@ export default async function CategoryPage({ params }: PageProps) {
 
   return (
     <>
-      {/* JSON-LD: BreadcrumbList */}
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "TOP", url: SITE_URL },
-          { name: "整えノート", url: `${SITE_URL}/note` },
-          { name: cat.ja, url: `${SITE_URL}/category/${slug}` },
-        ])}
-      />
-
       {/* JSON-LD: CollectionPage */}
       <JsonLd
         data={{
@@ -158,7 +167,7 @@ export default async function CategoryPage({ params }: PageProps) {
             {cat.en}
           </p>
           <h1 className="font-[var(--font-zen-old-mincho)] text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-[0.04em] text-charcoal mb-6">
-            {cat.ja}
+            {CATEGORY_H1[slug] ?? cat.ja}
           </h1>
           <div className="w-10 h-px bg-gold/30 mb-6" />
           <p className="text-sm md:text-base text-charcoal/45 leading-[2.2] tracking-wide max-w-lg">

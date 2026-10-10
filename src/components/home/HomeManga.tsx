@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { fade } from "@/lib/animations";
 
 const PANELS = [
-  { src: "/images/manga/panel-1.png", alt: "第1話：変わらない毎日" },
-  { src: "/images/manga/panel-2.png", alt: "第2話：SNSで見つけた投稿" },
-  { src: "/images/manga/panel-3.png", alt: "第3話：人生変えたいなら" },
-  { src: "/images/manga/panel-4.png", alt: "第4話：自宅のトイレを見て" },
-  { src: "/images/manga/panel-5.png", alt: "第5話：無心で磨いた" },
-  { src: "/images/manga/panel-6.png", alt: "第6話：人生が動き出した" },
+  { src: "/images/manga/panel-1.webp", alt: "第1話：変わらない毎日" },
+  { src: "/images/manga/panel-2.webp", alt: "第2話：SNSで見つけた投稿" },
+  { src: "/images/manga/panel-3.webp", alt: "第3話：人生変えたいなら" },
+  { src: "/images/manga/panel-4.webp", alt: "第4話：自宅のトイレを見て" },
+  { src: "/images/manga/panel-5.webp", alt: "第5話：無心で磨いた" },
+  { src: "/images/manga/panel-6.webp", alt: "第6話：人生が動き出した" },
 ];
 
 export default function HomeManga() {
@@ -39,7 +39,7 @@ export default function HomeManga() {
           className="hidden md:block"
         >
           <Image
-            src="/images/totonoe-manga.png"
+            src="/images/totonoe-manga.webp"
             alt="TOTONOEストーリー漫画"
             width={1536}
             height={1024}

@@ -17,21 +17,21 @@ const fadeUp = {
 const testimonials = [
   {
     id: 1,
-    image: "/images/testimonial-banner.png",
+    image: "/images/testimonial-banner.webp",
     tag: "30代・会社員",
     title: "朝の空気が、変わった気がした。",
     days: "継続 42日目",
   },
   {
     id: 2,
-    image: "/images/testimonial-banner.png",
+    image: "/images/testimonial-banner.webp",
     tag: "40代・主婦",
     title: "忘れていたお金が、戻ってきた。",
     days: "継続 28日目",
   },
   {
     id: 3,
-    image: "/images/testimonial-banner.png",
+    image: "/images/testimonial-banner.webp",
     tag: "20代・フリーランス",
     title: "小さな習慣が、自信になった。",
     days: "継続 67日目",
