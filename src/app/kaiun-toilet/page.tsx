@@ -642,6 +642,58 @@ export default function KaiunToiletPage() {
             </div>
           </section>
 
+          {/* 習慣化・実践 */}
+          <section className="border-t border-border/40 pt-16">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold mb-4 leading-[1.5] tracking-[0.04em] text-charcoal">
+              トイレ掃除の習慣化と実践
+            </h2>
+            <p className="text-sm text-charcoal/40 mb-8">トイレ掃除で開運するには「続けること」が最も大切。習慣化のコツと実践法をまとめました。</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Link href="/note/morning-toilet-cleaning-habit" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">朝のトイレ掃除で運気が変わる理由</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">たった5分の開運モーニングルーティン</p>
+              </Link>
+              <Link href="/note/daily-toilet-cleaning-results" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">トイレ掃除を毎日続けた結果</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">人生に起きた7つの変化</p>
+              </Link>
+              <Link href="/note/daily-toilet-cleaning-habits" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">毎日トイレ掃除する人の特徴</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">人生が整う人に共通する7つの習慣</p>
+              </Link>
+              <Link href="/note/morning-toilet-cleaning-one-month" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">朝のトイレ掃除を1ヶ月続けた結果</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">私に起きた変化の記録</p>
+              </Link>
+            </div>
+          </section>
+
+          {/* 運気回復・整え */}
+          <section className="border-t border-border/40 pt-16">
+            <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold mb-4 leading-[1.5] tracking-[0.04em] text-charcoal">
+              運気を回復させたい時に
+            </h2>
+            <p className="text-sm text-charcoal/40 mb-8">運気が停滞していると感じた時の、掃除による運気リセット法。</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Link href="/note/bad-luck-reset-habits" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">運気が悪い時に見直したい5つの習慣</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">運気リセットの実践法</p>
+              </Link>
+              <Link href="/note/bad-luck-mistakes" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">運が悪い時にやってはいけないこと</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">やりがちなNG行動と運気回復法</p>
+              </Link>
+              <Link href="/note/messy-room-and-mind" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">部屋が散らかる人の特徴</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">心との意外な関係とは</p>
+              </Link>
+              <Link href="/note/self-esteem-toilet-cleaning-habit" className="group rounded-2xl bg-cream border border-border/40 p-5 hover:border-gold/30 hover:shadow-md transition-all duration-300">
+                <h3 className="text-sm font-bold text-charcoal mb-1 group-hover:text-gold transition-colors">自己肯定感を高めたいならトイレを磨け</h3>
+                <p className="text-[11px] text-charcoal/35 leading-[1.8]">自分を責めない習慣の始め方</p>
+              </Link>
+            </div>
+          </section>
+
           {/* お風呂・キッチン掃除×開運 */}
           <section className="border-t border-border/40 pt-16">
             <h2 className="font-[var(--font-zen-old-mincho)] text-xl md:text-2xl font-bold mb-4 leading-[1.5] tracking-[0.04em] text-charcoal">
